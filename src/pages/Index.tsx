@@ -19,36 +19,36 @@ interface Event {
 const mockEvents: Event[] = [
   {
     id: 1,
-    title: 'Purple Nights',
-    artist: 'Neon Waves',
+    title: 'Вивальди при свечах',
+    artist: 'Камерный оркестр',
     date: '2025-11-15',
-    venue: 'Arena Hall',
+    venue: 'Особняк Румянцева',
     city: 'Москва',
-    price: 3500,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/72bd01b5-8b6c-4757-87b2-5f73acf50554.jpg',
-    genre: 'Rock'
+    price: 2500,
+    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
+    genre: 'Канделайт'
   },
   {
     id: 2,
-    title: 'Electric Dreams',
-    artist: 'The Pulse',
+    title: 'Бах. Шедевры барокко',
+    artist: 'Трио "Барокко"',
     date: '2025-11-20',
-    venue: 'Stadium Live',
+    venue: 'Дворец Белосельских-Белозерских',
     city: 'Санкт-Петербург',
-    price: 4200,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/77d5d4aa-299c-4323-aa94-0cc6f95c8e45.jpg',
-    genre: 'Electronic'
+    price: 2800,
+    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/7b49f8ad-665c-45d2-902e-81f851a3c849.jpg',
+    genre: 'Канделайт'
   },
   {
     id: 3,
-    title: 'Neon Symphony',
-    artist: 'DJ Spectrum',
+    title: 'Моцарт в огнях свечей',
+    artist: 'Струнный квартет',
     date: '2025-11-25',
-    venue: 'Club Velocity',
+    venue: 'Усадьба Баташева',
     city: 'Казань',
-    price: 2800,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/d9ac29ea-e35c-459f-8e45-53fa25f979e0.jpg',
-    genre: 'EDM'
+    price: 2200,
+    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/c18c1c3e-efd3-4b70-a3e4-38bd329cf3a4.jpg',
+    genre: 'Канделайт'
   }
 ];
 
@@ -61,9 +61,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <Icon name="Music" size={28} className="text-primary" />
+              <Icon name="Flame" size={28} className="text-primary candle-flicker" />
               <h1 className="text-2xl font-heading font-bold text-gradient glow-effect">
-                CONCERT TICKETS
+                ДИВО
               </h1>
             </div>
             
@@ -125,44 +125,44 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center animate-fade-in">
             <h2 className="text-6xl md:text-8xl font-heading font-black text-gradient glow-effect mb-6">
-              LIVE MUSIC
+              КАНДЕЛАЙТ КОНЦЕРТЫ
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Билеты на лучшие концерты в вашем городе. Не упустите шанс увидеть любимых артистов вживую!
+              Магия классической музыки в окружении 1000 свечей. Уникальные концерты в исторических особняках России и СНГ.
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 h-14">
-                <Icon name="Search" className="mr-2" size={20} />
+                <Icon name="Flame" className="mr-2 candle-flicker" size={20} />
                 Найти концерт
               </Button>
               <Button size="lg" variant="outline" className="border-2 border-primary text-lg px-8 h-14 hover:bg-primary/10">
                 <Icon name="Calendar" className="mr-2" size={20} />
-                Календарь событий
+                Расписание
               </Button>
             </div>
           </div>
 
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <Icon name="Music2" size={40} className="mx-auto mb-3 text-primary" />
-              <p className="text-3xl font-heading font-bold text-foreground">500+</p>
-              <p className="text-muted-foreground">Концертов</p>
+              <Icon name="Flame" size={40} className="mx-auto mb-3 text-primary candle-flicker" />
+              <p className="text-3xl font-heading font-bold text-foreground">150+</p>
+              <p className="text-muted-foreground">Канделайт концертов</p>
             </div>
             <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
               <Icon name="MapPin" size={40} className="mx-auto mb-3 text-secondary" />
-              <p className="text-3xl font-heading font-bold text-foreground">50+</p>
-              <p className="text-muted-foreground">Городов</p>
+              <p className="text-3xl font-heading font-bold text-foreground">12</p>
+              <p className="text-muted-foreground">Городов России и СНГ</p>
             </div>
             <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
               <Icon name="Users" size={40} className="mx-auto mb-3 text-primary" />
-              <p className="text-3xl font-heading font-bold text-foreground">200K+</p>
-              <p className="text-muted-foreground">Посетителей</p>
+              <p className="text-3xl font-heading font-bold text-foreground">50K+</p>
+              <p className="text-muted-foreground">Довольных гостей</p>
             </div>
             <div className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <Icon name="Star" size={40} className="mx-auto mb-3 text-secondary" />
-              <p className="text-3xl font-heading font-bold text-foreground">300+</p>
-              <p className="text-muted-foreground">Артистов</p>
+              <Icon name="Sparkles" size={40} className="mx-auto mb-3 text-secondary" />
+              <p className="text-3xl font-heading font-bold text-foreground">1000</p>
+              <p className="text-muted-foreground">Свечей на каждом концерте</p>
             </div>
           </div>
         </div>
@@ -173,9 +173,9 @@ const Index = () => {
           <div className="flex items-center justify-between mb-12">
             <div>
               <h3 className="text-4xl font-heading font-bold text-foreground mb-2">
-                Популярные события
+                Ближайшие канделайт концерты
               </h3>
-              <p className="text-muted-foreground">Успей купить билеты на горячие концерты</p>
+              <p className="text-muted-foreground">Погрузитесь в волшебную атмосферу классики при свечах</p>
             </div>
             <Button variant="outline" className="border-primary hover:bg-primary/10">
               Все события
@@ -245,43 +245,43 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h3 className="text-4xl font-heading font-bold text-center text-foreground mb-12">
-            Почему выбирают нас?
+            Почему Диво?
           </h3>
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
               <div className="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                <Icon name="Shield" size={32} className="text-primary" />
+                <Icon name="Flame" size={32} className="text-primary candle-flicker" />
               </div>
               <h4 className="text-xl font-heading font-bold text-foreground mb-3">
-                Безопасная оплата
+                Уникальная атмосфера
               </h4>
               <p className="text-muted-foreground">
-                Защищённые транзакции и гарантия возврата средств
+                1000 свечей создают неповторимую магию живой музыки
               </p>
             </Card>
 
             <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
               <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
-                <Icon name="Zap" size={32} className="text-secondary" />
+                <Icon name="Building2" size={32} className="text-secondary" />
               </div>
               <h4 className="text-xl font-heading font-bold text-foreground mb-3">
-                Мгновенная доставка
+                Исторические залы
               </h4>
               <p className="text-muted-foreground">
-                Получите электронный билет сразу после оплаты
+                Концерты в особняках и дворцах с вековой историей
               </p>
             </Card>
 
             <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
               <div className="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                <Icon name="HeadphonesIcon" size={32} className="text-primary" />
+                <Icon name="Music" size={32} className="text-primary" />
               </div>
               <h4 className="text-xl font-heading font-bold text-foreground mb-3">
-                Поддержка 24/7
+                Великие композиторы
               </h4>
               <p className="text-muted-foreground">
-                Наша команда всегда готова помочь вам
+                Моцарт, Бах, Вивальди в исполнении талантливых музыкантов
               </p>
             </Card>
           </div>
@@ -293,11 +293,11 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Icon name="Music" size={24} className="text-primary" />
-                <h4 className="font-heading font-bold text-lg">CONCERT TICKETS</h4>
+                <Icon name="Flame" size={24} className="text-primary candle-flicker" />
+                <h4 className="font-heading font-bold text-lg">ДИВО</h4>
               </div>
               <p className="text-sm text-muted-foreground">
-                Лучшие концерты в вашем городе
+                Канделайт концерты в России и СНГ
               </p>
             </div>
 
@@ -338,7 +338,7 @@ const Index = () => {
           </div>
 
           <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-            <p>© 2025 Concert Tickets. Все права защищены.</p>
+            <p>© 2025 Диво. Канделайт концерты. Все права защищены.</p>
           </div>
         </div>
       </footer>
