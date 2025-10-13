@@ -243,6 +243,112 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-gradient-to-br from-[#3CB8E0]/10 via-[#FF8C42]/5 to-[#8B7AB8]/10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNGRjhDNDIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDEzNEgxMHYtMmgyNnYyem0wLTI2SDEwdi0yaDI2djJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <Badge className="mb-6 text-sm px-4 py-2 bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] text-white border-0">
+              🎉 Мировая премьера в России
+            </Badge>
+            <h3 className="text-5xl md:text-6xl font-heading font-black text-gradient glow-effect mb-6">
+              Впервые в России!
+            </h3>
+            <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed">
+              Уникальный формат канделайт-концертов, покоривший миллионы сердец по всему миру, теперь доступен в России и СНГ
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button size="lg" className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-lg px-10 h-16 shadow-2xl text-white font-bold">
+                <Icon name="Sparkles" className="mr-2" size={24} />
+                Забронировать билет
+              </Button>
+              <Button size="lg" variant="outline" className="border-2 border-[#3CB8E0] text-lg px-10 h-16 hover:bg-[#3CB8E0]/10 font-semibold">
+                <Icon name="Gift" className="mr-2" size={24} />
+                Подарить впечатление
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+            <Card className="bg-card/80 backdrop-blur border-[#3CB8E0]/30 p-6 text-center hover:card-glow transition-all hover:scale-105">
+              <Icon name="Heart" size={48} className="mx-auto mb-4 text-[#FF8C42]" />
+              <h4 className="text-lg font-heading font-bold text-foreground mb-2">
+                Идеально для свиданий
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Романтическая атмосфера при свечах создаст незабываемый вечер для двоих
+              </p>
+            </Card>
+
+            <Card className="bg-card/80 backdrop-blur border-[#8B7AB8]/30 p-6 text-center hover:card-glow transition-all hover:scale-105">
+              <Icon name="Users" size={48} className="mx-auto mb-4 text-[#3CB8E0]" />
+              <h4 className="text-lg font-heading font-bold text-foreground mb-2">
+                Время с друзьями
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Культурный вечер в компании близких под великую классику
+              </p>
+            </Card>
+
+            <Card className="bg-card/80 backdrop-blur border-[#FF8C42]/30 p-6 text-center hover:card-glow transition-all hover:scale-105">
+              <Icon name="Home" size={48} className="mx-auto mb-4 text-[#8B7AB8]" />
+              <h4 className="text-lg font-heading font-bold text-foreground mb-2">
+                Семейный вечер
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Приобщите детей к прекрасному в волшебной обстановке
+              </p>
+            </Card>
+
+            <Card className="bg-card/80 backdrop-blur border-[#3CB8E0]/30 p-6 text-center hover:card-glow transition-all hover:scale-105">
+              <Icon name="Wine" size={48} className="mx-auto mb-4 text-[#FF8C42]" />
+              <h4 className="text-lg font-heading font-bold text-foreground mb-2">
+                Коктейльное настроение
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Изысканная атмосфера для особенного вечера со вкусом
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gradient-to-r from-[#3CB8E0]/20 via-[#FF8C42]/20 to-[#8B7AB8]/20 border-y border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3CB8E0] to-[#8B7AB8] rounded-full flex items-center justify-center flex-shrink-0">
+                  <Icon name="ShieldCheck" size={32} className="text-white" />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-heading font-bold text-foreground mb-2">
+                    Гарантия возврата
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Вернём 100% стоимости билета за 24 часа до начала концерта. Без лишних вопросов.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#FF8C42] to-[#8B7AB8] rounded-full flex items-center justify-center flex-shrink-0">
+                  <Icon name="Zap" size={32} className="text-white" />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-heading font-bold text-foreground mb-2">
+                    Мгновенная доставка
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Билеты на почту сразу после оплаты. QR-код для быстрого входа на концерт.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h3 className="text-4xl font-heading font-bold text-center text-foreground mb-12">
