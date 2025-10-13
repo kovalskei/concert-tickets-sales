@@ -14,6 +14,17 @@ interface Event {
   price: number;
   image: string;
   genre: string;
+  seatsLeft: number;
+}
+
+interface Review {
+  id: number;
+  name: string;
+  avatar: string;
+  rating: number;
+  text: string;
+  date: string;
+  event: string;
 }
 
 const mockEvents: Event[] = [
@@ -26,7 +37,8 @@ const mockEvents: Event[] = [
     city: 'Москва',
     price: 2500,
     image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
-    genre: 'Канделайт'
+    genre: 'Канделайт',
+    seatsLeft: 23
   },
   {
     id: 2,
@@ -37,7 +49,8 @@ const mockEvents: Event[] = [
     city: 'Санкт-Петербург',
     price: 2800,
     image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/7b49f8ad-665c-45d2-902e-81f851a3c849.jpg',
-    genre: 'Канделайт'
+    genre: 'Канделайт',
+    seatsLeft: 8
   },
   {
     id: 3,
@@ -48,12 +61,51 @@ const mockEvents: Event[] = [
     city: 'Казань',
     price: 2200,
     image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/c18c1c3e-efd3-4b70-a3e4-38bd329cf3a4.jpg',
-    genre: 'Канделайт'
+    genre: 'Канделайт',
+    seatsLeft: 45
+  }
+];
+
+const mockReviews: Review[] = [
+  {
+    id: 1,
+    name: 'Анна Петрова',
+    avatar: 'https://i.pravatar.cc/150?img=1',
+    rating: 5,
+    text: 'Невероятная атмосфера! Свечи, живая музыка и прекрасная акустика создали волшебный вечер. Обязательно вернусь снова!',
+    date: '2024-02-28',
+    event: 'Вивальди при свечах'
+  },
+  {
+    id: 2,
+    name: 'Дмитрий Соколов',
+    avatar: 'https://i.pravatar.cc/150?img=12',
+    rating: 5,
+    text: 'Пришли с девушкой на свидание — она в восторге! Романтичнее места сложно придумать. Спасибо за незабываемые эмоции.',
+    date: '2024-02-25',
+    event: 'Моцарт в огнях свечей'
+  },
+  {
+    id: 3,
+    name: 'Елена Морозова',
+    avatar: 'https://i.pravatar.cc/150?img=5',
+    rating: 5,
+    text: 'Ходили всей семьёй с детьми. Дети впервые услышали классику вживую и были заворожены. Культурный вечер удался на все 100%!',
+    date: '2024-02-20',
+    event: 'Бах. Шедевры барокко'
   }
 ];
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('main');
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [selectedSeats, setSelectedSeats] = useState(1);
+
+  const openBooking = (event: Event) => {
+    setSelectedEvent(event);
+    setIsBookingOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -201,6 +253,16 @@ const Index = () => {
                   <Badge className="absolute top-4 right-4 bg-primary/90 text-primary-foreground">
                     {event.genre}
                   </Badge>
+                  {event.seatsLeft <= 20 && (
+                    <Badge className={`absolute top-4 left-4 ${
+                      event.seatsLeft <= 10 
+                        ? 'bg-red-500 animate-pulse' 
+                        : 'bg-orange-500'
+                    } text-white border-0 font-bold`}>
+                      <Icon name="AlertCircle" size={14} className="mr-1" />
+                      Осталось {event.seatsLeft} мест
+                    </Badge>
+                  )}
                 </div>
                 
                 <CardContent className="p-6">
@@ -231,7 +293,10 @@ const Index = () => {
                         {event.price.toLocaleString('ru-RU')} ₽
                       </p>
                     </div>
-                    <Button className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 shadow-lg">
+                    <Button 
+                      onClick={() => openBooking(event)}
+                      className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 shadow-lg"
+                    >
                       <Icon name="Ticket" className="mr-2" size={18} />
                       Купить
                     </Button>
@@ -452,6 +517,185 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-heading font-bold text-foreground mb-4">
+              Отзывы наших гостей
+            </h3>
+            <p className="text-muted-foreground text-lg">
+              Более 50 000 счастливых посетителей уже побывали на канделайт концертах Диво
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {mockReviews.map((review, index) => (
+              <Card 
+                key={review.id} 
+                className="bg-card border-border p-6 hover:card-glow transition-all animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-0">
+                  <div className="flex items-center gap-4 mb-4">
+                    <img 
+                      src={review.avatar} 
+                      alt={review.name}
+                      className="w-14 h-14 rounded-full object-cover border-2 border-[#3CB8E0]"
+                    />
+                    <div className="flex-1">
+                      <h5 className="font-heading font-bold text-foreground">{review.name}</h5>
+                      <div className="flex gap-1 mt-1">
+                        {Array.from({ length: review.rating }).map((_, i) => (
+                          <Icon key={i} name="Star" size={14} className="text-[#FF8C42] fill-[#FF8C42]" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {review.text}
+                  </p>
+
+                  <div className="flex items-center justify-between text-xs text-muted-foreground pt-4 border-t border-border">
+                    <span className="flex items-center">
+                      <Icon name="Music" size={14} className="mr-1 text-[#8B7AB8]" />
+                      {review.event}
+                    </span>
+                    <span>{new Date(review.date).toLocaleDateString('ru-RU')}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Button variant="outline" size="lg" className="border-[#3CB8E0] hover:bg-[#3CB8E0]/10">
+              <Icon name="MessageCircle" className="mr-2" />
+              Все отзывы
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {isBookingOpen && selectedEvent && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+          <Card className="w-full max-w-2xl bg-card border-border shadow-2xl animate-scale-in">
+            <CardContent className="p-8">
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h3 className="text-3xl font-heading font-bold text-foreground mb-2">
+                    Бронирование билетов
+                  </h3>
+                  <p className="text-muted-foreground">{selectedEvent.title}</p>
+                </div>
+                <button 
+                  onClick={() => setIsBookingOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-muted transition-colors"
+                >
+                  <Icon name="X" size={24} />
+                </button>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <img 
+                    src={selectedEvent.image} 
+                    alt={selectedEvent.title}
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Icon name="Calendar" size={20} className="text-[#3CB8E0] mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground">Дата и время</p>
+                      <p className="text-sm text-muted-foreground">
+                        {new Date(selectedEvent.date).toLocaleDateString('ru-RU', { 
+                          day: 'numeric', 
+                          month: 'long',
+                          year: 'numeric'
+                        })}, 19:00
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="MapPin" size={20} className="text-[#FF8C42] mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground">Место проведения</p>
+                      <p className="text-sm text-muted-foreground">{selectedEvent.venue}</p>
+                      <p className="text-sm text-muted-foreground">{selectedEvent.city}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="Music" size={20} className="text-[#8B7AB8] mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground">Исполнитель</p>
+                      <p className="text-sm text-muted-foreground">{selectedEvent.artist}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-muted/50 rounded-lg p-6 mb-6">
+                <div className="flex items-center justify-between mb-4">
+                  <label className="font-heading font-bold text-foreground">Количество билетов</label>
+                  <div className="flex items-center gap-3">
+                    <button 
+                      onClick={() => setSelectedSeats(Math.max(1, selectedSeats - 1))}
+                      className="w-10 h-10 bg-card rounded-full flex items-center justify-center hover:bg-[#3CB8E0] hover:text-white transition-colors"
+                    >
+                      <Icon name="Minus" size={20} />
+                    </button>
+                    <span className="text-2xl font-bold w-12 text-center">{selectedSeats}</span>
+                    <button 
+                      onClick={() => setSelectedSeats(Math.min(10, selectedSeats + 1))}
+                      className="w-10 h-10 bg-card rounded-full flex items-center justify-center hover:bg-[#3CB8E0] hover:text-white transition-colors"
+                    >
+                      <Icon name="Plus" size={20} />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-border">
+                  <span className="text-lg font-heading font-bold text-foreground">Итого:</span>
+                  <span className="text-3xl font-heading font-bold text-gradient">
+                    {(selectedEvent.price * selectedSeats).toLocaleString('ru-RU')} ₽
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                <Icon name="ShieldCheck" size={20} className="text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-foreground text-sm">Гарантия возврата 100%</p>
+                  <p className="text-xs text-muted-foreground">
+                    Вернём полную стоимость за 24 часа до начала концерта без объяснения причин
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <Button 
+                  onClick={() => setIsBookingOpen(false)}
+                  variant="outline" 
+                  size="lg" 
+                  className="flex-1"
+                >
+                  Отмена
+                </Button>
+                <Button 
+                  size="lg" 
+                  className="flex-1 bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 shadow-lg text-white font-bold"
+                >
+                  <Icon name="CreditCard" className="mr-2" />
+                  Перейти к оплате
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };
