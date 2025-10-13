@@ -60,11 +60,12 @@ const Index = () => {
       <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
-              <Icon name="Flame" size={28} className="text-primary candle-flicker" />
-              <h1 className="text-2xl font-heading font-bold text-gradient glow-effect">
-                ДИВО
-              </h1>
+            <div className="flex items-center gap-3">
+              <img 
+                src="https://cdn.poehali.dev/files/0dae3401-0f84-479b-b875-d725a4bab6e6.png" 
+                alt="Диво" 
+                className="h-8 w-auto object-contain"
+              />
             </div>
             
             <div className="hidden md:flex items-center gap-6">
@@ -112,7 +113,7 @@ const Index = () => {
               </button>
             </div>
 
-            <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity">
+            <Button className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 transition-opacity">
               Войти
             </Button>
           </div>
@@ -132,11 +133,11 @@ const Index = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 h-14">
+              <Button size="lg" className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-lg px-8 h-14 shadow-lg">
                 <Icon name="Flame" className="mr-2 candle-flicker" size={20} />
                 Найти концерт
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-primary text-lg px-8 h-14 hover:bg-primary/10">
+              <Button size="lg" variant="outline" className="border-2 border-[#3CB8E0] text-lg px-8 h-14 hover:bg-[#3CB8E0]/10">
                 <Icon name="Calendar" className="mr-2" size={20} />
                 Расписание
               </Button>
@@ -145,22 +146,22 @@ const Index = () => {
 
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <Icon name="Flame" size={40} className="mx-auto mb-3 text-primary candle-flicker" />
+              <Icon name="Flame" size={40} className="mx-auto mb-3 text-[#FF8C42] candle-flicker" />
               <p className="text-3xl font-heading font-bold text-foreground">150+</p>
               <p className="text-muted-foreground">Канделайт концертов</p>
             </div>
             <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <Icon name="MapPin" size={40} className="mx-auto mb-3 text-secondary" />
+              <Icon name="MapPin" size={40} className="mx-auto mb-3 text-[#3CB8E0]" />
               <p className="text-3xl font-heading font-bold text-foreground">12</p>
               <p className="text-muted-foreground">Городов России и СНГ</p>
             </div>
             <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <Icon name="Users" size={40} className="mx-auto mb-3 text-primary" />
+              <Icon name="Users" size={40} className="mx-auto mb-3 text-[#8B7AB8]" />
               <p className="text-3xl font-heading font-bold text-foreground">50K+</p>
               <p className="text-muted-foreground">Довольных гостей</p>
             </div>
             <div className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <Icon name="Sparkles" size={40} className="mx-auto mb-3 text-secondary" />
+              <Icon name="Sparkles" size={40} className="mx-auto mb-3 text-[#3CB8E0]" />
               <p className="text-3xl font-heading font-bold text-foreground">1000</p>
               <p className="text-muted-foreground">Свечей на каждом концерте</p>
             </div>
@@ -177,7 +178,7 @@ const Index = () => {
               </h3>
               <p className="text-muted-foreground">Погрузитесь в волшебную атмосферу классики при свечах</p>
             </div>
-            <Button variant="outline" className="border-primary hover:bg-primary/10">
+            <Button variant="outline" className="border-[#3CB8E0] hover:bg-[#3CB8E0]/10">
               Все события
               <Icon name="ArrowRight" className="ml-2" size={18} />
             </Button>
@@ -210,7 +211,7 @@ const Index = () => {
                   
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm text-muted-foreground">
-                      <Icon name="Calendar" size={16} className="mr-2 text-primary" />
+                      <Icon name="Calendar" size={16} className="mr-2 text-[#3CB8E0]" />
                       {new Date(event.date).toLocaleDateString('ru-RU', { 
                         day: 'numeric', 
                         month: 'long',
@@ -218,7 +219,7 @@ const Index = () => {
                       })}
                     </div>
                     <div className="flex items-center text-sm text-muted-foreground">
-                      <Icon name="MapPin" size={16} className="mr-2 text-secondary" />
+                      <Icon name="MapPin" size={16} className="mr-2 text-[#FF8C42]" />
                       {event.venue}, {event.city}
                     </div>
                   </div>
@@ -230,7 +231,7 @@ const Index = () => {
                         {event.price.toLocaleString('ru-RU')} ₽
                       </p>
                     </div>
-                    <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+                    <Button className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 shadow-lg">
                       <Icon name="Ticket" className="mr-2" size={18} />
                       Купить
                     </Button>
@@ -250,8 +251,8 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
-              <div className="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                <Icon name="Flame" size={32} className="text-primary candle-flicker" />
+              <div className="w-16 h-16 mx-auto mb-4 bg-[#FF8C42]/20 rounded-full flex items-center justify-center">
+                <Icon name="Flame" size={32} className="text-[#FF8C42] candle-flicker" />
               </div>
               <h4 className="text-xl font-heading font-bold text-foreground mb-3">
                 Уникальная атмосфера
@@ -262,8 +263,8 @@ const Index = () => {
             </Card>
 
             <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
-              <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
-                <Icon name="Building2" size={32} className="text-secondary" />
+              <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
+                <Icon name="Building2" size={32} className="text-[#3CB8E0]" />
               </div>
               <h4 className="text-xl font-heading font-bold text-foreground mb-3">
                 Исторические залы
@@ -274,8 +275,8 @@ const Index = () => {
             </Card>
 
             <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
-              <div className="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                <Icon name="Music" size={32} className="text-primary" />
+              <div className="w-16 h-16 mx-auto mb-4 bg-[#8B7AB8]/20 rounded-full flex items-center justify-center">
+                <Icon name="Music" size={32} className="text-[#8B7AB8]" />
               </div>
               <h4 className="text-xl font-heading font-bold text-foreground mb-3">
                 Великие композиторы
@@ -293,8 +294,11 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Icon name="Flame" size={24} className="text-primary candle-flicker" />
-                <h4 className="font-heading font-bold text-lg">ДИВО</h4>
+                <img 
+                  src="https://cdn.poehali.dev/files/0dae3401-0f84-479b-b875-d725a4bab6e6.png" 
+                  alt="Диво" 
+                  className="h-6 w-auto object-contain"
+                />
               </div>
               <p className="text-sm text-muted-foreground">
                 Канделайт концерты в России и СНГ
@@ -324,14 +328,14 @@ const Index = () => {
             <div>
               <h5 className="font-heading font-bold mb-4">Социальные сети</h5>
               <div className="flex gap-3">
-                <button className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/30 transition-colors">
-                  <Icon name="Instagram" size={20} className="text-primary" />
+                <button className="w-10 h-10 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center hover:bg-[#3CB8E0]/30 transition-colors">
+                  <Icon name="Instagram" size={20} className="text-[#3CB8E0]" />
                 </button>
-                <button className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/30 transition-colors">
-                  <Icon name="Twitter" size={20} className="text-primary" />
+                <button className="w-10 h-10 bg-[#FF8C42]/20 rounded-full flex items-center justify-center hover:bg-[#FF8C42]/30 transition-colors">
+                  <Icon name="Twitter" size={20} className="text-[#FF8C42]" />
                 </button>
-                <button className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/30 transition-colors">
-                  <Icon name="Facebook" size={20} className="text-primary" />
+                <button className="w-10 h-10 bg-[#8B7AB8]/20 rounded-full flex items-center justify-center hover:bg-[#8B7AB8]/30 transition-colors">
+                  <Icon name="Facebook" size={20} className="text-[#8B7AB8]" />
                 </button>
               </div>
             </div>

@@ -15,16 +15,16 @@
     --popover: 217 33% 10%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 38 92% 50%;
+    --primary: 193 82% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 95% 53%;
+    --secondary: 25 87% 55%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 217 33% 15%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 38 92% 50%;
+    --accent: 193 82% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,18 +32,18 @@
 
     --border: 217 33% 20%;
     --input: 217 33% 20%;
-    --ring: 38 92% 50%;
+    --ring: 193 82% 55%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 217 33% 8%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary: 193 82% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 217 33% 15%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 217 33% 20%;
-    --sidebar-ring: 38 92% 50%;
+    --sidebar-ring: 193 82% 55%;
   }
 }
 
@@ -69,19 +69,42 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent;
+    background: linear-gradient(
+      90deg,
+      #3cb8e0 0%,
+      #ff8c42 25%,
+      #3cb8e0 50%,
+      #8b7ab8 75%,
+      #3cb8e0 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: gradient-shift 8s linear infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
   }
 
   .glow-effect {
     text-shadow:
-      0 0 30px rgba(255, 165, 0, 0.6),
-      0 0 60px rgba(255, 140, 0, 0.4);
+      0 0 30px rgba(60, 184, 224, 0.5),
+      0 0 60px rgba(255, 140, 66, 0.3),
+      0 0 90px rgba(139, 122, 184, 0.2);
   }
 
   .card-glow {
     box-shadow:
-      0 0 40px rgba(255, 165, 0, 0.2),
-      0 0 80px rgba(255, 140, 0, 0.15);
+      0 0 40px rgba(60, 184, 224, 0.15),
+      0 0 80px rgba(255, 140, 66, 0.1),
+      0 0 120px rgba(139, 122, 184, 0.08);
   }
 
   .candle-flicker {
