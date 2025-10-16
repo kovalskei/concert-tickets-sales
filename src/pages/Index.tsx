@@ -438,136 +438,157 @@ const Index = () => {
       </section>
 
       {/* Section 3: Benefits - "Почему это вау" */}
-      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-[#1a2332] via-[#2a3f4f] to-[#1a2332]">
-        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/files/f72d1137-335c-4175-9ab8-2fb91abb3eea.png')] bg-cover bg-center opacity-20" />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <Badge className="mb-6 text-base px-6 py-2 bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] text-white border-0">
-              ✨ Реальное диво
-            </Badge>
-            <h3 className="text-5xl md:text-7xl font-heading font-black text-white glow-effect mb-6">
+      <section className="relative py-20 overflow-hidden bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 animate-fade-in">
+            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] rounded-full">
+              <span className="text-white font-bold text-sm">✨ РЕАЛЬНОЕ ДИВО</span>
+            </div>
+            <h3 className="text-4xl md:text-6xl font-heading font-black text-foreground mb-4">
               Почему это ВАУ
             </h3>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Это не просто концерт. Это опыт, который запомнится на всю жизнь.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Это не просто концерт — это опыт на всю жизнь 🔥
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#FF8C42]/50 hover:border-[#FF8C42] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#FF8C42]/20 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FF8C42]/0 to-[#FF8C42]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-8 relative">
-                <div className="mb-6 relative">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#FF8C42] to-[#8B7AB8] rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500 shadow-xl">
-                    <Icon name="Flame" size={48} className="text-white candle-flicker" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#FF8C42]/20 rounded-full blur-2xl" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12">
+            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/339ff3c5-fea4-49f6-af2f-ce9a751a729a.jpg"
+                  alt="1000+ свечей"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute top-4 right-4 bg-[#FF8C42] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                  🔥 ТОП
                 </div>
-                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h4 className="text-2xl font-heading font-black mb-2">
                   1000+ свечей
                 </h4>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  Море живого огня создаёт эффект бесконечного пространства. Каждая свеча расставлена вручную для идеальной атмосферы.
+                <p className="text-sm text-white/90 leading-relaxed">
+                  Море живого огня — эффект бесконечности. Каждая свеча вручную 🕯️
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#3CB8E0]/50 hover:border-[#3CB8E0] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#3CB8E0]/20 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3CB8E0]/0 to-[#3CB8E0]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-8 relative">
-                <div className="mb-6 relative">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#3CB8E0] to-[#8B7AB8] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 shadow-xl">
-                    <Icon name="Music" size={48} className="text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#3CB8E0]/20 rounded-full blur-2xl" />
+            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/cb24fa73-00f9-4a3a-8ca5-05417038be31.jpg"
+                  alt="Лучшие артисты"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute top-4 right-4 bg-[#3CB8E0] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                  🎵 LIVE
                 </div>
-                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h4 className="text-2xl font-heading font-black mb-2">
                   Лучшие артисты
                 </h4>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  Лауреаты международных конкурсов и солисты ведущих оркестров России. Музыка в живом исполнении на высшем уровне.
+                <p className="text-sm text-white/90 leading-relaxed">
+                  Лауреаты и солисты оркестров — живая музыка высшего уровня 🎻
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#8B7AB8]/50 hover:border-[#8B7AB8] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#8B7AB8]/20 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#8B7AB8]/0 to-[#8B7AB8]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-8 relative">
-                <div className="mb-6 relative">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#8B7AB8] to-[#3CB8E0] rounded-2xl flex items-center justify-center transform group-hover:-rotate-12 transition-transform duration-500 shadow-xl">
-                    <Icon name="Building2" size={48} className="text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#8B7AB8]/20 rounded-full blur-2xl" />
+            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/abe70ff3-9531-42ad-8416-cc7c9c9ededf.jpg"
+                  alt="Дворцы"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute top-4 right-4 bg-[#8B7AB8] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                  👑 VIP
                 </div>
-                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h4 className="text-2xl font-heading font-black mb-2">
                   Дворцы и особняки
                 </h4>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  Исторические залы с богатой историей и идеальной акустикой. Почувствуйте себя частью высшего света.
+                <p className="text-sm text-white/90 leading-relaxed">
+                  История + идеальная акустика. Почувствуй себя частью элиты 🏛️
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#FF8C42]/50 hover:border-[#FF8C42] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#FF8C42]/20 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FF8C42]/0 to-[#FF8C42]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-8 relative">
-                <div className="mb-6 relative">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#FF8C42] to-[#3CB8E0] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 shadow-xl">
-                    <Icon name="Camera" size={48} className="text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#FF8C42]/20 rounded-full blur-2xl" />
+            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/d7470059-8845-48ae-b3c6-da268f5eab78.jpg"
+                  alt="Инста-момент"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute top-4 right-4 bg-[#FF8C42] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                  📸 VIRAL
                 </div>
-                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h4 className="text-2xl font-heading font-black mb-2">
                   Инста-момент
                 </h4>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  Профессиональная фото-зона при свечах. Заберите кусочек волшебства с собой — фото будут бомбическими!
+                <p className="text-sm text-white/90 leading-relaxed">
+                  Фото-зона при свечах — забери волшебство с собой. Контент бомба! 📱
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#3CB8E0]/50 hover:border-[#3CB8E0] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#3CB8E0]/20 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3CB8E0]/0 to-[#3CB8E0]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-8 relative">
-                <div className="mb-6 relative">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#3CB8E0] to-[#FF8C42] rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500 shadow-xl">
-                    <Icon name="Wine" size={48} className="text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#3CB8E0]/20 rounded-full blur-2xl" />
+            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/05c9ba34-c79f-42eb-931c-74585b8ee1f3.jpg"
+                  alt="Шампанское"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute top-4 right-4 bg-[#3CB8E0] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                  🥂 ШИК
                 </div>
-                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h4 className="text-2xl font-heading font-black mb-2">
                   Бокал шампанского
                 </h4>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  Изысканные напитки во время антракта. Погрузитесь в атмосферу светской жизни под классическую музыку.
+                <p className="text-sm text-white/90 leading-relaxed">
+                  Изысканные напитки в антракте — почувствуй высший свет 🍾
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#8B7AB8]/50 hover:border-[#8B7AB8] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#8B7AB8]/20 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#8B7AB8]/0 to-[#8B7AB8]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-8 relative">
-                <div className="mb-6 relative">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#8B7AB8] to-[#FF8C42] rounded-2xl flex items-center justify-center transform group-hover:-rotate-12 transition-transform duration-500 shadow-xl">
-                    <Icon name="Heart" size={48} className="text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#8B7AB8]/20 rounded-full blur-2xl" />
+            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/97049d94-c925-4f93-be83-11c1f3e0ac14.jpg"
+                  alt="Эмоции"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute top-4 right-4 bg-[#8B7AB8] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                  💜 50K+
                 </div>
-                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h4 className="text-2xl font-heading font-black mb-2">
                   Эмоции навсегда
                 </h4>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  50 000+ счастливых гостей уже пережили этот опыт. Присоединяйтесь к сообществу ценителей прекрасного.
+                <p className="text-sm text-white/90 leading-relaxed">
+                  50 000+ счастливых гостей. Будь частью сообщества! ❤️
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="bg-gradient-to-r from-[#FF8C42] via-[#3CB8E0] to-[#8B7AB8] hover:opacity-90 text-white text-lg px-12 h-16 shadow-2xl animate-pulse-soft">
-              <Icon name="Sparkles" className="mr-2" size={24} />
-              Почувствовать диво сейчас
+            <Button size="lg" className="bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white text-base px-10 py-6 rounded-full font-bold shadow-xl">
+              Почувствовать диво сейчас ✨
             </Button>
           </div>
         </div>
