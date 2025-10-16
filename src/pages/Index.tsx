@@ -378,6 +378,66 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-heading font-bold text-foreground mb-4">
+              Отзывы наших гостей
+            </h3>
+            <p className="text-muted-foreground text-lg">
+              Более 50 000 счастливых посетителей уже побывали на канделайт концертах Диво
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {mockReviews.map((review, index) => (
+              <Card 
+                key={review.id} 
+                className="bg-card border-border p-6 hover:card-glow transition-all animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-0">
+                  <div className="flex items-center gap-4 mb-4">
+                    <img 
+                      src={review.avatar} 
+                      alt={review.name}
+                      className="w-14 h-14 rounded-full object-cover border-2 border-[#3CB8E0]"
+                    />
+                    <div className="flex-1">
+                      <h5 className="font-heading font-bold text-foreground">{review.name}</h5>
+                      <div className="flex gap-1 mt-1">
+                        {Array.from({ length: review.rating }).map((_, i) => (
+                          <Icon key={i} name="Star" size={14} className="text-[#FF8C42] fill-[#FF8C42]" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {review.text}
+                  </p>
+
+                  <div className="flex items-center justify-between text-xs text-muted-foreground pt-4 border-t border-border">
+                    <span className="flex items-center">
+                      <Icon name="Music" size={14} className="mr-1 text-[#8B7AB8]" />
+                      {review.event}
+                    </span>
+                    <span>{new Date(review.date).toLocaleDateString('ru-RU')}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Button variant="outline" size="lg" className="border-[#3CB8E0] hover:bg-[#3CB8E0]/10">
+              <Icon name="MessageCircle" className="mr-2" />
+              Все отзывы
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-gradient-to-r from-[#3CB8E0]/20 via-[#FF8C42]/20 to-[#8B7AB8]/20 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
@@ -517,66 +577,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-heading font-bold text-foreground mb-4">
-              Отзывы наших гостей
-            </h3>
-            <p className="text-muted-foreground text-lg">
-              Более 50 000 счастливых посетителей уже побывали на канделайт концертах Диво
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {mockReviews.map((review, index) => (
-              <Card 
-                key={review.id} 
-                className="bg-card border-border p-6 hover:card-glow transition-all animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-0">
-                  <div className="flex items-center gap-4 mb-4">
-                    <img 
-                      src={review.avatar} 
-                      alt={review.name}
-                      className="w-14 h-14 rounded-full object-cover border-2 border-[#3CB8E0]"
-                    />
-                    <div className="flex-1">
-                      <h5 className="font-heading font-bold text-foreground">{review.name}</h5>
-                      <div className="flex gap-1 mt-1">
-                        {Array.from({ length: review.rating }).map((_, i) => (
-                          <Icon key={i} name="Star" size={14} className="text-[#FF8C42] fill-[#FF8C42]" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {review.text}
-                  </p>
-
-                  <div className="flex items-center justify-between text-xs text-muted-foreground pt-4 border-t border-border">
-                    <span className="flex items-center">
-                      <Icon name="Music" size={14} className="mr-1 text-[#8B7AB8]" />
-                      {review.event}
-                    </span>
-                    <span>{new Date(review.date).toLocaleDateString('ru-RU')}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Button variant="outline" size="lg" className="border-[#3CB8E0] hover:bg-[#3CB8E0]/10">
-              <Icon name="MessageCircle" className="mr-2" />
-              Все отзывы
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {isBookingOpen && selectedEvent && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
