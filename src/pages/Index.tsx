@@ -453,9 +453,9 @@ const Index = () => {
           </div>
 
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-12 gap-4 auto-rows-[280px]">
+            <div className="grid grid-cols-12 gap-4 auto-rows-[280px] group/grid">
               
-              <div className="col-span-12 md:col-span-5 row-span-2 group relative">
+              <div className="col-span-12 md:col-span-5 row-span-2 group relative transition-all duration-500 group-hover/grid:opacity-40 hover:!opacity-100">
                 <div className="relative h-full phone-frame-glow rounded-[3rem] shadow-2xl">
                   <div className="relative h-full bg-black rounded-[3rem] p-4">
                     <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-3xl z-20"></div>
@@ -490,7 +490,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="col-span-12 md:col-span-7 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+              <div className="col-span-12 md:col-span-7 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] group-hover/grid:opacity-40 hover:!opacity-100">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/cb24fa73-00f9-4a3a-8ca5-05417038be31.jpg"
                   alt="Лучшие артисты"
@@ -512,7 +512,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="col-span-12 md:col-span-4 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+              <div className="col-span-12 md:col-span-4 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] group-hover/grid:opacity-40 hover:!opacity-100">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/abe70ff3-9531-42ad-8416-cc7c9c9ededf.jpg"
                   alt="Дворцы"
@@ -534,7 +534,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="col-span-12 md:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+              <div className="col-span-12 md:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] group-hover/grid:opacity-40 hover:!opacity-100">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/05c9ba34-c79f-42eb-931c-74585b8ee1f3.jpg"
                   alt="Шампанское"
@@ -556,7 +556,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="col-span-12 md:col-span-7 row-span-2 group relative">
+              <div className="col-span-12 md:col-span-7 row-span-2 group relative transition-all duration-500 group-hover/grid:opacity-40 hover:!opacity-100">
                 <div className="relative h-full phone-frame-glow rounded-[3rem] shadow-2xl">
                   <div className="relative h-full bg-black rounded-[3rem] p-4">
                     <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-3xl z-20"></div>
@@ -610,7 +610,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="col-span-12 md:col-span-5 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+              <div className="col-span-12 md:col-span-5 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] group-hover/grid:opacity-40 hover:!opacity-100">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/97049d94-c925-4f93-be83-11c1f3e0ac14.jpg"
                   alt="Эмоции"
