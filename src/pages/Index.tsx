@@ -30,37 +30,49 @@ interface Review {
 const mockEvents: Event[] = [
   {
     id: 1,
-    title: 'Вивальди при свечах',
+    title: 'Чайковский и Рахманинов',
     artist: 'Камерный оркестр',
-    date: '2025-11-15',
+    date: '2025-10-29',
+    venue: 'LOFT HALL',
+    city: 'Москва',
+    price: 1800,
+    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
+    genre: 'Канделайт',
+    seatsLeft: 15
+  },
+  {
+    id: 2,
+    title: 'Вивальди при свечах',
+    artist: 'Скрипичный ансамбль',
+    date: '2025-11-10',
     venue: 'Особняк Румянцева',
     city: 'Москва',
     price: 2500,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
+    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/7b49f8ad-665c-45d2-902e-81f851a3c849.jpg',
     genre: 'Канделайт',
     seatsLeft: 23
   },
   {
-    id: 2,
+    id: 3,
     title: 'Бах. Шедевры барокко',
     artist: 'Трио "Барокко"',
     date: '2025-11-20',
     venue: 'Дворец Белосельских-Белозерских',
     city: 'Санкт-Петербург',
     price: 2800,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/7b49f8ad-665c-45d2-902e-81f851a3c849.jpg',
+    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/c18c1c3e-efd3-4b70-a3e4-38bd329cf3a4.jpg',
     genre: 'Канделайт',
     seatsLeft: 8
   },
   {
-    id: 3,
+    id: 4,
     title: 'Моцарт в огнях свечей',
     artist: 'Струнный квартет',
-    date: '2025-11-25',
+    date: '2025-12-10',
     venue: 'Усадьба Баташева',
     city: 'Казань',
     price: 2200,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/c18c1c3e-efd3-4b70-a3e4-38bd329cf3a4.jpg',
+    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
     genre: 'Канделайт',
     seatsLeft: 45
   }
@@ -101,6 +113,16 @@ const Index = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [selectedSeats, setSelectedSeats] = useState(1);
+  const [selectedDate, setSelectedDate] = useState('2025-10-29');
+
+  const availableDates = [
+    { date: '2025-10-29', label: '29 октября' },
+    { date: '2025-11-10', label: '10 ноября' },
+    { date: '2025-11-20', label: '20 ноября' },
+    { date: '2025-12-10', label: '10 декабря' }
+  ];
+
+  const filteredEvents = mockEvents.filter(event => event.date === selectedDate);
 
   const openBooking = (event: Event) => {
     setSelectedEvent(event);
@@ -313,7 +335,7 @@ const Index = () => {
 
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-8">
             <div>
               <h3 className="text-4xl font-heading font-bold text-foreground mb-2">
                 Ближайшие канделайт концерты
@@ -326,8 +348,24 @@ const Index = () => {
             </Button>
           </div>
 
+          <div className="flex flex-wrap gap-3 mb-12">
+            {availableDates.map((dateOption) => (
+              <button
+                key={dateOption.date}
+                onClick={() => setSelectedDate(dateOption.date)}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  selectedDate === dateOption.date
+                    ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
+                    : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
+                }`}
+              >
+                {dateOption.label}
+              </button>
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mockEvents.map((event, index) => (
+            {filteredEvents.map((event, index) => (
               <Card 
                 key={event.id} 
                 className="group overflow-hidden bg-card border-border hover:card-glow transition-all duration-300 animate-scale-in cursor-pointer"
