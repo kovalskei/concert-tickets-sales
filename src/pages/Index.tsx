@@ -455,28 +455,36 @@ const Index = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-12 gap-4 auto-rows-[280px]">
               
-              <div className="col-span-12 md:col-span-5 row-span-2 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-                <img 
-                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/339ff3c5-fea4-49f6-af2f-ce9a751a729a.jpg"
-                  alt="1000+ свечей"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
-                <div className="absolute top-6 left-6">
-                  <div className="bg-[#FF8C42] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
-                    🔥 ТОП-1
+              <div className="col-span-12 md:col-span-5 row-span-2 group relative">
+                <div className="relative h-full p-4 bg-black rounded-[3rem] shadow-2xl">
+                  <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-3xl z-20"></div>
+                  <div className="relative h-full overflow-hidden rounded-[2.5rem] cursor-pointer transition-all duration-500 group-hover:scale-[0.98]">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/339ff3c5-fea4-49f6-af2f-ce9a751a729a.jpg"
+                      alt="1000+ свечей"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      style={{
+                        animation: 'candleFlicker 3s ease-in-out infinite'
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+                    <div className="absolute top-6 left-6">
+                      <div className="bg-[#FF8C42] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+                        🔥 ТОП-1
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                      <h4 className="text-4xl md:text-5xl font-heading font-black mb-4 leading-tight">
+                        1000+ свечей
+                      </h4>
+                      <p className="text-lg text-white/95 leading-relaxed mb-3">
+                        Море живого огня создаёт эффект бесконечного пространства 🕯️
+                      </p>
+                      <p className="text-sm text-white/70">
+                        Каждая свеча расставлена вручную для идеальной атмосферы
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <h4 className="text-4xl md:text-5xl font-heading font-black mb-4 leading-tight">
-                    1000+ свечей
-                  </h4>
-                  <p className="text-lg text-white/95 leading-relaxed mb-3">
-                    Море живого огня создаёт эффект бесконечного пространства 🕯️
-                  </p>
-                  <p className="text-sm text-white/70">
-                    Каждая свеча расставлена вручную для идеальной атмосферы
-                  </p>
                 </div>
               </div>
 
@@ -546,28 +554,55 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="col-span-12 md:col-span-7 row-span-2 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-                <img 
-                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/d7470059-8845-48ae-b3c6-da268f5eab78.jpg"
-                  alt="Инста-момент"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
-                <div className="absolute top-6 left-6">
-                  <div className="bg-[#FF8C42] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse-soft">
-                    📸 VIRAL
+              <div className="col-span-12 md:col-span-7 row-span-2 group relative">
+                <div className="relative h-full p-4 bg-black rounded-[3rem] shadow-2xl">
+                  <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-3xl z-20"></div>
+                  <div className="relative h-full overflow-hidden rounded-[2.5rem] cursor-pointer transition-all duration-500 group-hover:scale-[0.98]">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/d7470059-8845-48ae-b3c6-da268f5eab78.jpg"
+                      alt="Инста-момент"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+                    
+                    <div className="absolute right-4 top-1/3 flex flex-col gap-4 items-center z-10">
+                      <div className="flex flex-col items-center">
+                        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mb-1">
+                          <Icon name="Heart" size={24} className="text-white" />
+                        </div>
+                        <span className="text-white text-xs font-bold">99K</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mb-1">
+                          <Icon name="MessageCircle" size={24} className="text-white" />
+                        </div>
+                        <span className="text-white text-xs font-bold">2.3K</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mb-1">
+                          <Icon name="Share2" size={24} className="text-white" />
+                        </div>
+                        <span className="text-white text-xs font-bold">Share</span>
+                      </div>
+                    </div>
+
+                    <div className="absolute top-6 left-6">
+                      <div className="bg-[#FF8C42] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse-soft">
+                        📸 VIRAL
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                      <h4 className="text-4xl md:text-5xl font-heading font-black mb-4 leading-tight">
+                        Инста-момент
+                      </h4>
+                      <p className="text-lg text-white/95 leading-relaxed mb-3">
+                        Фото-зона при свечах — это не просто фотки, это КОНТЕНТ 📱
+                      </p>
+                      <p className="text-sm text-white/70">
+                        Забери кусочек волшебства с собой. Друзья будут завидовать!
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <h4 className="text-4xl md:text-5xl font-heading font-black mb-4 leading-tight">
-                    Инста-момент
-                  </h4>
-                  <p className="text-lg text-white/95 leading-relaxed mb-3">
-                    Фото-зона при свечах — это не просто фотки, это КОНТЕНТ 📱
-                  </p>
-                  <p className="text-sm text-white/70">
-                    Забери кусочек волшебства с собой. Друзья будут завидовать!
-                  </p>
                 </div>
               </div>
 
