@@ -67,22 +67,36 @@
     bottom: 0;
     background:
       radial-gradient(
-        ellipse 80% 50% at 0% 20%,
-        rgba(139, 122, 184, 0.15) 0%,
-        transparent 50%
+        ellipse 60% 40% at 0% 10%,
+        rgba(139, 122, 184, 0.4) 0%,
+        rgba(139, 122, 184, 0.2) 25%,
+        transparent 55%
       ),
       radial-gradient(
-        ellipse 80% 50% at 100% 80%,
-        rgba(60, 184, 224, 0.15) 0%,
-        transparent 50%
+        ellipse 60% 40% at 100% 90%,
+        rgba(60, 184, 224, 0.4) 0%,
+        rgba(60, 184, 224, 0.2) 25%,
+        transparent 55%
       ),
       radial-gradient(
-        ellipse 60% 40% at 50% 0%,
-        rgba(255, 140, 66, 0.08) 0%,
-        transparent 50%
+        ellipse 50% 30% at 50% 0%,
+        rgba(255, 140, 66, 0.25) 0%,
+        rgba(255, 140, 66, 0.1) 30%,
+        transparent 55%
       );
     pointer-events: none;
     z-index: 0;
+    animation: aurora-ambient 8s ease-in-out infinite;
+  }
+
+  @keyframes aurora-ambient {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.75;
+    }
   }
 
   body > * {
