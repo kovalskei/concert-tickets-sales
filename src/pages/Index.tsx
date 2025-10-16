@@ -438,158 +438,171 @@ const Index = () => {
       </section>
 
       {/* Section 3: Benefits - "Почему это вау" */}
-      <section className="relative py-20 overflow-hidden bg-background">
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-background via-muted/20 to-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] rounded-full">
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] rounded-full animate-pulse-soft">
               <span className="text-white font-bold text-sm">✨ РЕАЛЬНОЕ ДИВО</span>
             </div>
-            <h3 className="text-4xl md:text-6xl font-heading font-black text-foreground mb-4">
+            <h3 className="text-5xl md:text-7xl font-heading font-black text-foreground mb-4">
               Почему это ВАУ
             </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Это не просто концерт — это опыт на всю жизнь 🔥
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Листай как сторис — это не просто концерт 🔥
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12">
-            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-              <div className="relative h-80 overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-12 gap-4 auto-rows-[280px]">
+              
+              <div className="col-span-12 md:col-span-5 row-span-2 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/339ff3c5-fea4-49f6-af2f-ce9a751a729a.jpg"
                   alt="1000+ свечей"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                <div className="absolute top-4 right-4 bg-[#FF8C42] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
-                  🔥 ТОП
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+                <div className="absolute top-6 left-6">
+                  <div className="bg-[#FF8C42] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
+                    🔥 ТОП-1
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <h4 className="text-4xl md:text-5xl font-heading font-black mb-4 leading-tight">
+                    1000+ свечей
+                  </h4>
+                  <p className="text-lg text-white/95 leading-relaxed mb-3">
+                    Море живого огня создаёт эффект бесконечного пространства 🕯️
+                  </p>
+                  <p className="text-sm text-white/70">
+                    Каждая свеча расставлена вручную для идеальной атмосферы
+                  </p>
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h4 className="text-2xl font-heading font-black mb-2">
-                  1000+ свечей
-                </h4>
-                <p className="text-sm text-white/90 leading-relaxed">
-                  Море живого огня — эффект бесконечности. Каждая свеча вручную 🕯️
-                </p>
-              </div>
-            </div>
 
-            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-              <div className="relative h-80 overflow-hidden">
+              <div className="col-span-12 md:col-span-7 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/cb24fa73-00f9-4a3a-8ca5-05417038be31.jpg"
                   alt="Лучшие артисты"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                <div className="absolute top-4 right-4 bg-[#3CB8E0] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
-                  🎵 LIVE
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20" />
+                <div className="absolute top-6 left-6">
+                  <div className="bg-[#3CB8E0] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+                    🎵 LIVE
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h4 className="text-3xl font-heading font-black mb-2">
+                    Лучшие артисты России
+                  </h4>
+                  <p className="text-base text-white/90">
+                    Лауреаты международных конкурсов и солисты ведущих оркестров 🎻
+                  </p>
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h4 className="text-2xl font-heading font-black mb-2">
-                  Лучшие артисты
-                </h4>
-                <p className="text-sm text-white/90 leading-relaxed">
-                  Лауреаты и солисты оркестров — живая музыка высшего уровня 🎻
-                </p>
-              </div>
-            </div>
 
-            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-              <div className="relative h-80 overflow-hidden">
+              <div className="col-span-12 md:col-span-4 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/abe70ff3-9531-42ad-8416-cc7c9c9ededf.jpg"
                   alt="Дворцы"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                <div className="absolute top-4 right-4 bg-[#8B7AB8] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
-                  👑 VIP
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
+                <div className="absolute top-6 left-6">
+                  <div className="bg-[#8B7AB8] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+                    👑 VIP
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h4 className="text-2xl font-heading font-black mb-2">
+                    Дворцы
+                  </h4>
+                  <p className="text-sm text-white/90">
+                    История встречается с акустикой 🏛️
+                  </p>
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h4 className="text-2xl font-heading font-black mb-2">
-                  Дворцы и особняки
-                </h4>
-                <p className="text-sm text-white/90 leading-relaxed">
-                  История + идеальная акустика. Почувствуй себя частью элиты 🏛️
-                </p>
-              </div>
-            </div>
 
-            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-              <div className="relative h-80 overflow-hidden">
-                <img 
-                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/d7470059-8845-48ae-b3c6-da268f5eab78.jpg"
-                  alt="Инста-момент"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                <div className="absolute top-4 right-4 bg-[#FF8C42] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
-                  📸 VIRAL
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h4 className="text-2xl font-heading font-black mb-2">
-                  Инста-момент
-                </h4>
-                <p className="text-sm text-white/90 leading-relaxed">
-                  Фото-зона при свечах — забери волшебство с собой. Контент бомба! 📱
-                </p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-              <div className="relative h-80 overflow-hidden">
+              <div className="col-span-12 md:col-span-3 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/05c9ba34-c79f-42eb-931c-74585b8ee1f3.jpg"
                   alt="Шампанское"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                <div className="absolute top-4 right-4 bg-[#3CB8E0] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
-                  🥂 ШИК
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
+                <div className="absolute top-6 left-6">
+                  <div className="bg-[#3CB8E0] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+                    🥂 ШИК
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h4 className="text-2xl font-heading font-black mb-2">
+                    Шампанское
+                  </h4>
+                  <p className="text-sm text-white/90">
+                    В антракте 🍾
+                  </p>
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h4 className="text-2xl font-heading font-black mb-2">
-                  Бокал шампанского
-                </h4>
-                <p className="text-sm text-white/90 leading-relaxed">
-                  Изысканные напитки в антракте — почувствуй высший свет 🍾
-                </p>
-              </div>
-            </div>
 
-            <div className="group relative overflow-hidden rounded-3xl bg-card hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-              <div className="relative h-80 overflow-hidden">
+              <div className="col-span-12 md:col-span-7 row-span-2 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/d7470059-8845-48ae-b3c6-da268f5eab78.jpg"
+                  alt="Инста-момент"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+                <div className="absolute top-6 left-6">
+                  <div className="bg-[#FF8C42] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse-soft">
+                    📸 VIRAL
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <h4 className="text-4xl md:text-5xl font-heading font-black mb-4 leading-tight">
+                    Инста-момент
+                  </h4>
+                  <p className="text-lg text-white/95 leading-relaxed mb-3">
+                    Фото-зона при свечах — это не просто фотки, это КОНТЕНТ 📱
+                  </p>
+                  <p className="text-sm text-white/70">
+                    Забери кусочек волшебства с собой. Друзья будут завидовать!
+                  </p>
+                </div>
+              </div>
+
+              <div className="col-span-12 md:col-span-5 row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <img 
                   src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/97049d94-c925-4f93-be83-11c1f3e0ac14.jpg"
                   alt="Эмоции"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                <div className="absolute top-4 right-4 bg-[#8B7AB8] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
-                  💜 50K+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+                <div className="absolute top-6 left-6">
+                  <div className="bg-[#8B7AB8] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+                    💜 50 000+
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h4 className="text-3xl font-heading font-black mb-3">
+                    Эмоции навсегда
+                  </h4>
+                  <p className="text-base text-white/90">
+                    50 000+ счастливых гостей. Будь частью сообщества! ❤️
+                  </p>
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h4 className="text-2xl font-heading font-black mb-2">
-                  Эмоции навсегда
-                </h4>
-                <p className="text-sm text-white/90 leading-relaxed">
-                  50 000+ счастливых гостей. Будь частью сообщества! ❤️
-                </p>
-              </div>
+
             </div>
           </div>
 
-          <div className="text-center">
-            <Button size="lg" className="bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white text-base px-10 py-6 rounded-full font-bold shadow-xl">
+          <div className="text-center mt-16">
+            <Button size="lg" className="bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white text-lg px-12 py-7 rounded-full font-black shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
               Почувствовать диво сейчас ✨
             </Button>
+            <p className="text-sm text-muted-foreground mt-4">
+              Билеты заканчиваются быстро 🚀
+            </p>
           </div>
         </div>
       </section>
