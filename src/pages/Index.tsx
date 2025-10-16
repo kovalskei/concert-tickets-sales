@@ -438,70 +438,137 @@ const Index = () => {
       </section>
 
       {/* Section 3: Benefits - "Почему это вау" */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-heading font-bold text-foreground">
-              Почему это вау
+      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-[#1a2332] via-[#2a3f4f] to-[#1a2332]">
+        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/files/f72d1137-335c-4175-9ab8-2fb91abb3eea.png')] bg-cover bg-center opacity-20" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <Badge className="mb-6 text-base px-6 py-2 bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] text-white border-0">
+              ✨ Реальное диво
+            </Badge>
+            <h3 className="text-5xl md:text-7xl font-heading font-black text-white glow-effect mb-6">
+              Почему это ВАУ
             </h3>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+              Это не просто концерт. Это опыт, который запомнится на всю жизнь.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="bg-card border-[#3CB8E0]/30 hover:card-glow transition-all">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
-                  <Icon name="Flame" size={32} className="text-[#3CB8E0] candle-flicker" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#FF8C42]/50 hover:border-[#FF8C42] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#FF8C42]/20 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#FF8C42]/0 to-[#FF8C42]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-8 relative">
+                <div className="mb-6 relative">
+                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#FF8C42] to-[#8B7AB8] rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500 shadow-xl">
+                    <Icon name="Flame" size={48} className="text-white candle-flicker" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#FF8C42]/20 rounded-full blur-2xl" />
                 </div>
-                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
+                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
                   1000+ свечей
                 </h4>
-                <p className="text-sm text-muted-foreground">
-                  эффект бесконечного пространства
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  Море живого огня создаёт эффект бесконечного пространства. Каждая свеча расставлена вручную для идеальной атмосферы.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-card border-[#3CB8E0]/30 hover:card-glow transition-all">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
-                  <Icon name="Music" size={32} className="text-[#3CB8E0]" />
+            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#3CB8E0]/50 hover:border-[#3CB8E0] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#3CB8E0]/20 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3CB8E0]/0 to-[#3CB8E0]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-8 relative">
+                <div className="mb-6 relative">
+                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#3CB8E0] to-[#8B7AB8] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 shadow-xl">
+                    <Icon name="Music" size={48} className="text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#3CB8E0]/20 rounded-full blur-2xl" />
                 </div>
-                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
-                  Лучшие музыканты
+                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+                  Лучшие артисты
                 </h4>
-                <p className="text-sm text-muted-foreground">
-                  лауреаты и солисты оркестров
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  Лауреаты международных конкурсов и солисты ведущих оркестров России. Музыка в живом исполнении на высшем уровне.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-card border-[#3CB8E0]/30 hover:card-glow transition-all">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
-                  <Icon name="Building2" size={32} className="text-[#3CB8E0]" />
+            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#8B7AB8]/50 hover:border-[#8B7AB8] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#8B7AB8]/20 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#8B7AB8]/0 to-[#8B7AB8]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-8 relative">
+                <div className="mb-6 relative">
+                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#8B7AB8] to-[#3CB8E0] rounded-2xl flex items-center justify-center transform group-hover:-rotate-12 transition-transform duration-500 shadow-xl">
+                    <Icon name="Building2" size={48} className="text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#8B7AB8]/20 rounded-full blur-2xl" />
                 </div>
-                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
-                  Исторические залы
+                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+                  Дворцы и особняки
                 </h4>
-                <p className="text-sm text-muted-foreground">
-                  два таймслота на выбор
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  Исторические залы с богатой историей и идеальной акустикой. Почувствуйте себя частью высшего света.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-card border-[#3CB8E0]/30 hover:card-glow transition-all">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
-                  <Icon name="Camera" size={32} className="text-[#3CB8E0]" />
+            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#FF8C42]/50 hover:border-[#FF8C42] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#FF8C42]/20 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#FF8C42]/0 to-[#FF8C42]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-8 relative">
+                <div className="mb-6 relative">
+                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#FF8C42] to-[#3CB8E0] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 shadow-xl">
+                    <Icon name="Camera" size={48} className="text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#FF8C42]/20 rounded-full blur-2xl" />
                 </div>
-                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
-                  Фото-зона
+                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+                  Инста-момент
                 </h4>
-                <p className="text-sm text-muted-foreground">
-                  заберите вечер с собой
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  Профессиональная фото-зона при свечах. Заберите кусочек волшебства с собой — фото будут бомбическими!
                 </p>
               </CardContent>
             </Card>
+
+            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#3CB8E0]/50 hover:border-[#3CB8E0] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#3CB8E0]/20 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3CB8E0]/0 to-[#3CB8E0]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-8 relative">
+                <div className="mb-6 relative">
+                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#3CB8E0] to-[#FF8C42] rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500 shadow-xl">
+                    <Icon name="Wine" size={48} className="text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#3CB8E0]/20 rounded-full blur-2xl" />
+                </div>
+                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+                  Бокал шампанского
+                </h4>
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  Изысканные напитки во время антракта. Погрузитесь в атмосферу светской жизни под классическую музыку.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="group bg-gradient-to-br from-card/95 to-card/80 backdrop-blur border-[#8B7AB8]/50 hover:border-[#8B7AB8] transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#8B7AB8]/20 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#8B7AB8]/0 to-[#8B7AB8]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-8 relative">
+                <div className="mb-6 relative">
+                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-[#8B7AB8] to-[#FF8C42] rounded-2xl flex items-center justify-center transform group-hover:-rotate-12 transition-transform duration-500 shadow-xl">
+                    <Icon name="Heart" size={48} className="text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-[#8B7AB8]/20 rounded-full blur-2xl" />
+                </div>
+                <h4 className="text-3xl font-heading font-black text-foreground mb-3 text-center">
+                  Эмоции навсегда
+                </h4>
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  50 000+ счастливых гостей уже пережили этот опыт. Присоединяйтесь к сообществу ценителей прекрасного.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Button size="lg" className="bg-gradient-to-r from-[#FF8C42] via-[#3CB8E0] to-[#8B7AB8] hover:opacity-90 text-white text-lg px-12 h-16 shadow-2xl animate-pulse-soft">
+              <Icon name="Sparkles" className="mr-2" size={24} />
+              Почувствовать диво сейчас
+            </Button>
           </div>
         </div>
       </section>
