@@ -221,6 +221,71 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Section 1: Hero CTA Card - "Свидание в сотнях огней" */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <Card className="relative overflow-hidden bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] border-[#3CB8E0]/20 hover:card-glow transition-all">
+            <CardContent className="p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+                    Свидание в сотнях огней
+                  </h3>
+                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                    Сделайте вечер «как в кино». Купите билеты за 30 секунд — и сфотографируйтесь при свечах до и после.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-3 mb-6">
+                    <Badge className="bg-white/10 text-white border-white/20 hover:bg-white/20 transition-colors px-4 py-2 text-sm">
+                      Свидание
+                    </Badge>
+                    <Badge className="bg-white/10 text-white border-white/20 hover:bg-white/20 transition-colors px-4 py-2 text-sm">
+                      С друзьями
+                    </Badge>
+                    <Badge className="bg-white/10 text-white border-white/20 hover:bg-white/20 transition-colors px-4 py-2 text-sm">
+                      С родителями
+                    </Badge>
+                  </div>
+
+                  <p className="text-gray-400 mb-6">
+                    от €29 · ближайший сеанс: сегодня, 20:30
+                  </p>
+
+                  <div className="flex flex-wrap gap-4 mb-6">
+                    <Button className="bg-[#3CB8E0] hover:bg-[#3CB8E0]/90 text-white shadow-lg">
+                      🎟️ Купить сейчас
+                    </Button>
+                    <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                      📷 Фото при свечах
+                    </Button>
+                  </div>
+
+                  <div className="space-y-2">
+                    <button className="text-[#3CB8E0] hover:text-[#3CB8E0]/80 text-sm underline transition-colors">
+                      Смотреть улыбки гостей
+                    </button>
+                    <p className="text-xs text-gray-400">
+                      Оплата в 1 клик · без регистрации · электронный билет мгновенно
+                    </p>
+                  </div>
+                </div>
+
+                <div className="hidden md:block">
+                  <div className="relative h-80 rounded-lg overflow-hidden">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg"
+                      alt="Candlelight concert"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-12">
@@ -304,6 +369,318 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Additional Services - "Сделать вечер ещё лучше" */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-heading font-bold text-foreground mb-2">
+              <span className="text-[#3CB8E0]">🔵</span> Сделать вечер ещё лучше
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
+                  <Icon name="Users" size={32} className="text-[#3CB8E0]" />
+                </div>
+                <h4 className="text-xl font-heading font-bold text-foreground mb-3">
+                  Парный билет
+                </h4>
+                <p className="text-muted-foreground mb-6">
+                  -10% при покупке двух мест в одном заказе
+                </p>
+                <Button variant="outline" className="w-full border-[#3CB8E0] hover:bg-[#3CB8E0]/10">
+                  Добавить
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-[#FF8C42]/20 rounded-full flex items-center justify-center">
+                  <Icon name="Flower" size={32} className="text-[#FF8C42]" />
+                </div>
+                <h4 className="text-xl font-heading font-bold text-foreground mb-3">
+                  Букет у входа
+                </h4>
+                <p className="text-muted-foreground mb-6">
+                  Готов к выдаче перед концертом — 999 ₽
+                </p>
+                <Button variant="outline" className="w-full border-[#FF8C42] hover:bg-[#FF8C42]/10">
+                  Добавить
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-[#8B7AB8]/20 rounded-full flex items-center justify-center">
+                  <Icon name="Camera" size={32} className="text-[#8B7AB8]" />
+                </div>
+                <h4 className="text-xl font-heading font-bold text-foreground mb-3">
+                  Фото-съёмка
+                </h4>
+                <p className="text-muted-foreground mb-6">
+                  5 обработанных фото — 1 499 ₽
+                </p>
+                <Button variant="outline" className="w-full border-[#8B7AB8] hover:bg-[#8B7AB8]/10">
+                  Добавить
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Benefits - "Почему это вау" */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-heading font-bold text-foreground">
+              Почему это вау
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="bg-card border-[#3CB8E0]/30 hover:card-glow transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
+                  <Icon name="Flame" size={32} className="text-[#3CB8E0] candle-flicker" />
+                </div>
+                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
+                  1000+ свечей
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  эффект бесконечного пространства
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-[#3CB8E0]/30 hover:card-glow transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
+                  <Icon name="Music" size={32} className="text-[#3CB8E0]" />
+                </div>
+                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
+                  Лучшие музыканты
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  лауреаты и солисты оркестров
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-[#3CB8E0]/30 hover:card-glow transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
+                  <Icon name="Building2" size={32} className="text-[#3CB8E0]" />
+                </div>
+                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
+                  Исторические залы
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  два таймслота на выбор
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-[#3CB8E0]/30 hover:card-glow transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
+                  <Icon name="Camera" size={32} className="text-[#3CB8E0]" />
+                </div>
+                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
+                  Фото-зона
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  заберите вечер с собой
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Musicians - "Кто играет" */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-heading font-bold text-foreground">
+              Кто играет
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <Card className="bg-card border-border hover:card-glow transition-all overflow-hidden">
+              <div className="relative h-64">
+                <img 
+                  src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&h=400&fit=crop"
+                  alt="Анна Смирнова"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
+              </div>
+              <CardContent className="p-6">
+                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
+                  Анна Смирнова — фортепиано
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Лауреат международных конкурсов, солистка камерного оркестра
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all overflow-hidden">
+              <div className="relative h-64">
+                <img 
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+                  alt="Иван Петров"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
+              </div>
+              <CardContent className="p-6">
+                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
+                  Иван Петров — скрипка
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  ГАСО, лауреат «Новая классика», выступал в Вене и Праге
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all overflow-hidden">
+              <div className="relative h-64">
+                <img 
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
+                  alt="Мария Ким"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
+              </div>
+              <CardContent className="p-6">
+                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
+                  Мария Ким — виолончель
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Победитель конкурсов им. Рахманинова, запись на Radio Classic
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Program - "Программа вечера" */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-heading font-bold text-foreground">
+              Программа вечера
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Music" size={24} className="text-[#3CB8E0]" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">
+                      Людовико Эйнауди
+                    </h4>
+                    <p className="text-sm text-muted-foreground">Una Mattina</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#FF8C42]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Music" size={24} className="text-[#FF8C42]" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">
+                      Антонио Вивальди
+                    </h4>
+                    <p className="text-sm text-muted-foreground">«Зима», RV 297</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#8B7AB8]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Music" size={24} className="text-[#8B7AB8]" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">
+                      Фредерик Шопен
+                    </h4>
+                    <p className="text-sm text-muted-foreground">Ноктюрн Op.9 №2</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Music" size={24} className="text-[#3CB8E0]" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">
+                      Макс Рихтер
+                    </h4>
+                    <p className="text-sm text-muted-foreground">On the Nature of Daylight</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#FF8C42]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Music" size={24} className="text-[#FF8C42]" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">
+                      Ханс Циммер
+                    </h4>
+                    <p className="text-sm text-muted-foreground">Time</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:card-glow transition-all">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#8B7AB8]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Music" size={24} className="text-[#8B7AB8]" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">
+                      Й. С. Бах
+                    </h4>
+                    <p className="text-sm text-muted-foreground">Air on the G String</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -517,6 +894,73 @@ const Index = () => {
               </p>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Section 6: Gift Certificate - "Подарить вечер при свечах" */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <Card className="overflow-hidden bg-card border-border hover:card-glow transition-all">
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="relative h-64 md:h-auto">
+                <img 
+                  src="https://cdn.poehali.dev/files/2dc6e14d-53f2-4522-bcf4-9ba0fe857474.png"
+                  alt="Candlelight gift"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/50"></div>
+              </div>
+              <CardContent className="p-8 md:p-12 flex flex-col justify-center">
+                <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+                  Подарить вечер при свечах
+                </h3>
+                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                  Электронный сертификат приходит на e-mail за 30 секунд. Выберите сумму или конкретную категорию мест. Сертификат действует 6 месяцев.
+                </p>
+                <Button className="bg-[#FF8C42] hover:bg-[#FF8C42]/90 text-white w-full md:w-auto shadow-lg mb-4">
+                  Оформить сертификат
+                </Button>
+                <p className="text-sm text-muted-foreground">
+                  Можно расплачиваться дома. Работает на все города и даты.
+                </p>
+              </CardContent>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Section 7: Venue Map - "Площадка" */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-heading font-bold text-foreground">
+              Площадка
+            </h3>
+          </div>
+
+          <Card className="overflow-hidden bg-card border-border hover:card-glow transition-all max-w-4xl mx-auto">
+            <div className="relative h-96">
+              <div className="w-full h-full bg-gradient-to-br from-[#3CB8E0]/20 to-[#8B7AB8]/20 flex items-center justify-center">
+                <Icon name="MapPin" size={64} className="text-[#3CB8E0]" />
+              </div>
+              <div className="absolute bottom-6 left-6 right-6">
+                <Badge className="bg-red-500 text-white border-0 px-4 py-2 text-sm">
+                  Центр камерсанов - вход с Садовой
+                </Badge>
+              </div>
+            </div>
+            <CardContent className="p-6">
+              <div className="flex items-start gap-3">
+                <Icon name="MapPin" size={20} className="text-[#FF8C42] mt-1" />
+                <div>
+                  <p className="font-semibold text-foreground mb-1">Адрес</p>
+                  <p className="text-sm text-muted-foreground">
+                    Садовая улица, 12, Москва
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
