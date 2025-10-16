@@ -81,7 +81,7 @@ const cities = ['Все города', 'Москва', 'Санкт-Петерб�
 const Index = () => {
   const navigate = useNavigate();
   const [selectedCity, setSelectedCity] = useState<string>('Москва');
-  const [selectedDate, setSelectedDate] = useState<string>('');
+  const [selectedDate, setSelectedDate] = useState<string>('all');
   const [filteredEvents, setFilteredEvents] = useState<Event[]>(mockEvents);
 
   useEffect(() => {
@@ -107,7 +107,7 @@ const Index = () => {
       filtered = filtered.filter(event => event.city === selectedCity);
     }
 
-    if (selectedDate) {
+    if (selectedDate && selectedDate !== 'all') {
       filtered = filtered.filter(event => event.date === selectedDate);
     }
 
@@ -200,7 +200,7 @@ const Index = () => {
                     <SelectValue placeholder="Все даты" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Все даты</SelectItem>
+                    <SelectItem value="all">Все даты</SelectItem>
                     {uniqueDates.map(date => (
                       <SelectItem key={date} value={date}>
                         {new Date(date).toLocaleDateString('ru-RU', {
