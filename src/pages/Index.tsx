@@ -187,7 +187,7 @@ const Index = () => {
             <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-lg px-8 h-14 shadow-lg">
                 <Icon name="Flame" className="mr-2 candle-flicker" size={20} />
-                Найти концерт
+                Купить билет
               </Button>
               <Button size="lg" variant="outline" className="border-2 border-[#3CB8E0] text-lg px-8 h-14 hover:bg-[#3CB8E0]/10">
                 <Icon name="Calendar" className="mr-2" size={20} />
