@@ -456,9 +456,10 @@ const Index = () => {
             <div className="grid grid-cols-12 gap-4 auto-rows-[280px]">
               
               <div className="col-span-12 md:col-span-5 row-span-2 group relative">
-                <div className="relative h-full p-4 bg-black rounded-[3rem] shadow-2xl">
-                  <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-3xl z-20"></div>
-                  <div className="relative h-full overflow-hidden rounded-[2.5rem] cursor-pointer transition-all duration-500 group-hover:scale-[0.98]">
+                <div className="relative h-full phone-frame-glow rounded-[3rem] shadow-2xl">
+                  <div className="relative h-full bg-black rounded-[3rem] p-4">
+                    <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-3xl z-20"></div>
+                    <div className="relative h-full overflow-hidden rounded-[2.5rem] cursor-pointer transition-all duration-500 group-hover:scale-[0.98]">
                     <img 
                       src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/339ff3c5-fea4-49f6-af2f-ce9a751a729a.jpg"
                       alt="1000+ свечей"
@@ -485,6 +486,7 @@ const Index = () => {
                       </p>
                     </div>
                   </div>
+                </div>
                 </div>
               </div>
 
@@ -555,9 +557,10 @@ const Index = () => {
               </div>
 
               <div className="col-span-12 md:col-span-7 row-span-2 group relative">
-                <div className="relative h-full p-4 bg-black rounded-[3rem] shadow-2xl">
-                  <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-3xl z-20"></div>
-                  <div className="relative h-full overflow-hidden rounded-[2.5rem] cursor-pointer transition-all duration-500 group-hover:scale-[0.98]">
+                <div className="relative h-full phone-frame-glow rounded-[3rem] shadow-2xl">
+                  <div className="relative h-full bg-black rounded-[3rem] p-4">
+                    <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-3xl z-20"></div>
+                    <div className="relative h-full overflow-hidden rounded-[2.5rem] cursor-pointer transition-all duration-500 group-hover:scale-[0.98]">
                     <img 
                       src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/d7470059-8845-48ae-b3c6-da268f5eab78.jpg"
                       alt="Инста-момент"
@@ -603,6 +606,7 @@ const Index = () => {
                       </p>
                     </div>
                   </div>
+                </div>
                 </div>
               </div>
 
