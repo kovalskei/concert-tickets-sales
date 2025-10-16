@@ -184,7 +184,21 @@ const Index = () => {
               Магия классической музыки в окружении 1000 свечей. Уникальные концерты в исторических особняках России и СНГ.
             </p>
             
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-3 justify-center mb-8">
+              <Badge className="bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all px-4 py-2 text-sm flex items-center gap-2">
+                <Icon name="Star" size={16} className="text-amber-400" />
+                <span className="font-semibold">4.9</span>
+                <span className="text-muted-foreground">· 12 842 отзывов</span>
+              </Badge>
+              <Badge className="bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all px-4 py-2 text-sm">
+                Безопасно
+              </Badge>
+              <Badge className="bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all px-4 py-2 text-sm">
+                Возврат до 24 ч
+              </Badge>
+            </div>
+
+            <div className="flex flex-wrap gap-4 justify-center mb-8">
               <Button size="lg" className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-lg px-8 h-14 shadow-lg">
                 <Icon name="Flame" className="mr-2 candle-flicker" size={20} />
                 Купить билет
@@ -194,28 +208,39 @@ const Index = () => {
                 Расписание
               </Button>
             </div>
-          </div>
 
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <Icon name="Flame" size={40} className="mx-auto mb-3 text-[#FF8C42] candle-flicker" />
-              <p className="text-3xl font-heading font-bold text-foreground">150+</p>
-              <p className="text-muted-foreground">Канделайт концертов</p>
-            </div>
-            <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <Icon name="MapPin" size={40} className="mx-auto mb-3 text-[#3CB8E0]" />
-              <p className="text-3xl font-heading font-bold text-foreground">12</p>
-              <p className="text-muted-foreground">Городов России и СНГ</p>
-            </div>
-            <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <Icon name="Users" size={40} className="mx-auto mb-3 text-[#8B7AB8]" />
-              <p className="text-3xl font-heading font-bold text-foreground">50K+</p>
-              <p className="text-muted-foreground">Довольных гостей</p>
-            </div>
-            <div className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <Icon name="Sparkles" size={40} className="mx-auto mb-3 text-[#3CB8E0]" />
-              <p className="text-3xl font-heading font-bold text-foreground">1000</p>
-              <p className="text-muted-foreground">Свечей на каждом концерте</p>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-center">
+              <div className="flex items-center gap-2">
+                <Icon name="Flame" size={20} className="text-[#FF8C42] candle-flicker" />
+                <div className="text-left">
+                  <p className="text-2xl font-heading font-bold text-foreground leading-none">150+</p>
+                  <p className="text-sm text-muted-foreground">Канделайт концертов</p>
+                </div>
+              </div>
+              <div className="hidden sm:block w-px h-12 bg-border"></div>
+              <div className="flex items-center gap-2">
+                <Icon name="MapPin" size={20} className="text-[#3CB8E0]" />
+                <div className="text-left">
+                  <p className="text-2xl font-heading font-bold text-foreground leading-none">12</p>
+                  <p className="text-sm text-muted-foreground">Городов России и СНГ</p>
+                </div>
+              </div>
+              <div className="hidden sm:block w-px h-12 bg-border"></div>
+              <div className="flex items-center gap-2">
+                <Icon name="Users" size={20} className="text-[#8B7AB8]" />
+                <div className="text-left">
+                  <p className="text-2xl font-heading font-bold text-foreground leading-none">50K+</p>
+                  <p className="text-sm text-muted-foreground">Довольных гостей</p>
+                </div>
+              </div>
+              <div className="hidden sm:block w-px h-12 bg-border"></div>
+              <div className="flex items-center gap-2">
+                <Icon name="Sparkles" size={20} className="text-[#3CB8E0]" />
+                <div className="text-left">
+                  <p className="text-2xl font-heading font-bold text-foreground leading-none">1000</p>
+                  <p className="text-sm text-muted-foreground">Свечей на каждом концерте</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
