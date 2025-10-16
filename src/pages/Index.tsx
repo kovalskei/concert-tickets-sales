@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -114,6 +114,30 @@ const Index = () => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [selectedSeats, setSelectedSeats] = useState(1);
   const [selectedDate, setSelectedDate] = useState('2025-10-29');
+  const [userCity, setUserCity] = useState<string>('Определение...');
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
+
+  const availableCities = ['Москва', 'Санкт-Петербург', 'Казань'];
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        const detectedCity = data.city;
+        if (availableCities.includes(detectedCity)) {
+          setUserCity(detectedCity);
+          setSelectedCity(detectedCity);
+        } else {
+          setUserCity('Вся Россия');
+          setSelectedCity(null);
+        }
+      })
+      .catch(() => {
+        setUserCity('Вся Россия');
+        setSelectedCity(null);
+      });
+  }, []);
 
   const availableDates = [
     { date: '2025-10-29', label: '29 октября' },
@@ -122,7 +146,11 @@ const Index = () => {
     { date: '2025-12-10', label: '10 декабря' }
   ];
 
-  const filteredEvents = mockEvents.filter(event => event.date === selectedDate);
+  const filteredEvents = mockEvents.filter(event => {
+    const matchesDate = event.date === selectedDate;
+    const matchesCity = selectedCity ? event.city === selectedCity : true;
+    return matchesDate && matchesCity;
+  });
 
   const openBooking = (event: Event) => {
     setSelectedEvent(event);
@@ -187,9 +215,47 @@ const Index = () => {
               </button>
             </div>
 
-            <Button className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 transition-opacity">
-              Войти
-            </Button>
+            <div className="relative">
+              <button
+                onClick={() => setIsCityDropdownOpen(!isCityDropdownOpen)}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:border-primary/50 transition-all bg-card/80 backdrop-blur-sm"
+              >
+                <Icon name="MapPin" size={18} className="text-primary" />
+                <span className="text-sm font-medium">{userCity}</span>
+                <Icon name="ChevronDown" size={16} className={`transition-transform ${isCityDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isCityDropdownOpen && (
+                <div className="absolute top-full right-0 mt-2 w-56 bg-card border border-border rounded-lg shadow-xl z-50 overflow-hidden">
+                  <button
+                    onClick={() => {
+                      setSelectedCity(null);
+                      setUserCity('Вся Россия');
+                      setIsCityDropdownOpen(false);
+                    }}
+                    className="w-full px-4 py-3 text-left hover:bg-muted transition-colors flex items-center gap-2"
+                  >
+                    <Icon name="Globe" size={16} className="text-muted-foreground" />
+                    <span className="text-sm">Вся Россия</span>
+                  </button>
+                  <div className="border-t border-border" />
+                  {availableCities.map((city) => (
+                    <button
+                      key={city}
+                      onClick={() => {
+                        setSelectedCity(city);
+                        setUserCity(city);
+                        setIsCityDropdownOpen(false);
+                      }}
+                      className="w-full px-4 py-3 text-left hover:bg-muted transition-colors flex items-center gap-2"
+                    >
+                      <Icon name="MapPin" size={16} className="text-primary" />
+                      <span className="text-sm">{city}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>
