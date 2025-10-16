@@ -114,9 +114,9 @@ const Index = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
               <img 
-                src="https://cdn.poehali.dev/files/0dae3401-0f84-479b-b875-d725a4bab6e6.png" 
+                src="https://cdn.poehali.dev/files/5226ab88-5245-4be9-87b4-163a302d667d.png" 
                 alt="Диво" 
-                className="h-8 w-auto object-contain"
+                className="h-7 w-auto object-contain"
               />
             </div>
             
