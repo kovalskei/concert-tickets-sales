@@ -260,6 +260,39 @@ const Index = () => {
         </div>
       </nav>
 
+      <div className="fixed bottom-6 right-6 z-50">
+        <a
+          href="https://wa.me/79999999999"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-4 rounded-full shadow-2xl transition-all hover:scale-110 group"
+        >
+          <Icon name="MessageCircle" size={24} className="group-hover:animate-bounce" />
+          <span className="font-semibold hidden md:inline">Помощь в WhatsApp</span>
+        </a>
+      </div>
+
+      <div className="bg-gradient-to-r from-[#3CB8E0]/10 via-[#FF8C42]/10 to-[#8B7AB8]/10 border-b border-border">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+            <div className="flex items-center gap-2">
+              <Icon name="CheckCircle" size={18} className="text-[#25D366]" />
+              <span className="text-muted-foreground">15 000+ довольных гостей</span>
+            </div>
+            <div className="hidden sm:block w-px h-4 bg-border"></div>
+            <div className="flex items-center gap-2">
+              <Icon name="Shield" size={18} className="text-[#3CB8E0]" />
+              <span className="text-muted-foreground">Возврат билетов до 24 часов</span>
+            </div>
+            <div className="hidden sm:block w-px h-4 bg-border"></div>
+            <div className="flex items-center gap-2">
+              <Icon name="Lock" size={18} className="text-[#8B7AB8]" />
+              <span className="text-muted-foreground">Безопасная оплата</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-secondary/5 to-background"></div>
         
@@ -335,6 +368,52 @@ const Index = () => {
       </section>
 
       {/* Section 1: Hero CTA Card - "Свидание в сотнях огней" */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+              Как это работает
+            </h2>
+            <p className="text-muted-foreground text-lg">Всего 3 простых шага до вашего незабываемого вечера</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center hover:shadow-xl transition-all border-2 hover:border-primary/50">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#3CB8E0] to-[#FF8C42] flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-white">1</span>
+                </div>
+                <Icon name="Calendar" size={40} className="mx-auto mb-4 text-[#3CB8E0]" />
+                <h3 className="text-xl font-semibold mb-2">Выберите концерт</h3>
+                <p className="text-muted-foreground">Выберите дату, город и мероприятие из нашего календаря</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-xl transition-all border-2 hover:border-primary/50">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#FF8C42] to-[#8B7AB8] flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-white">2</span>
+                </div>
+                <Icon name="CreditCard" size={40} className="mx-auto mb-4 text-[#FF8C42]" />
+                <h3 className="text-xl font-semibold mb-2">Забронируйте места</h3>
+                <p className="text-muted-foreground">Выберите количество мест и оплатите онлайн безопасно</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-xl transition-all border-2 hover:border-primary/50">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#8B7AB8] to-[#3CB8E0] flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-white">3</span>
+                </div>
+                <Icon name="Ticket" size={40} className="mx-auto mb-4 text-[#8B7AB8]" />
+                <h3 className="text-xl font-semibold mb-2">Покажите QR-код</h3>
+                <p className="text-muted-foreground">Приходите на концерт и предъявите электронный билет на входе</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <Card className="relative overflow-hidden bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] border-[#3CB8E0]/20 hover:card-glow transition-all">
@@ -845,7 +924,122 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section 5: Program - "Программа вечера" */}
+      {/* Section 5: FAQ */}
+      <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              Частые вопросы
+            </h2>
+            <p className="text-muted-foreground text-lg">Ответы на популярные вопросы наших гостей</p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4 mb-20">
+            <Card className="hover:shadow-lg transition-all">
+              <CardContent className="p-6">
+                <div className="flex gap-4">
+                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Можно ли вернуть билет?</h3>
+                    <p className="text-muted-foreground">Да, вы можете вернуть билет и получить полный возврат средств за 24 часа до начала концерта. Для возврата напишите нам в WhatsApp или на почту.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardContent className="p-6">
+                <div className="flex gap-4">
+                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Как получить билеты?</h3>
+                    <p className="text-muted-foreground">После оплаты электронный билет с QR-кодом придёт на вашу почту. Просто покажите его с экрана телефона на входе — распечатывать не нужно.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardContent className="p-6">
+                <div className="flex gap-4">
+                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Можно ли с детьми?</h3>
+                    <p className="text-muted-foreground">Конечно! Концерты подходят для всей семьи. Рекомендуем с детьми от 6 лет — младшим может быть сложно высидеть 1,5 часа. Детям до 7 лет вход бесплатный.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardContent className="p-6">
+                <div className="flex gap-4">
+                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Есть ли дресс-код?</h3>
+                    <p className="text-muted-foreground">Специального дресс-кода нет, но мы рекомендуем элегантную одежду для создания особой атмосферы. Многие гости приходят в вечерних нарядах.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardContent className="p-6">
+                <div className="flex gap-4">
+                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Сколько длится концерт?</h3>
+                    <p className="text-muted-foreground">Продолжительность концерта — 1,5 часа с одним антрактом 15 минут. Рекомендуем прийти за 15-20 минут до начала.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardContent className="p-6">
+                <div className="flex gap-4">
+                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Безопасна ли оплата?</h3>
+                    <p className="text-muted-foreground">Да, мы используем защищённое соединение и проверенные платёжные системы. Ваши данные карты не сохраняются на нашем сервере.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mb-16">
+            <Card className="bg-gradient-to-br from-[#3CB8E0]/10 via-[#FF8C42]/10 to-[#8B7AB8]/10 border-2 border-primary/30">
+              <CardContent className="p-12">
+                <Icon name="Sparkles" size={48} className="mx-auto mb-4 text-primary" />
+                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                  Не упустите магию живой музыки
+                </h2>
+                <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
+                  Присоединяйтесь к 15 000+ гостей, которые уже испытали волшебство канделайт концертов
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <Button size="lg" className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-lg px-8 h-14 shadow-lg">
+                    <Icon name="Ticket" className="mr-2" size={20} />
+                    Забронировать билеты
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white text-lg px-8 h-14"
+                    onClick={() => window.open('https://wa.me/79999999999', '_blank')}
+                  >
+                    <Icon name="MessageCircle" className="mr-2" size={20} />
+                    WhatsApp помощь
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Program - "Программа вечера" */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
