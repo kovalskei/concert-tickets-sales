@@ -119,6 +119,25 @@ const Index = () => {
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
   const [isMapOpen, setIsMapOpen] = useState(false);
   const [selectedMapCity, setSelectedMapCity] = useState<string | null>(null);
+  const [selectedLight, setSelectedLight] = useState<any>(null);
+  const [mapZoom, setMapZoom] = useState(1);
+
+  const cityLights = [
+    { id: 1, city: 'Москва', x: 55, y: 45, count: 8542, todayCount: 127, user: '@anna_m', text: 'Свечи, музыка и любимый рядом ✨', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 1200 },
+    { id: 2, city: 'Москва', x: 56, y: 46, count: 8542, todayCount: 127, user: '@dmitry_love', text: 'Сделал предложение под Вивальди 💍', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 3800 },
+    { id: 3, city: 'Москва', x: 54, y: 44, count: 8542, todayCount: 127, user: '@maria_art', text: 'Идеальное первое свидание 🎻', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 892 },
+    { id: 4, city: 'Санкт-Петербург', x: 52, y: 35, count: 4891, todayCount: 89, user: '@peter_culture', text: 'Бах в историческом зале = магия', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 2100 },
+    { id: 5, city: 'Санкт-Петербург', x: 53, y: 36, count: 4891, todayCount: 89, user: '@spb_romance', text: 'Романтика Белых ночей при свечах', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 1650 },
+    { id: 6, city: 'Казань', x: 62, y: 48, count: 1851, todayCount: 34, user: '@kazan_vibe', text: 'Моцарт в Усадьбе Баташева 🔥', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 567 },
+  ];
+
+  const cityStats = [
+    { city: 'Москва', total: 8542, today: 127, color: '#FF8C42' },
+    { city: 'Санкт-Петербург', total: 4891, today: 89, color: '#3CB8E0' },
+    { city: 'Казань', total: 1851, today: 34, color: '#8B7AB8' },
+  ];
+
+  const winnerCity = cityStats.sort((a, b) => b.today - a.today)[0];
 
   const availableCities = ['Москва', 'Санкт-Петербург', 'Казань'];
 
@@ -1616,224 +1635,201 @@ const Index = () => {
             </div>
 
             <div className="p-8 overflow-y-auto max-h-[calc(90vh-100px)]">
-              {!selectedMapCity ? (
-                <>
-                  <div className="text-center mb-8">
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FF8C42]/20 to-[#8B7AB8]/20 px-6 py-3 rounded-full mb-4">
-                      <Icon name="Flame" size={20} className="text-[#FF8C42] animate-pulse" />
-                      <span className="font-semibold">15 284 огонька горят прямо сейчас</span>
-                    </div>
-                    <p className="text-muted-foreground">Нажмите на город, чтобы увидеть истории гостей</p>
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    <Card 
-                      className="cursor-pointer hover:scale-105 transition-all hover:shadow-2xl border-2 hover:border-[#FF8C42]"
-                      onClick={() => setSelectedMapCity('Москва')}
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between mb-4">
-                          <div>
-                            <h4 className="text-xl font-bold mb-1">Москва</h4>
-                            <p className="text-sm text-muted-foreground">Столица огней</p>
-                          </div>
-                          <div className="text-right">
-                            <div className="flex items-center gap-1 text-[#FF8C42] mb-1">
-                              <Icon name="Flame" size={16} className="animate-pulse" />
-                              <span className="font-bold">8 542</span>
-                            </div>
-                            <p className="text-xs text-muted-foreground">огоньков</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Icon name="Users" size={14} />
-                          <span>127 новых за сегодня</span>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card 
-                      className="cursor-pointer hover:scale-105 transition-all hover:shadow-2xl border-2 hover:border-[#3CB8E0]"
-                      onClick={() => setSelectedMapCity('Санкт-Петербург')}
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between mb-4">
-                          <div>
-                            <h4 className="text-xl font-bold mb-1">Санкт-Петербург</h4>
-                            <p className="text-sm text-muted-foreground">Культурная столица</p>
-                          </div>
-                          <div className="text-right">
-                            <div className="flex items-center gap-1 text-[#3CB8E0] mb-1">
-                              <Icon name="Flame" size={16} className="animate-pulse" />
-                              <span className="font-bold">4 891</span>
-                            </div>
-                            <p className="text-xs text-muted-foreground">огоньков</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Icon name="Users" size={14} />
-                          <span>89 новых за сегодня</span>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card 
-                      className="cursor-pointer hover:scale-105 transition-all hover:shadow-2xl border-2 hover:border-[#8B7AB8]"
-                      onClick={() => setSelectedMapCity('Казань')}
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between mb-4">
-                          <div>
-                            <h4 className="text-xl font-bold mb-1">Казань</h4>
-                            <p className="text-sm text-muted-foreground">Город контрастов</p>
-                          </div>
-                          <div className="text-right">
-                            <div className="flex items-center gap-1 text-[#8B7AB8] mb-1">
-                              <Icon name="Flame" size={16} className="animate-pulse" />
-                              <span className="font-bold">1 851</span>
-                            </div>
-                            <p className="text-xs text-muted-foreground">огоньков</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Icon name="Users" size={14} />
-                          <span>34 новых за сегодня</span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-[#3CB8E0]/10 via-[#FF8C42]/10 to-[#8B7AB8]/10 rounded-xl p-6 border border-border">
-                    <div className="flex items-start gap-4">
-                      <Icon name="Info" size={24} className="text-primary flex-shrink-0 mt-1" />
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <div className="lg:col-span-2">
+                  <div className="bg-gradient-to-br from-[#3CB8E0]/10 via-[#FF8C42]/10 to-[#8B7AB8]/10 rounded-xl p-6 mb-4">
+                    <div className="flex items-center justify-between mb-4">
                       <div>
-                        <h4 className="font-semibold mb-2">Как это работает?</h4>
-                        <ul className="text-sm text-muted-foreground space-y-2">
-                          <li>• После покупки билета вы зажигаете огонёк на карте своего города</li>
-                          <li>• Делитесь фото с концерта с тегом #ДивоМосква (или ваш город)</li>
-                          <li>• Ваши истории появляются здесь — вдохновляете других гостей!</li>
-                          <li>• Чем ярче ваш город, тем больше людей присоединяется к волшебству</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <button
-                    onClick={() => setSelectedMapCity(null)}
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 transition-colors"
-                  >
-                    <Icon name="ArrowLeft" size={20} />
-                    <span>Назад к карте</span>
-                  </button>
-
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold mb-2">{selectedMapCity}</h3>
-                    <p className="text-muted-foreground">«Моё идеальное свидание в {selectedMapCity === 'Санкт-Петербург' ? 'Санкт-Петербурге' : selectedMapCity === 'Москва' ? 'Москве' : 'Казани'} — это...»</p>
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-4 mb-8">
-                    <div className="group relative overflow-hidden rounded-xl aspect-[9/16] bg-gradient-to-b from-transparent to-black/80 cursor-pointer hover:scale-105 transition-all">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg"
-                        alt="История гостя"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                         <div className="flex items-center gap-2 mb-2">
-                          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                          <span className="text-sm font-semibold">@anna_romance</span>
+                          <Icon name="Trophy" size={24} className="text-[#FFD700]" />
+                          <h4 className="text-xl font-bold">Самый яркий город сегодня</h4>
                         </div>
-                        <p className="text-sm mb-2">«Свечи, музыка и любимый рядом — идеальный вечер пятницы ✨»</p>
-                        <div className="flex items-center gap-3 text-xs">
-                          <div className="flex items-center gap-1">
-                            <Icon name="Heart" size={14} />
-                            <span>1.2k</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Icon name="MessageCircle" size={14} />
-                            <span>89</span>
-                          </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-3xl font-bold" style={{ color: winnerCity.color }}>{winnerCity.city}</span>
+                          <Badge className="text-lg" style={{ backgroundColor: winnerCity.color }}>+{winnerCity.today} огоньков</Badge>
                         </div>
                       </div>
-                      <div className="absolute top-4 right-4">
-                        <Badge className="bg-[#FF8C42] text-white text-xs">#Диво{selectedMapCity}</Badge>
-                      </div>
-                    </div>
-
-                    <div className="group relative overflow-hidden rounded-xl aspect-[9/16] bg-gradient-to-b from-transparent to-black/80 cursor-pointer hover:scale-105 transition-all">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg"
-                        alt="История гостя"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                          <span className="text-sm font-semibold">@dmitry_love</span>
-                        </div>
-                        <p className="text-sm mb-2">«Сделал предложение под Вивальди. Она сказала ДА! 💍»</p>
-                        <div className="flex items-center gap-3 text-xs">
-                          <div className="flex items-center gap-1">
-                            <Icon name="Heart" size={14} />
-                            <span>3.8k</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Icon name="MessageCircle" size={14} />
-                            <span>234</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="absolute top-4 right-4">
-                        <Badge className="bg-[#FF8C42] text-white text-xs">#Диво{selectedMapCity}</Badge>
-                      </div>
-                    </div>
-
-                    <div className="group relative overflow-hidden rounded-xl aspect-[9/16] bg-gradient-to-b from-transparent to-black/80 cursor-pointer hover:scale-105 transition-all">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg"
-                        alt="История гостя"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm"></div>
-                          <span className="text-sm font-semibold">@maxim_culture</span>
-                        </div>
-                        <p className="text-sm mb-2">«После концерта понял — классика это круто! 🎻»</p>
-                        <div className="flex items-center gap-3 text-xs">
-                          <div className="flex items-center gap-1">
-                            <Icon name="Heart" size={14} />
-                            <span>892</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Icon name="MessageCircle" size={14} />
-                            <span>45</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="absolute top-4 right-4">
-                        <Badge className="bg-[#FF8C42] text-white text-xs">#Диво{selectedMapCity}</Badge>
-                      </div>
+                      <Icon name="Flame" size={64} className="text-[#FF8C42] animate-pulse opacity-50" />
                     </div>
                   </div>
 
-                  <Card className="bg-gradient-to-br from-[#3CB8E0]/10 via-[#FF8C42]/10 to-[#8B7AB8]/10 border-2 border-primary/30">
-                    <CardContent className="p-8 text-center">
-                      <h4 className="text-xl font-bold mb-2">Зажги свой огонёк на карте!</h4>
-                      <p className="text-muted-foreground mb-6">Купи билет и стань частью волшебной истории своего города</p>
-                      <Button size="lg" className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90">
-                        <Icon name="Ticket" className="mr-2" size={20} />
-                        Забронировать билеты
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </>
-              )}
+                  <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl overflow-hidden border-2 border-border" style={{ height: '600px' }}>
+                    <div className="absolute top-4 right-4 z-10 flex gap-2">
+                      <button
+                        onClick={() => setMapZoom(Math.min(mapZoom + 0.2, 2))}
+                        className="p-2 bg-card/90 backdrop-blur-sm rounded-lg hover:bg-card transition-colors"
+                      >
+                        <Icon name="ZoomIn" size={20} />
+                      </button>
+                      <button
+                        onClick={() => setMapZoom(Math.max(mapZoom - 0.2, 0.8))}
+                        className="p-2 bg-card/90 backdrop-blur-sm rounded-lg hover:bg-card transition-colors"
+                      >
+                        <Icon name="ZoomOut" size={20} />
+                      </button>
+                    </div>
+
+                    <div 
+                      className="absolute inset-0 transition-transform duration-300" 
+                      style={{ 
+                        transform: `scale(${mapZoom})`,
+                        transformOrigin: 'center center'
+                      }}
+                    >
+                      <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <path
+                          d="M30,40 L35,38 L40,35 L45,33 L50,32 L55,33 L60,35 L65,37 L70,40 L73,43 L75,47 L75,52 L73,56 L70,60 L65,63 L60,65 L55,67 L50,68 L45,67 L40,65 L35,62 L32,58 L30,54 L30,48 Z"
+                          fill="#1e293b"
+                          stroke="#334155"
+                          strokeWidth="0.3"
+                          opacity="0.6"
+                        />
+
+                        {cityLights.map((light) => (
+                          <g key={light.id}>
+                            <circle
+                              cx={light.x}
+                              cy={light.y}
+                              r="1.5"
+                              fill={light.city === 'Москва' ? '#FF8C42' : light.city === 'Санкт-Петербург' ? '#3CB8E0' : '#8B7AB8'}
+                              className="cursor-pointer hover:opacity-80 transition-opacity animate-pulse"
+                              onClick={() => setSelectedLight(light)}
+                              style={{ animationDuration: `${1 + Math.random()}s` }}
+                            />
+                            <circle
+                              cx={light.x}
+                              cy={light.y}
+                              r="2.5"
+                              fill={light.city === 'Москва' ? '#FF8C42' : light.city === 'Санкт-Петербург' ? '#3CB8E0' : '#8B7AB8'}
+                              opacity="0.3"
+                              className="cursor-pointer"
+                              onClick={() => setSelectedLight(light)}
+                            />
+                          </g>
+                        ))}
+                      </svg>
+                    </div>
+
+                    <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                      {cityStats.map((stat) => (
+                        <div key={stat.city} className="flex-1 bg-card/90 backdrop-blur-sm rounded-lg p-3">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: stat.color }}></div>
+                            <span className="text-xs font-semibold">{stat.city}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Icon name="Flame" size={12} style={{ color: stat.color }} />
+                            <span className="text-xs font-bold">{stat.total.toLocaleString()}</span>
+                            <span className="text-xs text-muted-foreground">огоньков</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="text-center mt-4">
+                    <p className="text-sm text-muted-foreground">Нажмите на огонёк, чтобы увидеть историю гостя</p>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-1">
+                  {selectedLight ? (
+                    <Card className="sticky top-4">
+                      <CardContent className="p-0">
+                        <div className="relative aspect-[9/16] overflow-hidden rounded-t-lg">
+                          <img 
+                            src={selectedLight.image}
+                            alt="История гостя"
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                          <div className="absolute top-4 right-4">
+                            <Badge className="text-xs" style={{ backgroundColor: selectedLight.city === 'Москва' ? '#FF8C42' : selectedLight.city === 'Санкт-Петербург' ? '#3CB8E0' : '#8B7AB8' }}>
+                              #Диво{selectedLight.city}
+                            </Badge>
+                          </div>
+                          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm"></div>
+                              <span className="font-semibold">{selectedLight.user}</span>
+                            </div>
+                            <p className="text-sm mb-3">{selectedLight.text}</p>
+                            <div className="flex items-center gap-4 text-sm">
+                              <div className="flex items-center gap-1">
+                                <Icon name="Heart" size={16} />
+                                <span>{selectedLight.likes.toLocaleString()}</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Icon name="MapPin" size={16} />
+                                <span>{selectedLight.city}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-4">
+                          <Button 
+                            className="w-full bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90"
+                            onClick={() => setIsMapOpen(false)}
+                          >
+                            <Icon name="Ticket" className="mr-2" size={18} />
+                            Зажечь свой огонёк
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <Card className="sticky top-4">
+                      <CardContent className="p-8 text-center">
+                        <Icon name="MousePointerClick" size={48} className="mx-auto mb-4 text-muted-foreground opacity-50" />
+                        <h4 className="font-semibold mb-2">Выберите огонёк</h4>
+                        <p className="text-sm text-muted-foreground mb-6">
+                          Кликните на любой огонёк на карте, чтобы увидеть историю гостя из этого города
+                        </p>
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
+                            <div className="w-3 h-3 rounded-full bg-[#FF8C42] animate-pulse"></div>
+                            <div className="text-left flex-1">
+                              <p className="text-sm font-semibold">Москва</p>
+                              <p className="text-xs text-muted-foreground">+127 сегодня</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
+                            <div className="w-3 h-3 rounded-full bg-[#3CB8E0] animate-pulse"></div>
+                            <div className="text-left flex-1">
+                              <p className="text-sm font-semibold">Санкт-Петербург</p>
+                              <p className="text-xs text-muted-foreground">+89 сегодня</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
+                            <div className="w-3 h-3 rounded-full bg-[#8B7AB8] animate-pulse"></div>
+                            <div className="text-left flex-1">
+                              <p className="text-sm font-semibold">Казань</p>
+                              <p className="text-xs text-muted-foreground">+34 сегодня</p>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-[#3CB8E0]/10 via-[#FF8C42]/10 to-[#8B7AB8]/10 rounded-xl p-6 border border-border">
+                <div className="flex items-start gap-4">
+                  <Icon name="Info" size={24} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-semibold mb-2">Как зажечь свой огонёк?</h4>
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                      <li>• Купите билет на концерт — ваш огонёк загорится на карте автоматически</li>
+                      <li>• Сделайте фото с концерта и поделитесь с тегом #ДивоМосква (или ваш город)</li>
+                      <li>• Ваша история появится здесь и вдохновит других гостей!</li>
+                      <li>• Помогите вашему городу стать самым ярким — участвуйте в ежедневном конкурсе</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
         </div>
