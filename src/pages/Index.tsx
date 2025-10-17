@@ -854,8 +854,107 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section 4: Musicians - "Кто играет" */}
+      {/* Section 4: Gallery - "Атмосфера наших концертов" */}
       <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+              Атмосфера наших концертов
+            </h2>
+            <p className="text-muted-foreground text-lg">Реальные фото с прошедших мероприятий</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+            <div className="col-span-2 md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-lg cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/4bdc00b8-a05e-429d-b880-04fa6a680fa2.jpg"
+                alt="Концертный зал с 1000 свечей"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-semibold">Зал на 300 гостей</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-lg cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/51f4a196-09ec-45db-a866-4655198245a0.jpg"
+                alt="Гости на концерте"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-semibold text-sm">Довольные гости</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-lg cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/fd39e944-c009-4a04-a91d-a307041c8b4b.jpg"
+                alt="Романтическая пара"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-semibold text-sm">Романтика</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-lg cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8fb492fa-0b5a-4001-acea-980eb657556f.jpg"
+                alt="Струнный квартет"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-semibold text-sm">Живая музыка</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-lg cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/c8f3f358-e84f-4378-bccd-ab1db6711cf5.jpg"
+                alt="Пианист и свечи"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-semibold text-sm">1000 свечей</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-lg cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/f0cdfd35-4be0-43e1-acd7-af401748a1a4.jpg"
+                alt="Панорама зала"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-semibold text-sm">Исторический зал</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 bg-muted/50 px-6 py-3 rounded-full">
+              <Icon name="Camera" size={20} className="text-primary" />
+              <span className="text-sm text-muted-foreground">Все фотографии с реальных концертов</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Musicians - "Кто играет" */}
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-heading font-bold text-foreground">
