@@ -63,56 +63,85 @@ const MapWithLights = ({ cityLights, onLightSelect }: MapWithLightsProps) => {
 
       mapInstance.current = map;
 
-      // Добавляем красивые анимированные огоньки для каждой площадки
+      // Добавляем волшебные огоньки с магической пылью для каждой площадки
       cityLights.forEach((light) => {
         const color = getCityColor(light.city);
         
-        // Создаём красивую SVG иконку огонька с анимацией
-        const candleIcon = `
-          <svg width="40" height="60" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg">
+        // Создаём волшебный огонёк с звёздами и магической пылью
+        const magicLight = `
+          <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <filter id="glow-${light.id}">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
                 <feMerge>
                   <feMergeNode in="coloredBlur"/>
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
-              <radialGradient id="flame-${light.id}" cx="50%" cy="30%" r="50%">
-                <stop offset="0%" style="stop-color:${color};stop-opacity:1" />
-                <stop offset="100%" style="stop-color:${color};stop-opacity:0.3" />
+              <radialGradient id="magic-gradient-${light.id}" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                <stop offset="40%" style="stop-color:${color};stop-opacity:0.9" />
+                <stop offset="100%" style="stop-color:${color};stop-opacity:0" />
               </radialGradient>
             </defs>
             
-            <!-- Свечение вокруг -->
-            <circle cx="20" cy="15" r="18" fill="url(#flame-${light.id})" opacity="0.4">
-              <animate attributeName="r" values="16;20;16" dur="2s" repeatCount="indefinite"/>
+            <!-- Магическое свечение (большое) -->
+            <circle cx="25" cy="25" r="22" fill="url(#magic-gradient-${light.id})" opacity="0.5">
+              <animate attributeName="r" values="20;24;20" dur="2s" repeatCount="indefinite"/>
               <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/>
             </circle>
             
-            <!-- Огонёк -->
-            <path d="M 20 5 Q 15 12, 20 20 Q 25 12, 20 5 Z" fill="${color}" filter="url(#glow-${light.id})">
-              <animate attributeName="d" 
-                values="M 20 5 Q 15 12, 20 20 Q 25 12, 20 5 Z;
-                        M 20 3 Q 14 11, 20 22 Q 26 11, 20 3 Z;
-                        M 20 5 Q 15 12, 20 20 Q 25 12, 20 5 Z" 
-                dur="1.5s" 
-                repeatCount="indefinite"/>
-            </path>
+            <!-- Центральный огонёк -->
+            <circle cx="25" cy="25" r="10" fill="${color}" filter="url(#glow-${light.id})">
+              <animate attributeName="r" values="9;11;9" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
             
-            <!-- Яркая точка в центре -->
-            <circle cx="20" cy="12" r="3" fill="white" opacity="0.9">
+            <!-- Яркое ядро -->
+            <circle cx="25" cy="25" r="6" fill="white" opacity="0.9">
+              <animate attributeName="r" values="5;7;5" dur="1s" repeatCount="indefinite"/>
               <animate attributeName="opacity" values="0.7;1;0.7" dur="1s" repeatCount="indefinite"/>
             </circle>
             
-            <!-- Свеча -->
-            <rect x="17" y="20" width="6" height="15" rx="1" fill="#f0f0f0" opacity="0.8"/>
-            <ellipse cx="20" cy="20" rx="3" ry="1.5" fill="#fff" opacity="0.6"/>
-            
-            <!-- Подпись города (небольшая) -->
-            <text x="20" y="50" font-family="Arial" font-size="8" fill="${color}" text-anchor="middle" font-weight="bold">
-              ${light.city === 'Москва' ? 'МСК' : light.city === 'Санкт-Петербург' ? 'СПБ' : 'КЗН'}
-            </text>
+            <!-- Звёздочки вокруг (магическая пыль) -->
+            <g opacity="0.8">
+              <!-- Звезда 1 -->
+              <path d="M 15 10 L 16 13 L 13 13 L 15 10 Z" fill="white">
+                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0s" repeatCount="indefinite"/>
+                <animateTransform attributeName="transform" type="translate" values="0,0; -1,-2; 0,0" dur="1.5s" repeatCount="indefinite"/>
+              </path>
+              
+              <!-- Звезда 2 -->
+              <circle cx="38" cy="12" r="1.5" fill="white">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+                <animateTransform attributeName="transform" type="translate" values="0,0; 2,-1; 0,0" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+              </circle>
+              
+              <!-- Звезда 3 -->
+              <path d="M 10 30 L 11 32 L 9 32 L 10 30 Z" fill="${color}">
+                <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+                <animateTransform attributeName="transform" type="translate" values="0,0; -1,1; 0,0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+              </path>
+              
+              <!-- Звезда 4 -->
+              <circle cx="40" cy="35" r="1.5" fill="${color}">
+                <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.9s" repeatCount="indefinite"/>
+                <animateTransform attributeName="transform" type="translate" values="0,0; 1,2; 0,0" dur="2.2s" begin="0.9s" repeatCount="indefinite"/>
+              </circle>
+              
+              <!-- Искры (маленькие точки магической пыли) -->
+              <circle cx="18" cy="18" r="1" fill="white">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1s" begin="0.2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="33" cy="20" r="1" fill="white">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.2s" begin="0.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="20" cy="35" r="1" fill="${color}">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.3s" begin="0.7s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="35" cy="32" r="1" fill="${color}">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.1s" begin="0.4s" repeatCount="indefinite"/>
+              </circle>
+            </g>
           </svg>
         `;
 
@@ -135,9 +164,9 @@ const MapWithLights = ({ cityLights, onLightSelect }: MapWithLightsProps) => {
           },
           {
             iconLayout: 'default#image',
-            iconImageHref: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(candleIcon),
-            iconImageSize: [40, 60],
-            iconImageOffset: [-20, -60]
+            iconImageHref: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(magicLight),
+            iconImageSize: [50, 50],
+            iconImageOffset: [-25, -25]
           }
         );
 
