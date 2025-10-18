@@ -1083,6 +1083,36 @@ const Index = () => {
                 <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
                   15 000+ гостей уже зажгли огоньки на карте России. Посмотрите, как светится ваш город!
                 </p>
+                
+                <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 mb-8 max-w-3xl mx-auto">
+                  <div className="flex items-start gap-4 text-left">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#FF8C42] to-[#8B7AB8] rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Sparkles" size={24} className="text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-heading font-bold text-lg mb-2">Как попасть на карту огней?</h3>
+                      <p className="text-muted-foreground text-sm mb-3">
+                        Опубликуйте фото или видео с концерта в Instagram с хэштегом <span className="font-bold text-[#FF8C42]">#канделайт</span> и отметьте геолокацию площадки
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge className="bg-[#E1306C] hover:bg-[#E1306C]/90 text-white border-0">
+                          <Icon name="Instagram" size={14} className="mr-1" />
+                          Instagram
+                        </Badge>
+                        <Badge className="bg-card border-border text-foreground">
+                          #канделайт
+                        </Badge>
+                        <Badge className="bg-card border-border text-foreground">
+                          📍 Геолокация обязательна
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-3 italic">
+                        * Парсер автоматически найдёт ваш пост и добавит огонёк на карту в течение 24 часов
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex flex-wrap gap-4 justify-center mb-8">
                   <Button 
                     size="lg" 
