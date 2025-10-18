@@ -63,8 +63,59 @@ const MapWithLights = ({ cityLights, onLightSelect }: MapWithLightsProps) => {
 
       mapInstance.current = map;
 
-      // Добавляем метки для каждого адреса площадки
+      // Добавляем красивые анимированные огоньки для каждой площадки
       cityLights.forEach((light) => {
+        const color = getCityColor(light.city);
+        
+        // Создаём красивую SVG иконку огонька с анимацией
+        const candleIcon = `
+          <svg width="40" height="60" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="glow-${light.id}">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <radialGradient id="flame-${light.id}" cx="50%" cy="30%" r="50%">
+                <stop offset="0%" style="stop-color:${color};stop-opacity:1" />
+                <stop offset="100%" style="stop-color:${color};stop-opacity:0.3" />
+              </radialGradient>
+            </defs>
+            
+            <!-- Свечение вокруг -->
+            <circle cx="20" cy="15" r="18" fill="url(#flame-${light.id})" opacity="0.4">
+              <animate attributeName="r" values="16;20;16" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Огонёк -->
+            <path d="M 20 5 Q 15 12, 20 20 Q 25 12, 20 5 Z" fill="${color}" filter="url(#glow-${light.id})">
+              <animate attributeName="d" 
+                values="M 20 5 Q 15 12, 20 20 Q 25 12, 20 5 Z;
+                        M 20 3 Q 14 11, 20 22 Q 26 11, 20 3 Z;
+                        M 20 5 Q 15 12, 20 20 Q 25 12, 20 5 Z" 
+                dur="1.5s" 
+                repeatCount="indefinite"/>
+            </path>
+            
+            <!-- Яркая точка в центре -->
+            <circle cx="20" cy="12" r="3" fill="white" opacity="0.9">
+              <animate attributeName="opacity" values="0.7;1;0.7" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Свеча -->
+            <rect x="17" y="20" width="6" height="15" rx="1" fill="#f0f0f0" opacity="0.8"/>
+            <ellipse cx="20" cy="20" rx="3" ry="1.5" fill="#fff" opacity="0.6"/>
+            
+            <!-- Подпись города (небольшая) -->
+            <text x="20" y="50" font-family="Arial" font-size="8" fill="${color}" text-anchor="middle" font-weight="bold">
+              ${light.city === 'Москва' ? 'МСК' : light.city === 'Санкт-Петербург' ? 'СПБ' : 'КЗН'}
+            </text>
+          </svg>
+        `;
+
         const placemark = new window.ymaps.Placemark(
           [light.lat, light.lon],
           {
@@ -83,8 +134,10 @@ const MapWithLights = ({ cityLights, onLightSelect }: MapWithLightsProps) => {
             `
           },
           {
-            preset: 'islands#flameDotIcon',
-            iconColor: getCityColor(light.city)
+            iconLayout: 'default#image',
+            iconImageHref: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(candleIcon),
+            iconImageSize: [40, 60],
+            iconImageOffset: [-20, -60]
           }
         );
 
