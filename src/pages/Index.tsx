@@ -1092,19 +1092,35 @@ const Index = () => {
                     <div className="flex-1">
                       <h3 className="font-heading font-bold text-lg mb-2">Как попасть на карту огней?</h3>
                       <p className="text-muted-foreground text-sm mb-3">
-                        Опубликуйте фото или видео с концерта в Instagram с хэштегом <span className="font-bold text-[#FF8C42]">#канделайт</span> и отметьте геолокацию площадки
+                        Опубликуйте фото или видео с концерта в любой соцсети с хэштегом <span className="font-bold text-[#FF8C42]">#канделайт</span> и отметьте геолокацию площадки
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 mb-3">
                         <Badge className="bg-[#E1306C] hover:bg-[#E1306C]/90 text-white border-0">
-                          <Icon name="Instagram" size={14} className="mr-1" />
                           Instagram
                         </Badge>
+                        <Badge className="bg-[#0077FF] hover:bg-[#0077FF]/90 text-white border-0">
+                          ВКонтакте
+                        </Badge>
+                        <Badge className="bg-[#F97316] hover:bg-[#F97316]/90 text-white border-0">
+                          Одноклассники
+                        </Badge>
+                        <Badge className="bg-[#0088CC] hover:bg-[#0088CC]/90 text-white border-0">
+                          Telegram
+                        </Badge>
+                      </div>
+                      <div className="flex flex-wrap gap-2 mb-3">
                         <Badge className="bg-card border-border text-foreground">
                           #канделайт
                         </Badge>
                         <Badge className="bg-card border-border text-foreground">
                           📍 Геолокация обязательна
                         </Badge>
+                      </div>
+                      <div className="bg-muted/50 rounded-lg p-3 text-xs text-muted-foreground space-y-1">
+                        <p>📱 <strong>Instagram:</strong> пост или сторис с геометкой</p>
+                        <p>💙 <strong>ВКонтакте:</strong> пост на стене с геолокацией</p>
+                        <p>🧡 <strong>Одноклассники:</strong> пост с отметкой места</p>
+                        <p>✈️ <strong>Telegram:</strong> публичный пост в канале с геопозицией</p>
                       </div>
                       <p className="text-xs text-muted-foreground mt-3 italic">
                         * Парсер автоматически найдёт ваш пост и добавит огонёк на карту в течение 24 часов
