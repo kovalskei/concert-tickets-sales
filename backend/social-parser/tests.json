@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "GET - Manual trigger parser",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "total_new_posts": 0
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "POST - Cron trigger parser",
+      "method": "POST",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "OPTIONS - CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
