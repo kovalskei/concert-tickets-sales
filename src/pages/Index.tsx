@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import InteractiveExperienceSection from '@/components/InteractiveExperienceSection';
+import MapWithLights from '@/components/MapWithLights';
 
 interface Event {
   id: number;
@@ -124,12 +125,12 @@ const Index = () => {
   const [mapZoom, setMapZoom] = useState(1);
 
   const cityLights = [
-    { id: 1, city: 'Москва', x: 55, y: 45, count: 8542, todayCount: 127, user: '@anna_m', text: 'Свечи, музыка и любимый рядом ✨', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 1200 },
-    { id: 2, city: 'Москва', x: 56, y: 46, count: 8542, todayCount: 127, user: '@dmitry_love', text: 'Сделал предложение под Вивальди 💍', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 3800 },
-    { id: 3, city: 'Москва', x: 54, y: 44, count: 8542, todayCount: 127, user: '@maria_art', text: 'Идеальное первое свидание 🎻', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 892 },
-    { id: 4, city: 'Санкт-Петербург', x: 52, y: 35, count: 4891, todayCount: 89, user: '@peter_culture', text: 'Бах в историческом зале = магия', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 2100 },
-    { id: 5, city: 'Санкт-Петербург', x: 53, y: 36, count: 4891, todayCount: 89, user: '@spb_romance', text: 'Романтика Белых ночей при свечах', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 1650 },
-    { id: 6, city: 'Казань', x: 62, y: 48, count: 1851, todayCount: 34, user: '@kazan_vibe', text: 'Моцарт в Усадьбе Баташева 🔥', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 567 },
+    { id: 1, city: 'Москва', lat: 55.7558, lon: 37.6173, x: 55, y: 45, count: 8542, todayCount: 127, user: '@anna_m', text: 'Свечи, музыка и любимый рядом ✨', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 1200 },
+    { id: 2, city: 'Москва', lat: 55.7600, lon: 37.6200, x: 56, y: 46, count: 8542, todayCount: 127, user: '@dmitry_love', text: 'Сделал предложение под Вивальди 💍', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 3800 },
+    { id: 3, city: 'Москва', lat: 55.7500, lon: 37.6100, x: 54, y: 44, count: 8542, todayCount: 127, user: '@maria_art', text: 'Идеальное первое свидание 🎻', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 892 },
+    { id: 4, city: 'Санкт-Петербург', lat: 59.9343, lon: 30.3351, x: 52, y: 35, count: 4891, todayCount: 89, user: '@peter_culture', text: 'Бах в историческом зале = магия', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 2100 },
+    { id: 5, city: 'Санкт-Петербург', lat: 59.9400, lon: 30.3400, x: 53, y: 36, count: 4891, todayCount: 89, user: '@spb_romance', text: 'Романтика Белых ночей при свечах', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 1650 },
+    { id: 6, city: 'Казань', lat: 55.7964, lon: 49.1089, x: 62, y: 48, count: 1851, todayCount: 34, user: '@kazan_vibe', text: 'Моцарт в Усадьбе Баташева 🔥', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 567 },
   ];
 
   const cityStats = [
@@ -1592,64 +1593,13 @@ const Index = () => {
                     </div>
                   </div>
 
-                  <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl overflow-hidden border-2 border-border" style={{ height: '600px' }}>
-                    <div className="absolute top-4 right-4 z-10 flex gap-2">
-                      <button
-                        onClick={() => setMapZoom(Math.min(mapZoom + 0.2, 2))}
-                        className="p-2 bg-card/90 backdrop-blur-sm rounded-lg hover:bg-card transition-colors"
-                      >
-                        <Icon name="ZoomIn" size={20} />
-                      </button>
-                      <button
-                        onClick={() => setMapZoom(Math.max(mapZoom - 0.2, 0.8))}
-                        className="p-2 bg-card/90 backdrop-blur-sm rounded-lg hover:bg-card transition-colors"
-                      >
-                        <Icon name="ZoomOut" size={20} />
-                      </button>
-                    </div>
-
-                    <div 
-                      className="absolute inset-0 transition-transform duration-300" 
-                      style={{ 
-                        transform: `scale(${mapZoom})`,
-                        transformOrigin: 'center center'
-                      }}
-                    >
-                      <svg viewBox="0 0 100 100" className="w-full h-full">
-                        <path
-                          d="M30,40 L35,38 L40,35 L45,33 L50,32 L55,33 L60,35 L65,37 L70,40 L73,43 L75,47 L75,52 L73,56 L70,60 L65,63 L60,65 L55,67 L50,68 L45,67 L40,65 L35,62 L32,58 L30,54 L30,48 Z"
-                          fill="#1e293b"
-                          stroke="#334155"
-                          strokeWidth="0.3"
-                          opacity="0.6"
-                        />
-
-                        {cityLights.map((light) => (
-                          <g key={light.id}>
-                            <circle
-                              cx={light.x}
-                              cy={light.y}
-                              r="1.5"
-                              fill={light.city === 'Москва' ? '#FF8C42' : light.city === 'Санкт-Петербург' ? '#3CB8E0' : '#8B7AB8'}
-                              className="cursor-pointer hover:opacity-80 transition-opacity animate-pulse"
-                              onClick={() => setSelectedLight(light)}
-                              style={{ animationDuration: `${1 + Math.random()}s` }}
-                            />
-                            <circle
-                              cx={light.x}
-                              cy={light.y}
-                              r="2.5"
-                              fill={light.city === 'Москва' ? '#FF8C42' : light.city === 'Санкт-Петербург' ? '#3CB8E0' : '#8B7AB8'}
-                              opacity="0.3"
-                              className="cursor-pointer"
-                              onClick={() => setSelectedLight(light)}
-                            />
-                          </g>
-                        ))}
-                      </svg>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                  <div className="relative rounded-xl overflow-hidden" style={{ height: '600px' }}>
+                    <MapWithLights 
+                      cityLights={cityLights}
+                      onLightSelect={(light) => setSelectedLight(light)}
+                    />
+                    
+                    <div className="absolute bottom-4 left-4 right-4 flex gap-2 z-20">
                       {cityStats.map((stat) => (
                         <div key={stat.city} className="flex-1 bg-card/90 backdrop-blur-sm rounded-lg p-3">
                           <div className="flex items-center gap-2 mb-1">
