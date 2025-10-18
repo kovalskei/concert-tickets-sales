@@ -5,6 +5,7 @@ import Icon from '@/components/ui/icon';
 interface CityLight {
   id: number;
   city: string;
+  venue: string;
   lat: number;
   lon: number;
   x?: number;
@@ -53,30 +54,30 @@ const MapWithLights = ({ cityLights, onLightSelect }: MapWithLightsProps) => {
     if (!isLoaded || !mapRef.current || mapInstance.current) return;
 
     window.ymaps.ready(() => {
-      // Создаём карту с центром на России
+      // Создаём карту с центром на европейской части России
       const map = new window.ymaps.Map(mapRef.current, {
-        center: [64.0, 100.0], // Центр России
-        zoom: 3,
+        center: [55.7558, 37.6173], // Москва - центр европейской части
+        zoom: 5,
         controls: ['zoomControl', 'fullscreenControl']
       });
 
       mapInstance.current = map;
 
-      // Добавляем метки для каждого города
+      // Добавляем метки для каждого адреса площадки
       cityLights.forEach((light) => {
         const placemark = new window.ymaps.Placemark(
           [light.lat, light.lon],
           {
-            hintContent: `${light.city}: ${light.todayCount} огней сегодня`,
+            hintContent: `${light.venue}, ${light.city}`,
             balloonContent: `
               <div style="padding: 12px; max-width: 300px;">
-                <img src="${light.image}" alt="${light.city}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" />
-                <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">${light.city}</div>
-                <div style="color: #666; font-size: 12px; margin-bottom: 8px;">${light.user}</div>
+                <img src="${light.image}" alt="${light.venue}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;" />
+                <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">${light.venue}</div>
+                <div style="color: #666; font-size: 12px; margin-bottom: 8px;">${light.city} • ${light.user}</div>
                 <div style="font-size: 13px; margin-bottom: 8px;">${light.text}</div>
                 <div style="display: flex; gap: 16px; font-size: 12px; color: #999;">
                   <span>❤️ ${light.likes}</span>
-                  <span>🔥 ${light.todayCount} сегодня</span>
+                  <span>🔥 ${light.todayCount} огоньков сегодня</span>
                 </div>
               </div>
             `
@@ -94,7 +95,7 @@ const MapWithLights = ({ cityLights, onLightSelect }: MapWithLightsProps) => {
         map.geoObjects.add(placemark);
       });
 
-      // Группируем метки по городам для кластеризации
+      // Кластеризация для большого количества меток
       const clusterer = new window.ymaps.Clusterer({
         preset: 'islands#invertedVioletClusterIcons',
         groupByCoordinates: false,
