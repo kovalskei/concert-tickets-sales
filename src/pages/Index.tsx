@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion';
 import InteractiveExperienceSection from '@/components/InteractiveExperienceSection';
 import MapWithLights from '@/components/MapWithLights';
+import AuthDialog from '@/components/AuthDialog';
 
 interface Event {
   id: number;
@@ -129,6 +130,13 @@ const Index = () => {
   const [selectedMapCity, setSelectedMapCity] = useState<string | null>(null);
   const [selectedLight, setSelectedLight] = useState<any>(null);
   const [mapZoom, setMapZoom] = useState(1);
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const userId = localStorage.getItem('user_id');
+    setIsLoggedIn(!!userId);
+  }, []);
 
   const cityLights = [
     { id: 1, city: 'Москва', venue: 'LOFT HALL', lat: 55.7558, lon: 37.6173, x: 55, y: 45, count: 8542, todayCount: 127, user: '@anna_m', text: 'Свечи, музыка и любимый рядом ✨', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 1200 },
@@ -227,15 +235,27 @@ const Index = () => {
               >
                 Города
               </button>
-              <Button
-                variant="default"
-                size="sm"
-                onClick={() => window.location.href = '/profile'}
-                className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
-              >
-                <Icon name="User" size={16} className="mr-2" />
-                Профиль
-              </Button>
+              {isLoggedIn ? (
+                <Button
+                  variant="default"
+                  size="sm"
+                  onClick={() => window.location.href = '/profile'}
+                  className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
+                >
+                  <Icon name="User" size={16} className="mr-2" />
+                  Профиль
+                </Button>
+              ) : (
+                <Button
+                  variant="default"
+                  size="sm"
+                  onClick={() => setAuthDialogOpen(true)}
+                  className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
+                >
+                  <Icon name="LogIn" size={16} className="mr-2" />
+                  Войти
+                </Button>
+              )}
               <button 
                 onClick={() => setActiveSection('artists')}
                 className="text-sm font-medium hover:text-primary transition-colors"
@@ -1882,6 +1902,15 @@ const Index = () => {
           </Card>
         </div>
       )}
+
+      <AuthDialog 
+        open={authDialogOpen} 
+        onOpenChange={setAuthDialogOpen}
+        onSuccess={() => {
+          setIsLoggedIn(true);
+          window.location.href = '/profile';
+        }}
+      />
     </div>
   );
 };
