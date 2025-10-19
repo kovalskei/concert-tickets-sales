@@ -53,13 +53,18 @@ const AuthDialog = ({ open, onOpenChange, onSuccess }: AuthDialogProps) => {
 
       const data = await response.json();
       console.log('Auth response:', data);
+      console.log('Response status:', response.status);
+      console.log('data.success:', data.success);
+      console.log('data.user_id:', data.user_id);
 
-      if (data.success) {
-        console.log('Saving to localStorage, user_id:', data.user_id);
-        localStorage.setItem('user_id', data.user_id);
+      if (data.success && data.user_id) {
+        const userId = String(data.user_id);
+        console.log('Saving to localStorage, user_id:', userId);
+        localStorage.setItem('user_id', userId);
         localStorage.setItem('user_email', email);
         localStorage.setItem('user_name', name);
         console.log('Saved! Checking:', localStorage.getItem('user_id'));
+        console.log('All localStorage keys:', Object.keys(localStorage));
 
         toast({
           title: referralCode ? 'Добро пожаловать! 🎉' : 'Вы зарегистрированы! 🎉',
