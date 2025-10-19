@@ -10,7 +10,7 @@ def generate_referral_code(cur, length: int = 8) -> str:
     while True:
         chars = string.ascii_uppercase + string.digits
         code = ''.join(secrets.choice(chars) for _ in range(length))
-        cur.execute("SELECT id FROM users WHERE referral_code = %s", (code,))
+        cur.execute(f"SELECT id FROM users WHERE referral_code = '{code}'")
         if not cur.fetchone():
             return code
 
@@ -35,7 +35,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'Access-Control-Allow-Headers': 'Content-Type, X-User-Id',
                 'Access-Control-Max-Age': '86400'
             },
-            'body': ''
+            'body': '',
+            'isBase64Encoded': False
         }
     
     conn = get_db_connection()
@@ -47,17 +48,20 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             action = body_data.get('action')
             
             if action == 'create_user':
-                email = body_data.get('email')
-                name = body_data.get('name', '')
-                referred_by_code = body_data.get('referral_code')
+                email = body_data.get('email', '').replace("'", "''")
+                name = body_data.get('name', '').replace("'", "''")
+                referred_by_code = body_data.get('referral_code', '')
+                if referred_by_code:
+                    referred_by_code = referred_by_code.replace("'", "''")
                 
-                cur.execute("SELECT id, referral_code FROM users WHERE email = %s", (email,))
+                cur.execute(f"SELECT id, referral_code FROM users WHERE email = '{email}'")
                 existing_user = cur.fetchone()
                 
                 if existing_user:
                     return {
                         'statusCode': 200,
                         'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                        'isBase64Encoded': False,
                         'body': json.dumps({
                             'success': True,
                             'user_id': existing_user['id'],
@@ -68,25 +72,27 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 
                 referral_code = generate_referral_code(cur)
                 
-                cur.execute(
-                    "INSERT INTO users (email, name, referral_code, referred_by_code) VALUES (%s, %s, %s, %s) RETURNING id, referral_code",
-                    (email, name, referral_code, referred_by_code)
-                )
+                if referred_by_code:
+                    cur.execute(
+                        f"INSERT INTO users (email, name, referral_code, referred_by_code) VALUES ('{email}', '{name}', '{referral_code}', '{referred_by_code}') RETURNING id, referral_code"
+                    )
+                else:
+                    cur.execute(
+                        f"INSERT INTO users (email, name, referral_code) VALUES ('{email}', '{name}', '{referral_code}') RETURNING id, referral_code"
+                    )
                 user = cur.fetchone()
                 
                 if referred_by_code:
                     cur.execute(
-                        "UPDATE users SET total_referrals = total_referrals + 1, bonus_balance = bonus_balance + 200 WHERE referral_code = %s",
-                        (referred_by_code,)
+                        f"UPDATE users SET total_referrals = total_referrals + 1, bonus_balance = bonus_balance + 200 WHERE referral_code = '{referred_by_code}'"
                     )
                     
-                    cur.execute("SELECT id FROM users WHERE referral_code = %s", (referred_by_code,))
+                    cur.execute(f"SELECT id FROM users WHERE referral_code = '{referred_by_code}'")
                     referrer = cur.fetchone()
                     
                     if referrer:
                         cur.execute(
-                            "INSERT INTO referral_rewards (user_id, referred_user_id, reward_amount, reward_type) VALUES (%s, %s, %s, %s)",
-                            (referrer['id'], user['id'], 200, 'referral_bonus')
+                            f"INSERT INTO referral_rewards (user_id, referred_user_id, reward_amount, reward_type) VALUES ({referrer['id']}, {user['id']}, 200, 'referral_bonus')"
                         )
                 
                 conn.commit()
@@ -94,6 +100,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 return {
                     'statusCode': 200,
                     'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                    'isBase64Encoded': False,
                     'body': json.dumps({
                         'success': True,
                         'user_id': user['id'],
@@ -102,26 +109,25 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 }
             
             elif action == 'claim_subscription_bonus':
-                user_id = body_data.get('user_id')
-                platform = body_data.get('platform')
+                user_id = int(body_data.get('user_id', 0))
+                platform = body_data.get('platform', '').replace("'", "''")
                 bonus_amount = 200
                 
                 cur.execute(
-                    "INSERT INTO user_subscriptions (user_id, platform, bonus_claimed, bonus_amount) VALUES (%s, %s, %s, %s) ON CONFLICT (user_id, platform) DO NOTHING RETURNING id",
-                    (user_id, platform, True, bonus_amount)
+                    f"INSERT INTO user_subscriptions (user_id, platform, bonus_claimed, bonus_amount) VALUES ({user_id}, '{platform}', true, {bonus_amount}) ON CONFLICT (user_id, platform) DO NOTHING RETURNING id"
                 )
                 subscription = cur.fetchone()
                 
                 if subscription:
                     cur.execute(
-                        "UPDATE users SET bonus_balance = bonus_balance + %s WHERE id = %s",
-                        (bonus_amount, user_id)
+                        f"UPDATE users SET bonus_balance = bonus_balance + {bonus_amount} WHERE id = {user_id}"
                     )
                     conn.commit()
                     
                     return {
                         'statusCode': 200,
                         'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                        'isBase64Encoded': False,
                         'body': json.dumps({
                             'success': True,
                             'bonus_amount': bonus_amount,
@@ -132,6 +138,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                     return {
                         'statusCode': 400,
                         'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                        'isBase64Encoded': False,
                         'body': json.dumps({
                             'success': False,
                             'message': 'Бонус уже был получен'
@@ -143,22 +150,22 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             user_id = params.get('user_id')
             
             if user_id:
+                user_id_int = int(user_id)
                 cur.execute(
-                    "SELECT id, email, name, referral_code, total_referrals, bonus_balance FROM users WHERE id = %s",
-                    (user_id,)
+                    f"SELECT id, email, name, referral_code, total_referrals, bonus_balance FROM users WHERE id = {user_id_int}"
                 )
                 user = cur.fetchone()
                 
                 if user:
                     cur.execute(
-                        "SELECT platform, bonus_claimed FROM user_subscriptions WHERE user_id = %s",
-                        (user_id,)
+                        f"SELECT platform, bonus_claimed FROM user_subscriptions WHERE user_id = {user_id_int}"
                     )
                     subscriptions = cur.fetchall()
                     
                     return {
                         'statusCode': 200,
                         'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                        'isBase64Encoded': False,
                         'body': json.dumps({
                             'success': True,
                             'user': dict(user),
@@ -169,6 +176,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             return {
                 'statusCode': 400,
                 'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                'isBase64Encoded': False,
                 'body': json.dumps({'error': 'user_id required'})
             }
     
@@ -177,6 +185,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         return {
             'statusCode': 500,
             'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+            'isBase64Encoded': False,
             'body': json.dumps({'error': str(e)})
         }
     
