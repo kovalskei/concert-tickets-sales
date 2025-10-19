@@ -52,11 +52,14 @@ const AuthDialog = ({ open, onOpenChange, onSuccess }: AuthDialogProps) => {
       });
 
       const data = await response.json();
+      console.log('Auth response:', data);
 
       if (data.success) {
+        console.log('Saving to localStorage, user_id:', data.user_id);
         localStorage.setItem('user_id', data.user_id);
         localStorage.setItem('user_email', email);
         localStorage.setItem('user_name', name);
+        console.log('Saved! Checking:', localStorage.getItem('user_id'));
 
         toast({
           title: referralCode ? 'Добро пожаловать! 🎉' : 'Вы зарегистрированы! 🎉',
@@ -70,6 +73,13 @@ const AuthDialog = ({ open, onOpenChange, onSuccess }: AuthDialogProps) => {
         if (onSuccess) {
           onSuccess();
         }
+      } else {
+        console.error('Auth failed:', data);
+        toast({
+          title: 'Ошибка',
+          description: data.message || 'Не удалось войти',
+          variant: 'destructive',
+        });
       }
     } catch (error) {
       toast({
