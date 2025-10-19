@@ -324,7 +324,7 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center animate-fade-in">
-            <h2 className="text-6xl md:text-8xl font-heading font-black text-gradient glow-effect mb-6">Мировые хиты в амтосфере 1000 свечей</h2>
+            <h2 className="text-6xl md:text-8xl font-heading font-black text-gradient glow-effect mb-6">Мировые хиты в атмосфере 1000 свечей</h2>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Магия классической музыки в окружении 1000 свечей. Уникальные концерты в исторических особняках России и СНГ.
             </p>
