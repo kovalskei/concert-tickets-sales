@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "Create or get existing user",
+      "method": "POST",
+      "body": {
+        "action": "create_user",
+        "email": "test-user-referral@example.com",
+        "name": "Test User"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "GET without user_id returns error",
+      "method": "GET",
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "user_id required"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "OPTIONS - CORS preflight",
+      "method": "OPTIONS",
+      "expectedStatus": 200
+    }
+  ]
+}

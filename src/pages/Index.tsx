@@ -227,6 +227,15 @@ const Index = () => {
               >
                 Города
               </button>
+              <Button
+                variant="default"
+                size="sm"
+                onClick={() => window.location.href = '/profile'}
+                className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
+              >
+                <Icon name="User" size={16} className="mr-2" />
+                Профиль
+              </Button>
               <button 
                 onClick={() => setActiveSection('artists')}
                 className="text-sm font-medium hover:text-primary transition-colors"
