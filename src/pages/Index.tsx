@@ -236,15 +236,29 @@ const Index = () => {
                 Города
               </button>
               {isLoggedIn ? (
-                <Button
-                  variant="default"
-                  size="sm"
-                  onClick={() => window.location.href = '/profile'}
-                  className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
-                >
-                  <Icon name="User" size={16} className="mr-2" />
-                  Профиль
-                </Button>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="default"
+                    size="sm"
+                    onClick={() => window.location.href = '/profile'}
+                    className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
+                  >
+                    <Icon name="User" size={16} className="mr-2" />
+                    Профиль
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      localStorage.clear();
+                      setIsLoggedIn(false);
+                      window.location.reload();
+                    }}
+                  >
+                    <Icon name="LogOut" size={16} className="mr-2" />
+                    Выйти
+                  </Button>
+                </div>
               ) : (
                 <Button
                   variant="default"
