@@ -1907,8 +1907,13 @@ const Index = () => {
         open={authDialogOpen} 
         onOpenChange={setAuthDialogOpen}
         onSuccess={() => {
-          setIsLoggedIn(true);
-          window.location.href = '/profile';
+          const userId = localStorage.getItem('user_id');
+          if (userId) {
+            setIsLoggedIn(true);
+            setTimeout(() => {
+              window.location.href = '/profile';
+            }, 100);
+          }
         }}
       />
     </div>

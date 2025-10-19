@@ -29,22 +29,25 @@ const Profile = () => {
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
   const { toast } = useToast();
 
-  const userId = localStorage.getItem('user_id');
   const referralLink = userData ? `${window.location.origin}/?ref=${userData.referral_code}` : '';
 
   useEffect(() => {
-    if (userId) {
-      fetchUserData();
+    const storedUserId = localStorage.getItem('user_id');
+    setUserId(storedUserId);
+    
+    if (storedUserId) {
+      fetchUserData(storedUserId);
     } else {
       setLoading(false);
     }
-  }, [userId]);
+  }, []);
 
-  const fetchUserData = async () => {
+  const fetchUserData = async (id: string) => {
     try {
-      const response = await fetch(`${REFERRAL_API}?user_id=${userId}`);
+      const response = await fetch(`${REFERRAL_API}?user_id=${id}`);
       const data = await response.json();
       
       if (data.success) {
