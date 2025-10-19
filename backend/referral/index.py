@@ -3,6 +3,7 @@ import os
 import secrets
 import string
 from typing import Dict, Any
+from decimal import Decimal
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
@@ -17,6 +18,15 @@ def generate_referral_code(cur, length: int = 8) -> str:
 def get_db_connection():
     dsn = os.environ.get('DATABASE_URL')
     return psycopg2.connect(dsn, cursor_factory=RealDictCursor)
+
+def convert_decimals(obj):
+    if isinstance(obj, list):
+        return [convert_decimals(item) for item in obj]
+    elif isinstance(obj, dict):
+        return {key: convert_decimals(value) for key, value in obj.items()}
+    elif isinstance(obj, Decimal):
+        return float(obj)
+    return obj
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
@@ -162,14 +172,17 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                     )
                     subscriptions = cur.fetchall()
                     
+                    user_data = convert_decimals(dict(user))
+                    subscriptions_data = convert_decimals([dict(s) for s in subscriptions])
+                    
                     return {
                         'statusCode': 200,
                         'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
                         'isBase64Encoded': False,
                         'body': json.dumps({
                             'success': True,
-                            'user': dict(user),
-                            'subscriptions': [dict(s) for s in subscriptions]
+                            'user': user_data,
+                            'subscriptions': subscriptions_data
                         })
                     }
             
