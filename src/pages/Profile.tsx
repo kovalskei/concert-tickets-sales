@@ -4,6 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import DailyGame from '@/components/game/DailyGame';
+import StreakCalendar from '@/components/game/StreakCalendar';
+import Leaderboard from '@/components/game/Leaderboard';
 
 const REFERRAL_API = 'https://functions.poehali.dev/b85734c8-e904-4924-bcc7-218619173fbd';
 
@@ -152,6 +155,12 @@ const Profile = () => {
           <p className="text-muted-foreground">
             Управляйте своими бонусами и приглашайте друзей
           </p>
+        </div>
+
+        <div className="space-y-8 mb-8">
+          <DailyGame />
+          <StreakCalendar currentStreak={7} totalDays={30} />
+          <Leaderboard />
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
