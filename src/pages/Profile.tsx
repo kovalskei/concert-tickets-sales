@@ -105,7 +105,9 @@ const Profile = () => {
           title: 'Бонус получен! 🎁',
           description: data.message,
         });
-        fetchUserData();
+        if (userId) {
+          fetchUserData(userId);
+        }
       } else {
         toast({
           title: 'Ошибка',
