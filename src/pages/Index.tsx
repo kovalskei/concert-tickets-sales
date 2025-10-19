@@ -135,8 +135,16 @@ const Index = () => {
 
   useEffect(() => {
     const userId = localStorage.getItem('user_id');
+    console.log('Checking auth, user_id:', userId);
     setIsLoggedIn(!!userId);
   }, []);
+
+  const handleLogout = () => {
+    console.log('Logging out...');
+    localStorage.clear();
+    setIsLoggedIn(false);
+    window.location.reload();
+  };
 
   const cityLights = [
     { id: 1, city: 'Москва', venue: 'LOFT HALL', lat: 55.7558, lon: 37.6173, x: 55, y: 45, count: 8542, todayCount: 127, user: '@anna_m', text: 'Свечи, музыка и любимый рядом ✨', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 1200 },
@@ -235,8 +243,17 @@ const Index = () => {
               >
                 Города
               </button>
-              {isLoggedIn ? (
-                <div className="flex items-center gap-2">
+              <Button
+                variant="default"
+                size="sm"
+                onClick={() => setAuthDialogOpen(true)}
+                className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
+              >
+                <Icon name="LogIn" size={16} className="mr-2" />
+                Войти
+              </Button>
+              {isLoggedIn && (
+                <>
                   <Button
                     variant="default"
                     size="sm"
@@ -249,26 +266,12 @@ const Index = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => {
-                      localStorage.clear();
-                      setIsLoggedIn(false);
-                      window.location.reload();
-                    }}
+                    onClick={handleLogout}
                   >
                     <Icon name="LogOut" size={16} className="mr-2" />
                     Выйти
                   </Button>
-                </div>
-              ) : (
-                <Button
-                  variant="default"
-                  size="sm"
-                  onClick={() => setAuthDialogOpen(true)}
-                  className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
-                >
-                  <Icon name="LogIn" size={16} className="mr-2" />
-                  Войти
-                </Button>
+                </>
               )}
               <button 
                 onClick={() => setActiveSection('artists')}
