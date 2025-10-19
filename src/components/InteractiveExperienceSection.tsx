@@ -68,9 +68,7 @@ export default function InteractiveExperienceSection() {
                   ))}
                 </div>
 
-                <p className="text-gray-400 mb-6">
-                  от €29 · ближайший сеанс: сегодня, 20:30
-                </p>
+                <p className="text-gray-400 mb-6">от 1990 рублей · ближайший концерт: сегодня, 19:00</p>
 
                 <div className="flex flex-wrap gap-4 mb-6">
                   <Button className="bg-[#3CB8E0] hover:bg-[#3CB8E0]/90 text-white shadow-lg">
