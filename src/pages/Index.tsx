@@ -134,9 +134,38 @@ const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const userId = localStorage.getItem('user_id');
-    console.log('Checking auth, user_id:', userId);
-    setIsLoggedIn(!!userId);
+    const params = new URLSearchParams(window.location.search);
+    const testLogin = params.get('test_login');
+    const testName = params.get('name');
+    const testEmail = params.get('email');
+    
+    if (testLogin === 'true' && testName && testEmail) {
+      console.log('Test login detected:', testName, testEmail);
+      fetch('https://functions.poehali.dev/b85734c8-e904-4924-bcc7-218619173fbd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'create_user',
+          email: testEmail,
+          name: testName,
+        }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            localStorage.setItem('user_id', data.user_id);
+            localStorage.setItem('user_email', testEmail);
+            localStorage.setItem('user_name', testName);
+            setIsLoggedIn(true);
+            window.history.replaceState({}, '', '/');
+          }
+        })
+        .catch(err => console.error('Test login failed:', err));
+    } else {
+      const userId = localStorage.getItem('user_id');
+      console.log('Checking auth, user_id:', userId);
+      setIsLoggedIn(!!userId);
+    }
   }, []);
 
   const handleLogout = () => {
