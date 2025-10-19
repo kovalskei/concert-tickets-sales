@@ -73,6 +73,10 @@ const AuthDialog = ({ open, onOpenChange, onSuccess }: AuthDialogProps) => {
         if (onSuccess) {
           onSuccess();
         }
+        
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       } else {
         console.error('Auth failed:', data);
         toast({
