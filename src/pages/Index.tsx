@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -235,9 +236,15 @@ const Index = () => {
     return matchesDate && matchesCity;
   });
 
+  const navigate = useNavigate();
+
   const openBooking = (event: Event) => {
     setSelectedEvent(event);
     setIsBookingOpen(true);
+  };
+
+  const goToConcertPage = (eventId: number) => {
+    navigate(`/concert/${eventId}`);
   };
 
   return (
@@ -597,6 +604,7 @@ const Index = () => {
                 key={event.id} 
                 className="group overflow-hidden bg-card border-border hover:card-glow transition-all duration-300 animate-scale-in cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => goToConcertPage(event.id)}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img 
