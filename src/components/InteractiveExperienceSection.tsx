@@ -71,12 +71,12 @@ export default function InteractiveExperienceSection() {
                 <p className="text-gray-400 mb-6">от 1990 рублей · ближайший концерт: сегодня, 19:00</p>
 
                 <div className="flex flex-wrap gap-4 mb-6">
-                  <Button 
-                    className="bg-[#3CB8E0] hover:bg-[#3CB8E0]/90 text-white shadow-lg"
-                    onClick={() => window.open('https://qtickets.ru/organizer/44555', '_blank')}
+                  <a 
+                    href="https://qtickets.ru/organizer/44555" 
+                    className="qtickets-button inline-flex items-center justify-center rounded-md text-sm font-medium bg-[#3CB8E0] hover:bg-[#3CB8E0]/90 text-white shadow-lg px-6 py-3 transition-colors"
                   >
                     🎟️ Купить сейчас
-                  </Button>
+                  </a>
                   <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
                     📷 Фото при свечах
                   </Button>
