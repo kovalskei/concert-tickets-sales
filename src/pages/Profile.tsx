@@ -36,26 +36,35 @@ const Profile = () => {
 
   useEffect(() => {
     const storedUserId = localStorage.getItem('user_id');
+    console.log('Profile: Reading from localStorage, user_id:', storedUserId);
+    console.log('Profile: All localStorage:', Object.keys(localStorage));
     setUserId(storedUserId);
     
     if (storedUserId) {
+      console.log('Profile: Fetching user data for ID:', storedUserId);
       fetchUserData(storedUserId);
     } else {
+      console.log('Profile: No user_id found, showing login prompt');
       setLoading(false);
     }
   }, []);
 
   const fetchUserData = async (id: string) => {
     try {
+      console.log('Profile: Fetching from API:', `${REFERRAL_API}?user_id=${id}`);
       const response = await fetch(`${REFERRAL_API}?user_id=${id}`);
       const data = await response.json();
+      console.log('Profile: API response:', data);
       
       if (data.success) {
+        console.log('Profile: Setting user data:', data.user);
         setUserData(data.user);
         setSubscriptions(data.subscriptions || []);
+      } else {
+        console.log('Profile: API returned success=false');
       }
     } catch (error) {
-      console.error('Error fetching user data:', error);
+      console.error('Profile: Error fetching user data:', error);
     } finally {
       setLoading(false);
     }
