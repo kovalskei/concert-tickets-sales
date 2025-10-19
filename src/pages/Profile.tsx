@@ -7,6 +7,8 @@ import { useToast } from '@/hooks/use-toast';
 import DailyGame from '@/components/game/DailyGame';
 import StreakCalendar from '@/components/game/StreakCalendar';
 import Leaderboard from '@/components/game/Leaderboard';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/HomePage/Footer';
 
 const REFERRAL_API = 'https://functions.poehali.dev/b85734c8-e904-4924-bcc7-218619173fbd';
 
@@ -159,17 +161,25 @@ const Profile = () => {
     );
   }
 
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = '/';
+  };
+
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="mb-8">
-          <h1 className="text-4xl font-heading font-bold text-foreground mb-2">
-            Личный кабинет
-          </h1>
-          <p className="text-muted-foreground">
-            Управляйте своими бонусами и приглашайте друзей
-          </p>
-        </div>
+    <>
+      <Navigation isLoggedIn={true} onLogout={handleLogout} />
+      
+      <div className="min-h-screen bg-background pt-24 pb-12">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="mb-8">
+            <h1 className="text-4xl font-heading font-bold text-foreground mb-2">
+              Личный кабинет
+            </h1>
+            <p className="text-muted-foreground">
+              Управляйте своими бонусами и приглашайте друзей
+            </p>
+          </div>
 
         <div className="space-y-8 mb-8">
           <DailyGame />
@@ -352,8 +362,11 @@ const Profile = () => {
             </div>
           </CardContent>
         </Card>
+        </div>
       </div>
-    </div>
+      
+      <Footer />
+    </>
   );
 };
 
