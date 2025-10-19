@@ -243,16 +243,17 @@ const Index = () => {
               >
                 Города
               </button>
-              <Button
-                variant="default"
-                size="sm"
-                onClick={() => setAuthDialogOpen(true)}
-                className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
-              >
-                <Icon name="LogIn" size={16} className="mr-2" />
-                Войти
-              </Button>
-              {isLoggedIn && (
+              {!isLoggedIn ? (
+                <Button
+                  variant="default"
+                  size="sm"
+                  onClick={() => setAuthDialogOpen(true)}
+                  className="bg-gradient-to-r from-[#3CB8E0] to-[#FF8C42] hover:opacity-90"
+                >
+                  <Icon name="LogIn" size={16} className="mr-2" />
+                  Войти
+                </Button>
+              ) : (
                 <>
                   <Button
                     variant="default"
