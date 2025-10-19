@@ -67,11 +67,6 @@ const AuthDialog = ({ open, onOpenChange, onSuccess }: AuthDialogProps) => {
 
         onOpenChange(false);
         
-        // Переход в профиль после успешной авторизации
-        setTimeout(() => {
-          window.location.href = '/profile';
-        }, 500);
-        
         if (onSuccess) {
           onSuccess();
         }

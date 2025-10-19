@@ -146,6 +146,12 @@ const Index = () => {
     window.location.reload();
   };
 
+  const handleAuthSuccess = () => {
+    const userId = localStorage.getItem('user_id');
+    console.log('Auth success, user_id:', userId);
+    setIsLoggedIn(!!userId);
+  };
+
   const cityLights = [
     { id: 1, city: 'Москва', venue: 'LOFT HALL', lat: 55.7558, lon: 37.6173, x: 55, y: 45, count: 8542, todayCount: 127, user: '@anna_m', text: 'Свечи, музыка и любимый рядом ✨', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 1200 },
     { id: 2, city: 'Москва', venue: 'Особняк Румянцева', lat: 55.7600, lon: 37.6200, x: 56, y: 46, count: 8542, todayCount: 127, user: '@dmitry_love', text: 'Сделал предложение под Вивальди 💍', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 3800 },
@@ -1924,15 +1930,7 @@ const Index = () => {
       <AuthDialog 
         open={authDialogOpen} 
         onOpenChange={setAuthDialogOpen}
-        onSuccess={() => {
-          const userId = localStorage.getItem('user_id');
-          if (userId) {
-            setIsLoggedIn(true);
-            setTimeout(() => {
-              window.location.href = '/profile';
-            }, 100);
-          }
-        }}
+        onSuccess={handleAuthSuccess}
       />
     </div>
   );
