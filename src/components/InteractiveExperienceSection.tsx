@@ -73,7 +73,7 @@ export default function InteractiveExperienceSection() {
                 <div className="flex flex-wrap gap-4 mb-6">
                   <a 
                     href="https://qtickets.ru/event/193730" 
-                    className="qtickets-button inline-flex items-center justify-center rounded-md text-sm font-medium bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white shadow-lg px-8 py-4 transition-all text-base font-bold whitespace-nowrap"
+                    className="qtickets-button inline-flex items-center justify-center rounded-md text-sm font-medium bg-yellow-500 hover:bg-yellow-600 text-white shadow-lg px-8 py-4 transition-all text-base font-bold whitespace-nowrap"
                   >
                     🎁 Подарить впечатление
                   </a>
