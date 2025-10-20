@@ -73,13 +73,10 @@ export default function InteractiveExperienceSection() {
                 <div className="flex flex-wrap gap-4 mb-6">
                   <a 
                     href="https://qtickets.ru/event/193730" 
-                    className="qtickets-button inline-flex items-center justify-center rounded-md text-sm font-medium bg-[#3CB8E0] hover:bg-[#3CB8E0]/90 text-white shadow-lg px-6 py-3 transition-colors"
+                    className="qtickets-button inline-flex items-center justify-center rounded-md text-sm font-medium bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white shadow-lg px-8 py-4 transition-all text-base font-bold"
                   >
-                    🎟️ Купить сейчас
+                    🎁 Подарить впечатление
                   </a>
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                    📷 Фото при свечах
-                  </Button>
                 </div>
 
                 <div className="space-y-2">
