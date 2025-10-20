@@ -166,6 +166,71 @@ const ConcertDetails = () => {
                 </CardContent>
               </Card>
 
+              {/* О оркестре */}
+              <Card className="bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] border-[#3CB8E0]/20">
+                <CardContent className="p-8">
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="text-4xl">🎭</div>
+                        <h2 className="text-3xl font-heading font-bold text-white">
+                          {concert.artist}
+                        </h2>
+                      </div>
+                      <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                        Оркестр — виртуозы, влюбленные в свое дело. Их мастерство заставляет музыку звучать так, что мурашки бегут по коже, а дыхание замирает. Это живой диалог музыкантов со зрителями.
+                      </p>
+                      <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                        Величайшие произведения — от классики до культовых саундтреков — в волшебной атмосфере живого оркестра и тысячи свечей.
+                      </p>
+                      
+                      <div className="grid grid-cols-3 gap-4 mt-8">
+                        <div className="text-center">
+                          <div className="w-24 h-24 mx-auto rounded-full border-4 border-[#FF8C42] flex items-center justify-center mb-3">
+                            <div>
+                              <div className="text-3xl font-bold text-white">36</div>
+                              <div className="text-xs text-gray-400">Стран</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-24 h-24 mx-auto rounded-full border-4 border-[#3CB8E0] flex items-center justify-center mb-3">
+                            <div>
+                              <div className="text-3xl font-bold text-white">420</div>
+                              <div className="text-xs text-gray-400">Городов</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-24 h-24 mx-auto rounded-full border-4 border-[#8B7AB8] flex items-center justify-center mb-3">
+                            <div>
+                              <div className="text-2xl font-bold text-white">2M+</div>
+                              <div className="text-xs text-gray-400">Зрителей</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="hidden md:block">
+                      <div className="relative rounded-lg overflow-hidden aspect-video">
+                        <img 
+                          src={concert.image}
+                          alt="Концерт при свечах"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all">
+                            <Icon name="Play" size={32} className="text-white ml-1" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Программа */}
               <Card>
                 <CardContent className="p-6">
