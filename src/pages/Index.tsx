@@ -413,14 +413,9 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center animate-fade-in">
-            <Badge className="mb-6 bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] text-white border-0 text-base px-6 py-2">
-              Качественный досуг в каждом городе
-            </Badge>
-            <h2 className="text-6xl md:text-8xl font-heading font-black text-gradient glow-effect mb-6">
-              Найди свой идеальный вечер
-            </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              От камерных концертов до иммерсивных шоу — мы помогаем людям в любом городе находить качественные впечатления
+            <h2 className="text-6xl md:text-8xl font-heading font-black text-gradient glow-effect mb-6">Мировые хиты в атмосфере 1000 свечей</h2>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Магия классической музыки в окружении 1000 свечей. Уникальные концерты в исторических особняках России и СНГ.
             </p>
             
             <div className="flex flex-wrap gap-3 justify-center mb-8">
