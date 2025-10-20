@@ -222,7 +222,7 @@ const ConcertDetails = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-2">
                     <div className="w-12 h-12 flex-shrink-0">
-                      <img src="https://cdn.poehali.dev/files/ccaa833a-e892-4627-8746-381eb78e13ff.png" alt="И" className="w-full h-full object-contain" />
+                      <img src="https://cdn.poehali.dev/files/fbdfa858-a81b-487f-a529-d81161aedd71.png" alt="И" className="w-full h-full object-contain" />
                     </div>
                     <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
                       Программа вечера
@@ -245,7 +245,7 @@ const ConcertDetails = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-12 h-12 flex-shrink-0">
-                      <img src="https://cdn.poehali.dev/files/ccaa833a-e892-4627-8746-381eb78e13ff.png" alt="В" className="w-full h-full object-contain" />
+                      <img src="https://cdn.poehali.dev/files/6bd8192c-a55d-4353-aae7-6492a1347e01.png" alt="В" className="w-full h-full object-contain" />
                     </div>
                     <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
                       Важная информация
@@ -360,7 +360,7 @@ const ConcertDetails = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-2">
                     <div className="w-12 h-12 flex-shrink-0">
-                      <img src="https://cdn.poehali.dev/files/ccaa833a-e892-4627-8746-381eb78e13ff.png" alt="О" className="w-full h-full object-contain" />
+                      <img src="https://cdn.poehali.dev/files/cd2c79e9-6ed4-48a2-a2f5-28504c096c1b.png" alt="О" className="w-full h-full object-contain" />
                     </div>
                     <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
                       Посмотрите, как это было
