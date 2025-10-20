@@ -489,10 +489,27 @@ const Index = () => {
               <h3 className="text-4xl font-heading font-bold text-foreground mb-2">Ближайшие ДИВО концерты</h3>
               <p className="text-muted-foreground">Погрузитесь в волшебную атмосферу классики при свечах</p>
             </div>
-            <Button variant="outline" className="border-[#3CB8E0] hover:bg-[#3CB8E0]/10">
-              Все события
-              <Icon name="ArrowRight" className="ml-2" size={18} />
-            </Button>
+            <div className="flex gap-3">
+              <Button 
+                variant="outline" 
+                onClick={() => {
+                  setSelectedEventsCity(userCity);
+                  setShowMyCityEvents(true);
+                }}
+                className={`border-[#3CB8E0] ${
+                  showMyCityEvents
+                    ? 'bg-[#3CB8E0] text-white'
+                    : 'hover:bg-[#3CB8E0]/10'
+                }`}
+              >
+                <Icon name="MapPin" className="mr-2" size={18} />
+                В моём городе
+              </Button>
+              <Button variant="outline" className="border-[#3CB8E0] hover:bg-[#3CB8E0]/10">
+                Все события
+                <Icon name="ArrowRight" className="ml-2" size={18} />
+              </Button>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-3 mb-6">
