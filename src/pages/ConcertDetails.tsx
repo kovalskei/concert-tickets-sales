@@ -203,9 +203,14 @@ const ConcertDetails = () => {
               {/* Описание */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
-                    🎭 Что вас ждёт
-                  </h2>
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-[#3CB8E0] to-[#2A9AC8] rounded-lg flex items-center justify-center shadow-lg">
+                      <span className="text-white font-black text-2xl" style={{ fontFamily: 'Arial Black, sans-serif' }}>Д</span>
+                    </div>
+                    <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
+                      Что вас ждёт
+                    </h2>
+                  </div>
                   <p className="text-muted-foreground leading-relaxed text-lg whitespace-pre-line">
                     {concert.description}
                   </p>
@@ -215,9 +220,14 @@ const ConcertDetails = () => {
               {/* Программа */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
-                    🎼 Программа вечера
-                  </h2>
+                  <div className="flex items-start gap-4 mb-2">
+                    <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-[#FF8C42] to-[#E67A32] rounded-lg flex items-center justify-center shadow-lg">
+                      <span className="text-white font-black text-2xl" style={{ fontFamily: 'Arial Black, sans-serif' }}>И</span>
+                    </div>
+                    <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
+                      Программа вечера
+                    </h2>
+                  </div>
                   <p className="text-sm text-muted-foreground mb-6">Каждая композиция — отдельная история</p>
                   <ul className="space-y-3">
                     {concert.program.map((item, index) => (
@@ -233,9 +243,14 @@ const ConcertDetails = () => {
               {/* Детали */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
-                    ℹ️ Важная информация
-                  </h2>
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-[#8B7AB8] to-[#7A69A6] rounded-lg flex items-center justify-center shadow-lg">
+                      <span className="text-white font-black text-2xl" style={{ fontFamily: 'Arial Black, sans-serif' }}>В</span>
+                    </div>
+                    <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
+                      Важная информация
+                    </h2>
+                  </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="flex items-center gap-3 p-4 bg-muted/50 rounded-lg">
                       <Icon name="MapPin" size={24} className="text-[#3CB8E0]" />
@@ -343,9 +358,14 @@ const ConcertDetails = () => {
               {/* Галерея фото */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
-                    📸 Посмотрите, как это было
-                  </h2>
+                  <div className="flex items-start gap-4 mb-2">
+                    <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-[#FF8C42] to-[#E67A32] rounded-lg flex items-center justify-center shadow-lg">
+                      <span className="text-white font-black text-2xl" style={{ fontFamily: 'Arial Black, sans-serif' }}>О</span>
+                    </div>
+                    <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
+                      Посмотрите, как это было
+                    </h2>
+                  </div>
                   <p className="text-sm text-muted-foreground mb-6">Реальные фото с наших концертов — без фотошопа, только эмоции</p>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <img 
@@ -385,9 +405,14 @@ const ConcertDetails = () => {
               {/* Площадка */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
-                    🏛️ Где это будет происходить
-                  </h2>
+                  <div className="flex items-start gap-4 mb-2">
+                    <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-[#3CB8E0] to-[#2A9AC8] rounded-lg flex items-center justify-center shadow-lg">
+                      <span className="text-white font-black text-2xl" style={{ fontFamily: 'Arial Black, sans-serif' }}>Д</span>
+                    </div>
+                    <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
+                      Где это будет происходить
+                    </h2>
+                  </div>
                   <p className="text-sm text-muted-foreground mb-6">Место, которое само по себе — произведение искусства</p>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
