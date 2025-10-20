@@ -232,7 +232,9 @@ const ConcertDetails = () => {
                   </div>
                   <div className="text-center mb-6">
                     <div className="text-sm text-muted-foreground mb-2">Цена билета</div>
-                    <div className="text-4xl font-heading font-bold text-foreground">2900Р</div>
+                    <div className="text-4xl font-heading font-bold text-foreground">
+                      {concert.price}₽
+                    </div>
                     <p className="text-xs text-muted-foreground mt-2">💫 Включено шампанское в антракте</p>
                   </div>
 
