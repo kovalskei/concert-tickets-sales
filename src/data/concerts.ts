@@ -27,7 +27,7 @@ export const concerts: Concert[] = [
     location: 'Москва',
     venue: 'LOFT HALL',
     city: 'Москва',
-    price: 1800,
+    price: 2990,
     image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
     genre: 'Канделайт',
     seatsLeft: 15,
