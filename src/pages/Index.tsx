@@ -1064,40 +1064,7 @@ const Index = () => {
 
 
 
-      {/* Section 7: Venue Map - "Площадка" */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-heading font-bold text-foreground">
-              Площадка
-            </h3>
-          </div>
 
-          <Card className="overflow-hidden bg-card border-border hover:card-glow transition-all max-w-4xl mx-auto">
-            <div className="relative h-96">
-              <div className="w-full h-full bg-gradient-to-br from-[#3CB8E0]/20 to-[#8B7AB8]/20 flex items-center justify-center">
-                <Icon name="MapPin" size={64} className="text-[#3CB8E0]" />
-              </div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <Badge className="bg-red-500 text-white border-0 px-4 py-2 text-sm">
-                  Центр камерсанов - вход с Садовой
-                </Badge>
-              </div>
-            </div>
-            <CardContent className="p-6">
-              <div className="flex items-start gap-3">
-                <Icon name="MapPin" size={20} className="text-[#FF8C42] mt-1" />
-                <div>
-                  <p className="font-semibold text-foreground mb-1">Адрес</p>
-                  <p className="text-sm text-muted-foreground">
-                    Садовая улица, 12, Москва
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
 
       <footer className="bg-muted/30 border-t border-border py-12">
         <div className="container mx-auto px-4">
