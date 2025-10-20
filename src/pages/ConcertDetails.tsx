@@ -274,14 +274,15 @@ const ConcertDetails = () => {
                     </div>
                   </div>
 
-                  <Button 
-                    className="w-full bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white font-bold shadow-lg"
-                    size="lg"
-                    onClick={handleBuyTickets}
+                  <a 
+                    href="https://qtickets.ru/event/193730"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white font-bold shadow-lg px-8 py-3 text-base transition-all"
                   >
                     <Icon name="Sparkles" size={20} className="mr-2" />
                     Забронировать место
-                  </Button>
+                  </a>
 
                   <div className="mt-4 space-y-3">
                     <div className="flex items-center gap-2 text-sm">
