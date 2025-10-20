@@ -571,9 +571,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h3 className="text-4xl font-heading font-bold text-foreground mb-2">
-                Ближайшие канделайт концерты
-              </h3>
+              <h3 className="text-4xl font-heading font-bold text-foreground mb-2">Ближайшие ДИВО концерты</h3>
               <p className="text-muted-foreground">Погрузитесь в волшебную атмосферу классики при свечах</p>
             </div>
             <Button variant="outline" className="border-[#3CB8E0] hover:bg-[#3CB8E0]/10">
