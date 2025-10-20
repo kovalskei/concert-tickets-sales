@@ -279,10 +279,7 @@ const ConcertDetails = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center rounded-md bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white font-bold shadow-lg px-8 py-3 text-base transition-all"
-                  >
-                    <Icon name="Sparkles" size={20} className="mr-2" />
-                    Забронировать место
-                  </a>
+                  >Купить билет</a>
 
                   <div className="mt-4 space-y-3">
                     <div className="flex items-center gap-2 text-sm">
@@ -433,9 +430,7 @@ const ConcertDetails = () => {
                     </div>
                     <div className="mt-4 flex items-center justify-between">
                       <span className="text-2xl font-bold">1800₽</span>
-                      <Button size="sm" className="bg-[#3CB8E0]">
-                        Купить
-                      </Button>
+                      <Button size="sm" className="bg-[#3CB8E0]">Купить билет</Button>
                     </div>
                   </CardContent>
                 </Card>
