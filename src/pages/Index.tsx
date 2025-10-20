@@ -577,7 +577,7 @@ const Index = () => {
                   {activeUsersMap[event.id] && activeUsersMap[event.id] > 0 && (
                     <Badge className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 font-bold">
                       <Icon name="Users" size={14} className="mr-1 animate-pulse" />
-                      {activeUsersMap[event.id]} {activeUsersMap[event.id] === 1 ? 'человек смотрит' : activeUsersMap[event.id] < 5 ? 'человека смотрят' : 'человек смотрят'} концерт
+                      {activeUsersMap[event.id]} {activeUsersMap[event.id] === 1 ? 'человек выбирает' : activeUsersMap[event.id] < 5 ? 'человека выбирают' : 'человек выбирают'} места
                     </Badge>
                   )}
                 </div>
