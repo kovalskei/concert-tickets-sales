@@ -517,7 +517,7 @@ const Index = () => {
                   ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
                   : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
               }`}
-            >Все коонцерты</button>
+            >Все концерты</button>
             <button
               onClick={() => {
                 setSelectedEventsCity(userCity);
