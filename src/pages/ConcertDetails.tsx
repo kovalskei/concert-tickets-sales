@@ -156,7 +156,7 @@ const ConcertDetails = () => {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src="https://disk.360.yandex.ru/i/Vk8FFhOdeGKshA" type="video/mp4" />
+                <source src="/20251020_1959_01k7z8pg9yfkp8jhjkpv30mq93.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
             </div>
