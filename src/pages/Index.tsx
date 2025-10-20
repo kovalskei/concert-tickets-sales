@@ -1268,37 +1268,7 @@ const Index = () => {
 
 
 
-      {/* Section 6: Gift Certificate - "Подарить вечер при свечах" */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <Card className="overflow-hidden bg-card border-border hover:card-glow transition-all">
-            <div className="grid md:grid-cols-2 gap-0">
-              <div className="relative h-64 md:h-auto">
-                <img 
-                  src="https://cdn.poehali.dev/files/2dc6e14d-53f2-4522-bcf4-9ba0fe857474.png"
-                  alt="Candlelight gift"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/50"></div>
-              </div>
-              <CardContent className="p-8 md:p-12 flex flex-col justify-center">
-                <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                  Подарить вечер при свечах
-                </h3>
-                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  Электронный сертификат приходит на e-mail за 30 секунд. Выберите сумму или конкретную категорию мест. Сертификат действует 6 месяцев.
-                </p>
-                <Button className="bg-[#FF8C42] hover:bg-[#FF8C42]/90 text-white w-full md:w-auto shadow-lg mb-4">
-                  Оформить сертификат
-                </Button>
-                <p className="text-sm text-muted-foreground">
-                  Можно расплачиваться дома. Работает на все города и даты.
-                </p>
-              </CardContent>
-            </div>
-          </Card>
-        </div>
-      </section>
+
 
       {/* Section 7: Venue Map - "Площадка" */}
       <section className="py-20 bg-muted/30">
