@@ -617,69 +617,73 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredEvents.filter(event => selectedEventsCity === 'all' || event.city === selectedEventsCity).map((event, index) => (
               <Card 
                 key={event.id} 
-                className="group overflow-hidden bg-card border-border hover:card-glow transition-all duration-300 animate-scale-in cursor-pointer"
+                className="group overflow-hidden bg-gradient-to-br from-card via-card to-card/80 border-2 border-transparent hover:border-[#FF8C42] hover:shadow-2xl hover:shadow-[#FF8C42]/20 transition-all duration-500 animate-scale-in cursor-pointer transform hover:-translate-y-2"
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => goToConcertPage(event.id)}
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-72 overflow-hidden">
                   <img 
                     src={event.image} 
                     alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 group-hover:rotate-2"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent"></div>
-                  <Badge className="absolute top-4 right-4 bg-primary/90 text-primary-foreground">
-                    {event.genre}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                  <Badge className="absolute top-4 right-4 bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white border-0 shadow-lg font-bold text-sm px-4 py-2 animate-pulse-soft">
+                    ✨ {event.genre}
                   </Badge>
                   {event.seatsLeft <= 20 && (
                     <Badge className={`absolute top-4 left-4 ${
                       event.seatsLeft <= 10 
-                        ? 'bg-red-500 animate-pulse' 
-                        : 'bg-orange-500'
-                    } text-white border-0 font-bold`}>
-                      <Icon name="AlertCircle" size={14} className="mr-1" />
+                        ? 'bg-gradient-to-r from-red-500 to-red-600 animate-pulse shadow-xl shadow-red-500/50' 
+                        : 'bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg'
+                    } text-white border-0 font-bold px-4 py-2 text-sm`}>
+                      <Icon name="AlertCircle" size={16} className="mr-1" />
                       Осталось {event.seatsLeft} мест
                     </Badge>
                   )}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h4 className="text-3xl font-heading font-black text-white mb-2 drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
+                      {event.title}
+                    </h4>
+                    <p className="text-lg text-white/90 font-medium drop-shadow-md">{event.artist}</p>
+                  </div>
                 </div>
                 
-                <CardContent className="p-6">
-                  <h4 className="text-2xl font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {event.title}
-                  </h4>
-                  <p className="text-lg text-muted-foreground mb-4">{event.artist}</p>
-                  
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Icon name="Calendar" size={16} className="mr-2 text-[#3CB8E0]" />
+                <CardContent className="p-6 bg-gradient-to-b from-card to-card/50">
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center text-base text-foreground font-medium bg-muted/50 rounded-lg px-3 py-2">
+                      <Icon name="Calendar" size={20} className="mr-3 text-[#3CB8E0]" />
                       {new Date(event.date).toLocaleDateString('ru-RU', { 
                         day: 'numeric', 
                         month: 'long',
                         year: 'numeric'
                       })}
                     </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Icon name="MapPin" size={16} className="mr-2 text-[#FF8C42]" />
+                    <div className="flex items-center text-base text-foreground font-medium bg-muted/50 rounded-lg px-3 py-2">
+                      <Icon name="MapPin" size={20} className="mr-3 text-[#FF8C42]" />
                       {event.venue}, {event.city}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div>
-                      <p className="text-sm text-muted-foreground">От</p>
-                      <p className="text-2xl font-heading font-bold text-foreground">
+                  <div className="flex items-center justify-between pt-4 border-t-2 border-[#FF8C42]/20">
+                    <div className="bg-gradient-to-r from-[#FF8C42]/10 to-[#FF6B35]/10 rounded-lg px-4 py-2">
+                      <p className="text-xs text-muted-foreground font-bold uppercase tracking-wide">От</p>
+                      <p className="text-3xl font-heading font-black bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] bg-clip-text text-transparent">
                         {event.price.toLocaleString('ru-RU')} ₽
                       </p>
                     </div>
                     <Button 
-                      onClick={() => openBooking(event)}
-                      className="bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 shadow-lg"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openBooking(event);
+                      }}
+                      className="bg-gradient-to-r from-[#FF8C42] via-[#FF6B35] to-[#FF8C42] hover:scale-110 hover:shadow-2xl hover:shadow-[#FF8C42]/50 shadow-lg text-white font-bold text-base px-6 py-6 transition-all duration-300"
                     >
-                      <Icon name="Ticket" className="mr-2" size={18} />
+                      <Icon name="Ticket" className="mr-2" size={20} />
                       Купить
                     </Button>
                   </div>
