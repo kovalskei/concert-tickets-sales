@@ -11,20 +11,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import AuthDialog from '@/components/AuthDialog';
-
-interface Event {
-  id: number;
-  title: string;
-  artist: string;
-  date: string;
-  venue: string;
-  city: string;
-  price: number;
-  image: string;
-  seatsLeft: number;
-  duration: string;
-  time: string;
-}
+import { concerts, Concert } from '@/data/concerts';
 
 interface CityConfig {
   name: string;
@@ -54,7 +41,7 @@ const cityConfigs: Record<string, CityConfig> = {
   }
 };
 
-const mockEvents: Record<string, Event[]> = {
+const mockEvents: Record<string, Concert[]> = {
   moscow: [
     {
       id: 1,
@@ -138,7 +125,7 @@ const CandlelightCity = () => {
   const { city } = useParams<{ city: string }>();
   const navigate = useNavigate();
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<Concert | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const cityConfig = city ? cityConfigs[city] : null;
@@ -155,7 +142,7 @@ const CandlelightCity = () => {
     }
   }, [cityConfig, navigate]);
 
-  const handleBuyTicket = (event: Event) => {
+  const handleBuyTicket = (event: Concert) => {
     setSelectedEvent(event);
     if (isLoggedIn) {
       navigate('/concert/' + event.id);

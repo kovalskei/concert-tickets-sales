@@ -5,24 +5,9 @@ import EventFeatures from '@/components/event/EventFeatures';
 import EventReviews from '@/components/event/EventReviews';
 import EventBooking from '@/components/event/EventBooking';
 import EventFAQ from '@/components/event/EventFAQ';
+import { concerts, Concert } from '@/data/concerts';
 
-interface Event {
-  id: number;
-  title: string;
-  artist: string;
-  date: string;
-  time: string;
-  venue: string;
-  city: string;
-  price: number;
-  image: string;
-  description: string;
-  program: string[];
-  duration: string;
-  seatsLeft: number;
-}
-
-const mockEvents: { [key: number]: Event } = {
+const mockEvents: { [key: number]: Concert } = {
   1: {
     id: 1,
     title: 'Вивальди при свечах',
