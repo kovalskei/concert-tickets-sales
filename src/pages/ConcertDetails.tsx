@@ -205,15 +205,7 @@ const ConcertDetails = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-12 h-12 flex-shrink-0">
-                      <svg viewBox="0 0 100 100" className="w-full h-full">
-                        <path d="M50 5 L95 95 L5 95 Z M50 30 L75 85 L25 85 Z" fill="url(#gradD)" />
-                        <defs>
-                          <linearGradient id="gradD" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style={{ stopColor: '#3CB8E0' }} />
-                            <stop offset="100%" style={{ stopColor: '#0066A1' }} />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                      <img src="https://cdn.poehali.dev/files/ccaa833a-e892-4627-8746-381eb78e13ff.png" alt="Д" className="w-full h-full object-contain" />
                     </div>
                     <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
                       Что вас ждёт
@@ -230,15 +222,7 @@ const ConcertDetails = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-2">
                     <div className="w-12 h-12 flex-shrink-0">
-                      <svg viewBox="0 0 100 100" className="w-full h-full">
-                        <path d="M30 10 L70 10 L70 90 L30 90 Z M40 35 L60 35 L60 65 L40 65 Z" fill="url(#gradI)" />
-                        <defs>
-                          <linearGradient id="gradI" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style={{ stopColor: '#FF8C42' }} />
-                            <stop offset="100%" style={{ stopColor: '#D65A00' }} />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                      <img src="https://cdn.poehali.dev/files/ccaa833a-e892-4627-8746-381eb78e13ff.png" alt="И" className="w-full h-full object-contain" />
                     </div>
                     <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
                       Программа вечера
@@ -261,15 +245,7 @@ const ConcertDetails = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-12 h-12 flex-shrink-0">
-                      <svg viewBox="0 0 100 100" className="w-full h-full">
-                        <path d="M10 10 L60 10 L70 30 L60 50 L70 70 L60 90 L10 90 L10 10 M25 25 L45 25 L45 45 L25 45 Z M25 55 L45 55 L45 75 L25 75 Z" fill="url(#gradV)" />
-                        <defs>
-                          <linearGradient id="gradV" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style={{ stopColor: '#8B7AB8' }} />
-                            <stop offset="100%" style={{ stopColor: '#5E4D7E' }} />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                      <img src="https://cdn.poehali.dev/files/ccaa833a-e892-4627-8746-381eb78e13ff.png" alt="В" className="w-full h-full object-contain" />
                     </div>
                     <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
                       Важная информация
@@ -384,15 +360,7 @@ const ConcertDetails = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-2">
                     <div className="w-12 h-12 flex-shrink-0">
-                      <svg viewBox="0 0 100 100" className="w-full h-full">
-                        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradO)" strokeWidth="10" />
-                        <defs>
-                          <linearGradient id="gradO" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style={{ stopColor: '#FF8C42' }} />
-                            <stop offset="100%" style={{ stopColor: '#D65A00' }} />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                      <img src="https://cdn.poehali.dev/files/ccaa833a-e892-4627-8746-381eb78e13ff.png" alt="О" className="w-full h-full object-contain" />
                     </div>
                     <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
                       Посмотрите, как это было
@@ -439,15 +407,7 @@ const ConcertDetails = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-2">
                     <div className="w-12 h-12 flex-shrink-0">
-                      <svg viewBox="0 0 100 100" className="w-full h-full">
-                        <path d="M50 5 L95 95 L5 95 Z M50 30 L75 85 L25 85 Z" fill="url(#gradD2)" />
-                        <defs>
-                          <linearGradient id="gradD2" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style={{ stopColor: '#3CB8E0' }} />
-                            <stop offset="100%" style={{ stopColor: '#0066A1' }} />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                      <img src="https://cdn.poehali.dev/files/ccaa833a-e892-4627-8746-381eb78e13ff.png" alt="Д" className="w-full h-full object-contain" />
                     </div>
                     <h2 className="text-2xl font-heading font-bold text-foreground mt-2">
                       Где это будет происходить
