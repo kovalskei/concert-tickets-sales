@@ -514,7 +514,7 @@ const Index = () => {
               }}
               className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 selectedEventsCity === 'all' && !showMyCityEvents
-                  ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
+                  ? 'bg-primary/10 border-2 border-primary text-primary shadow-md'
                   : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
               }`}
             >Все концерты</button>
