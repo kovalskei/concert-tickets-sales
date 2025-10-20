@@ -525,7 +525,7 @@ const Index = () => {
               }}
               className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
                 showMyCityEvents
-                  ? 'bg-gradient-to-r from-[#3CB8E0] to-[#8B7AB8] text-white shadow-lg scale-105'
+                  ? 'bg-primary/10 border-2 border-primary text-primary shadow-md'
                   : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
               }`}
             >
@@ -541,7 +541,7 @@ const Index = () => {
                 }}
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   selectedEventsCity === city && !showMyCityEvents
-                    ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
+                    ? 'bg-primary/10 border-2 border-primary text-primary shadow-md'
                     : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
                 }`}
               >
@@ -557,7 +557,7 @@ const Index = () => {
                 onClick={() => setSelectedDate(dateOption.date)}
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   selectedDate === dateOption.date
-                    ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
+                    ? 'bg-primary/10 border-2 border-primary text-primary shadow-md'
                     : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
                 }`}
               >
