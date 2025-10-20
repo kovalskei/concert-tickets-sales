@@ -481,87 +481,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
-                Частые вопросы
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Ответы на популярные вопросы о концертах
-              </p>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="bg-card border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-[#3CB8E0] transition-colors">
-                  Что такое Канделайт концерты?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Канделайт — это уникальные концерты классической музыки при свете сотен свечей. 
-                  Камерная атмосфера, живое исполнение и магия огня создают незабываемые впечатления.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2" className="bg-card border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-[#FF8C42] transition-colors">
-                  Как получить билеты после покупки?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Билеты придут на электронную почту сразу после оплаты. Вам нужно будет показать 
-                  QR-код с билета при входе на концерт — распечатывать ничего не нужно.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="bg-card border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-[#8B7AB8] transition-colors">
-                  Можно ли вернуть билеты?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Да, билеты можно вернуть не позднее чем за 3 дня до мероприятия. 
-                  Деньги вернутся на карту в течение 5-10 рабочих дней. Напишите в поддержку для оформления возврата.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4" className="bg-card border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-[#3CB8E0] transition-colors">
-                  Сколько длится концерт?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Обычно концерт длится 1,5-2 часа с одним антрактом. Точное время указано 
-                  в описании каждого мероприятия. Приходите за 15-20 минут до начала.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5" className="bg-card border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-[#FF8C42] transition-colors">
-                  Есть ли дресс-код?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Строгого дресс-кода нет, но мы рекомендуем элегантный стиль одежды — 
-                  это добавит особой атмосферы вечеру. Приходите так, чтобы чувствовать себя комфортно.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-6" className="bg-card border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-[#8B7AB8] transition-colors">
-                  Можно ли фотографировать во время концерта?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Фото и видео разрешены только до начала выступления и во время антракта. 
-                  Во время исполнения просим отключить звук телефонов и не использовать вспышку — 
-                  это отвлекает музыкантов и других гостей.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-      </section>
-
-      <InteractiveExperienceSection />
-
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
@@ -689,6 +608,85 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Section: FAQ - "Частые вопросы" */}
+      <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              Частые вопросы
+            </h2>
+            <p className="text-muted-foreground text-lg">Ответы на популярные вопросы о концертах</p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="bg-card border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold hover:text-[#3CB8E0] transition-colors">
+                  Что такое Канделайт концерты?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Канделайт — это уникальные концерты классической музыки при свете сотен свечей. 
+                  Камерная атмосфера, живое исполнение и магия огня создают незабываемые впечатления.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="bg-card border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold hover:text-[#FF8C42] transition-colors">
+                  Как получить билеты после покупки?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Билеты придут на электронную почту сразу после оплаты. Вам нужно будет показать 
+                  QR-код с билета при входе на концерт — распечатывать ничего не нужно.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="bg-card border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold hover:text-[#8B7AB8] transition-colors">
+                  Можно ли вернуть билеты?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Да, билеты можно вернуть не позднее чем за 3 дня до мероприятия. 
+                  Деньги вернутся на карту в течение 5-10 рабочих дней. Напишите в поддержку для оформления возврата.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="bg-card border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold hover:text-[#3CB8E0] transition-colors">
+                  Сколько длится концерт?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Обычно концерт длится 1,5-2 часа с одним антрактом. Точное время указано 
+                  в описании каждого мероприятия. Приходите за 15-20 минут до начала.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="bg-card border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold hover:text-[#FF8C42] transition-colors">
+                  Есть ли дресс-код?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Строгого дресс-кода нет, но мы рекомендуем элегантный стиль одежды — 
+                  это добавит особой атмосферы вечеру. Приходите так, чтобы чувствовать себя комфортно.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="bg-card border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold hover:text-[#8B7AB8] transition-colors">
+                  Можно ли фотографировать во время концерта?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Фото и видео разрешены только до начала выступления и во время антракта. 
+                  Во время исполнения просим отключить звук телефонов и не использовать вспышку — 
+                  это отвлекает музыкантов и других гостей.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      <InteractiveExperienceSection />
 
       {/* Section 3: Benefits - "Почему это вау" */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-background via-muted/20 to-background">
@@ -999,92 +997,6 @@ const Index = () => {
       </section>
 
 
-
-      {/* Section 5: FAQ */}
-      <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              Частые вопросы
-            </h2>
-            <p className="text-muted-foreground text-lg">Ответы на популярные вопросы наших гостей</p>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-4 mb-20">
-            <Card className="hover:shadow-lg transition-all">
-              <CardContent className="p-6">
-                <div className="flex gap-4">
-                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Можно ли вернуть билет?</h3>
-                    <p className="text-muted-foreground">Да, вы можете вернуть билет и получить полный возврат средств за 24 часа до начала концерта. Для возврата напишите нам в WhatsApp или на почту.</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-all">
-              <CardContent className="p-6">
-                <div className="flex gap-4">
-                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Как получить билеты?</h3>
-                    <p className="text-muted-foreground">После оплаты электронный билет с QR-кодом придёт на вашу почту. Просто покажите его с экрана телефона на входе — распечатывать не нужно.</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-all">
-              <CardContent className="p-6">
-                <div className="flex gap-4">
-                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Можно ли с детьми?</h3>
-                    <p className="text-muted-foreground">Конечно! Концерты подходят для всей семьи. Рекомендуем с детьми от 6 лет — младшим может быть сложно высидеть 1,5 часа. Детям до 7 лет вход бесплатный.</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-all">
-              <CardContent className="p-6">
-                <div className="flex gap-4">
-                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Есть ли дресс-код?</h3>
-                    <p className="text-muted-foreground">Специального дресс-кода нет, но мы рекомендуем элегантную одежду для создания особой атмосферы. Многие гости приходят в вечерних нарядах.</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-all">
-              <CardContent className="p-6">
-                <div className="flex gap-4">
-                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Сколько длится концерт?</h3>
-                    <p className="text-muted-foreground">Продолжительность концерта — 1,5 часа с одним антрактом 15 минут. Рекомендуем прийти за 15-20 минут до начала.</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-all">
-              <CardContent className="p-6">
-                <div className="flex gap-4">
-                  <Icon name="HelpCircle" size={24} className="text-primary flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Безопасна ли оплата?</h3>
-                    <p className="text-muted-foreground">Да, мы используем защищённое соединение и проверенные платёжные системы. Ваши данные карты не сохраняются на нашем сервере.</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Section 6: Program - "Программа вечера" */}
       <section className="py-20 bg-muted/30">
