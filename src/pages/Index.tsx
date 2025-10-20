@@ -469,7 +469,7 @@ const Index = () => {
               <Icon name="MapPin" size={18} />
               В моём городе
             </button>
-            {Array.from(new Set(mockEvents.map(e => e.city))).map((city) => (
+            {Array.from(new Set(concerts.map(e => e.city))).map((city) => (
               <button
                 key={city}
                 onClick={() => {
