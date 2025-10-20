@@ -9,10 +9,6 @@ import StreakCalendar from '@/components/game/StreakCalendar';
 import Leaderboard from '@/components/game/Leaderboard';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/HomePage/Footer';
-import MapWithLights from '@/components/MapWithLights';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Textarea } from '@/components/ui/textarea';
-import { Input } from '@/components/ui/input';
 
 const REFERRAL_API = 'https://functions.poehali.dev/b85734c8-e904-4924-bcc7-218619173fbd';
 
@@ -36,10 +32,6 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
-  const [isMapOpen, setIsMapOpen] = useState(false);
-  const [selectedLight, setSelectedLight] = useState<any>(null);
-  const [isAddLightOpen, setIsAddLightOpen] = useState(false);
-  const [newLightData, setNewLightData] = useState({ text: '', image: '', platform: 'instagram' });
   const { toast } = useToast();
 
   const referralLink = userData ? `${window.location.origin}/?ref=${userData.referral_code}` : '';
@@ -174,142 +166,9 @@ const Profile = () => {
     window.location.href = '/';
   };
 
-  const cityLights = [
-    { id: 1, city: 'Москва', venue: 'LOFT HALL', lat: 55.7558, lon: 37.6173, x: 55, y: 45, count: 8542, todayCount: 127, user: '@anna_m', text: 'Свечи, музыка и любимый рядом ✨', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 1200 },
-    { id: 2, city: 'Москва', venue: 'Особняк Румянцева', lat: 55.7600, lon: 37.6200, x: 56, y: 46, count: 8542, todayCount: 127, user: '@dmitry_love', text: 'Сделал предложение под Вивальди 💍', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 3800 },
-    { id: 3, city: 'Москва', venue: 'Доходный дом Баженова', lat: 55.7500, lon: 37.6100, x: 54, y: 44, count: 8542, todayCount: 127, user: '@maria_art', text: 'Идеальное первое свидание 🎻', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 892 },
-    { id: 4, city: 'Москва', venue: 'Палаты Аверкия Кириллова', lat: 55.7480, lon: 37.6350, x: 55, y: 46, count: 8542, todayCount: 127, user: '@moscowlights', text: 'Атмосфера старой Москвы 🏛️', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 2340 },
-    { id: 5, city: 'Санкт-Петербург', venue: 'Дворец Белосельских-Белозерских', lat: 59.9343, lon: 30.3351, x: 52, y: 35, count: 4891, todayCount: 89, user: '@peter_culture', text: 'Бах в историческом зале = магия', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 2100 },
-    { id: 6, city: 'Санкт-Петербург', venue: 'Особняк Кельха', lat: 59.9400, lon: 30.3400, x: 53, y: 36, count: 4891, todayCount: 89, user: '@spb_romance', text: 'Романтика Белых ночей при свечах', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 1650 },
-    { id: 7, city: 'Санкт-Петербург', venue: 'Особняк Половцова', lat: 59.9420, lon: 30.3280, x: 52, y: 36, count: 4891, todayCount: 89, user: '@nevsky_lights', text: 'Вечер, который запомнится навсегда', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8b4b2bbb-95f0-42b8-90b9-1ba7b9588ca0.jpg', likes: 1890 },
-    { id: 8, city: 'Казань', venue: 'Усадьба Баташева', lat: 55.7964, lon: 49.1089, x: 62, y: 48, count: 1851, todayCount: 34, user: '@kazan_vibe', text: 'Моцарт в Усадьбе Баташева 🔥', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/b1b9fbd4-43dc-44da-aa2f-72ea98d23633.jpg', likes: 567 },
-    { id: 9, city: 'Казань', venue: 'Дом Ушковой', lat: 55.7900, lon: 49.1220, x: 63, y: 48, count: 1851, todayCount: 34, user: '@tatar_classic', text: 'Классика в сердце Казани 🎼', image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/27a533f4-dea9-4406-a309-e01d62382732.jpg', likes: 723 },
-  ];
-
-  const handleAddLight = () => {
-    toast({
-      title: 'Огонёк добавлен! ✨',
-      description: 'Ваш момент появится на карте в течение 24 часов',
-    });
-    setIsAddLightOpen(false);
-    setNewLightData({ text: '', image: '', platform: 'instagram' });
-  };
-
   return (
     <>
       <Navigation isLoggedIn={true} onLogout={handleLogout} />
-      
-      <Dialog open={isMapOpen} onOpenChange={setIsMapOpen}>
-        <DialogContent className="max-w-6xl max-h-[90vh] overflow-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl">Карта огней Диво</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/30 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-2">15 000+ гостей зажгли огоньки</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Посмотрите, как светится Россия благодаря вечерам Диво
-              </p>
-              <Button onClick={() => setIsAddLightOpen(true)} className="bg-amber-500 hover:bg-amber-600 text-black">
-                <Icon name="Plus" className="mr-2" size={18} />
-                Зажечь свой огонёк
-              </Button>
-            </div>
-            
-            <MapWithLights 
-              cityLights={cityLights} 
-              onLightSelect={(light) => setSelectedLight(light)} 
-            />
-            
-            {selectedLight && (
-              <div className="bg-card border border-border rounded-lg p-6">
-                <div className="flex items-start gap-4">
-                  <img 
-                    src={selectedLight.image} 
-                    alt={selectedLight.user}
-                    className="w-24 h-24 rounded-lg object-cover"
-                  />
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="font-semibold">{selectedLight.user}</span>
-                      <Badge variant="secondary">{selectedLight.city}</Badge>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-2">{selectedLight.text}</p>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Icon name="MapPin" size={14} />
-                        {selectedLight.venue}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Icon name="Heart" size={14} className="text-red-500" />
-                        {selectedLight.likes}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog open={isAddLightOpen} onOpenChange={setIsAddLightOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Зажгите свой огонёк на карте</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div className="bg-muted/50 rounded-lg p-4 text-sm">
-              <p className="mb-2">📱 Как попасть на карту:</p>
-              <ol className="list-decimal list-inside space-y-1 text-muted-foreground">
-                <li>Опубликуйте фото/видео с концерта</li>
-                <li>Добавьте хэштег <Badge variant="secondary">#канделайт</Badge></li>
-                <li>Укажите геолокацию площадки</li>
-              </ol>
-            </div>
-            
-            <div>
-              <label className="text-sm font-medium mb-2 block">Текст эмоции</label>
-              <Textarea 
-                placeholder="Поделитесь впечатлением..."
-                value={newLightData.text}
-                onChange={(e) => setNewLightData({...newLightData, text: e.target.value})}
-                className="resize-none"
-                rows={3}
-              />
-            </div>
-
-            <div>
-              <label className="text-sm font-medium mb-2 block">Ссылка на пост</label>
-              <Input 
-                placeholder="https://instagram.com/p/..."
-                value={newLightData.image}
-                onChange={(e) => setNewLightData({...newLightData, image: e.target.value})}
-              />
-            </div>
-
-            <div>
-              <label className="text-sm font-medium mb-2 block">Соцсеть</label>
-              <div className="grid grid-cols-2 gap-2">
-                {['Instagram', 'ВКонтакте', 'Telegram', 'Одноклассники'].map((platform) => (
-                  <Button
-                    key={platform}
-                    variant={newLightData.platform === platform.toLowerCase() ? 'default' : 'outline'}
-                    onClick={() => setNewLightData({...newLightData, platform: platform.toLowerCase()})}
-                    size="sm"
-                  >
-                    {platform}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            <Button onClick={handleAddLight} className="w-full">
-              Отправить на модерацию
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
       
       <div className="min-h-screen bg-background pt-24 pb-12">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -323,24 +182,6 @@ const Profile = () => {
           </div>
 
         <div className="space-y-8 mb-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Icon name="Map" className="text-amber-400" />
-                Карта огней Диво
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-4">
-                15 000+ гостей уже зажгли огоньки на карте России. Посмотрите, как светится ваш город!
-              </p>
-              <Button onClick={() => setIsMapOpen(true)} className="w-full">
-                <Icon name="MapPin" className="mr-2" />
-                Открыть карту огней
-              </Button>
-            </CardContent>
-          </Card>
-
           <DailyGame />
           <StreakCalendar currentStreak={7} totalDays={30} />
           <Leaderboard />
