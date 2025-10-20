@@ -125,6 +125,7 @@ const Index = () => {
   const [selectedSeats, setSelectedSeats] = useState(1);
   const [selectedDate, setSelectedDate] = useState('2025-10-29');
   const [selectedEventsCity, setSelectedEventsCity] = useState<string>('all');
+  const [showMyCityEvents, setShowMyCityEvents] = useState(false);
   const [userCity, setUserCity] = useState<string>('Определение...');
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
@@ -496,21 +497,41 @@ const Index = () => {
 
           <div className="flex flex-wrap gap-3 mb-6">
             <button
-              onClick={() => setSelectedEventsCity('all')}
+              onClick={() => {
+                setSelectedEventsCity('all');
+                setShowMyCityEvents(false);
+              }}
               className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                selectedEventsCity === 'all'
+                selectedEventsCity === 'all' && !showMyCityEvents
                   ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
                   : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
               }`}
             >
               Все города
             </button>
+            <button
+              onClick={() => {
+                setSelectedEventsCity(userCity);
+                setShowMyCityEvents(true);
+              }}
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
+                showMyCityEvents
+                  ? 'bg-gradient-to-r from-[#3CB8E0] to-[#8B7AB8] text-white shadow-lg scale-105'
+                  : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
+              }`}
+            >
+              <Icon name="MapPin" size={18} />
+              В моём городе
+            </button>
             {Array.from(new Set(mockEvents.map(e => e.city))).map((city) => (
               <button
                 key={city}
-                onClick={() => setSelectedEventsCity(city)}
+                onClick={() => {
+                  setSelectedEventsCity(city);
+                  setShowMyCityEvents(false);
+                }}
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  selectedEventsCity === city
+                  selectedEventsCity === city && !showMyCityEvents
                     ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
                     : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
                 }`}
@@ -537,7 +558,36 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredEvents.filter(event => selectedEventsCity === 'all' || event.city === selectedEventsCity).map((event, index) => (
+            {showMyCityEvents && filteredEvents.filter(event => event.city === userCity).length === 0 && (
+              <Card className="group overflow-hidden bg-gradient-to-br from-card via-muted/50 to-card border-2 border-dashed border-[#FF8C42]/50 animate-scale-in col-span-full md:col-span-1">
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-[#FF8C42]/10 to-[#8B7AB8]/10 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <Icon name="MapPinOff" size={64} className="mx-auto mb-4 text-muted-foreground opacity-50" />
+                    <h4 className="text-2xl font-heading font-bold text-foreground mb-2">
+                      В {userCity === 'Определение...' ? 'вашем городе' : `городе ${userCity}`} пока нет концертов
+                    </h4>
+                  </div>
+                </div>
+                
+                <CardContent className="p-6">
+                  <p className="text-lg text-muted-foreground mb-6 text-center">
+                    Но мы можем организовать концерт специально для вас! Оставьте заявку, и мы свяжемся с вами.
+                  </p>
+                  
+                  <div className="flex items-center justify-center pt-4 border-t border-border">
+                    <Button 
+                      onClick={() => setAuthDialogOpen(true)}
+                      className="bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] hover:opacity-90 shadow-lg text-white font-bold text-base px-8 py-6 w-full"
+                    >
+                      <Icon name="Sparkles" className="mr-2" size={20} />
+                      Хочу концерт в своём городе
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+            
+            {filteredEvents.filter(event => showMyCityEvents ? event.city === userCity : (selectedEventsCity === 'all' || event.city === selectedEventsCity)).map((event, index) => (
               <Card 
                 key={event.id} 
                 className="group overflow-hidden bg-card border-border hover:card-glow transition-all duration-300 animate-scale-in cursor-pointer"
