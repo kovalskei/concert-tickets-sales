@@ -13,19 +13,7 @@ import {
 import InteractiveExperienceSection from '@/components/InteractiveExperienceSection';
 import MapWithLights from '@/components/MapWithLights';
 import AuthDialog from '@/components/AuthDialog';
-
-interface Event {
-  id: number;
-  title: string;
-  artist: string;
-  date: string;
-  venue: string;
-  city: string;
-  price: number;
-  image: string;
-  genre: string;
-  seatsLeft: number;
-}
+import { concerts, Concert } from '@/data/concerts';
 
 interface Review {
   id: number;
@@ -36,57 +24,6 @@ interface Review {
   date: string;
   event: string;
 }
-
-const mockEvents: Event[] = [
-  {
-    id: 1,
-    title: 'Чайковский и Рахманинов',
-    artist: 'Камерный оркестр',
-    date: '2025-10-29',
-    venue: 'LOFT HALL',
-    city: 'Москва',
-    price: 1800,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
-    genre: 'Канделайт',
-    seatsLeft: 15
-  },
-  {
-    id: 2,
-    title: 'Вивальди при свечах',
-    artist: 'Скрипичный ансамбль',
-    date: '2025-11-10',
-    venue: 'Особняк Румянцева',
-    city: 'Москва',
-    price: 2500,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/7b49f8ad-665c-45d2-902e-81f851a3c849.jpg',
-    genre: 'Канделайт',
-    seatsLeft: 23
-  },
-  {
-    id: 3,
-    title: 'Бах. Шедевры барокко',
-    artist: 'Трио "Барокко"',
-    date: '2025-11-20',
-    venue: 'Дворец Белосельских-Белозерских',
-    city: 'Санкт-Петербург',
-    price: 2800,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/c18c1c3e-efd3-4b70-a3e4-38bd329cf3a4.jpg',
-    genre: 'Канделайт',
-    seatsLeft: 8
-  },
-  {
-    id: 4,
-    title: 'Моцарт в огнях свечей',
-    artist: 'Струнный квартет',
-    date: '2025-12-10',
-    venue: 'Усадьба Баташева',
-    city: 'Казань',
-    price: 2200,
-    image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
-    genre: 'Канделайт',
-    seatsLeft: 45
-  }
-];
 
 const mockReviews: Review[] = [
   {
@@ -121,7 +58,7 @@ const mockReviews: Review[] = [
 const Index = () => {
   const [activeSection, setActiveSection] = useState('main');
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<Concert | null>(null);
   const [selectedSeats, setSelectedSeats] = useState(1);
   const [selectedDate, setSelectedDate] = useState('2025-10-29');
   const [selectedEventsCity, setSelectedEventsCity] = useState<string>('all');
@@ -232,7 +169,7 @@ const Index = () => {
     { date: '2025-12-10', label: '10 декабря' }
   ];
 
-  const filteredEvents = mockEvents.filter(event => {
+  const filteredEvents = concerts.filter(event => {
     const matchesDate = event.date === selectedDate;
     const matchesCity = selectedCity ? event.city === selectedCity : true;
     return matchesDate && matchesCity;
@@ -240,7 +177,7 @@ const Index = () => {
 
   const navigate = useNavigate();
 
-  const openBooking = (event: Event) => {
+  const openBooking = (event: Concert) => {
     setSelectedEvent(event);
     setIsBookingOpen(true);
   };
