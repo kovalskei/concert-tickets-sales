@@ -323,6 +323,125 @@ const ConcertDetails = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Галерея фото */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
+                    Атмосфера концерта
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/4bdc00b8-a05e-429d-b880-04fa6a680fa2.jpg"
+                      alt="Зал с свечами"
+                      className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                    />
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/51f4a196-09ec-45db-a866-4655198245a0.jpg"
+                      alt="Публика"
+                      className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                    />
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/8fb492fa-0b5a-4001-acea-980eb657556f.jpg"
+                      alt="Музыканты"
+                      className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                    />
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/c8f3f358-e84f-4378-bccd-ab1db6711cf5.jpg"
+                      alt="Пианист"
+                      className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                    />
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/fd39e944-c009-4a04-a91d-a307041c8b4b.jpg"
+                      alt="Романтика"
+                      className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                    />
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/f0cdfd35-4be0-43e1-acd7-af401748a1a4.jpg"
+                      alt="Панорама"
+                      className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Площадка */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
+                    Площадка
+                  </h2>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <Icon name="MapPin" size={20} className="text-[#FF8C42] mt-1" />
+                      <div>
+                        <p className="font-semibold text-foreground mb-1">{concert.venue}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Садовая улица, 12, {concert.location}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="relative h-96 bg-muted rounded-lg overflow-hidden">
+                      <div className="w-full h-full bg-gradient-to-br from-[#3CB8E0]/20 to-[#8B7AB8]/20 flex items-center justify-center">
+                        <Icon name="MapPin" size={64} className="text-[#3CB8E0]" />
+                      </div>
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <Badge className="bg-red-500 text-white border-0 px-4 py-2">
+                          {concert.venue} - вход с Садовой
+                        </Badge>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Похожие концерты */}
+          <div className="mt-16">
+            <h2 className="text-3xl font-heading font-bold text-foreground mb-8 text-center">
+              Похожие концерты
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[1, 2, 3].map((item) => (
+                <Card 
+                  key={item}
+                  className="group overflow-hidden cursor-pointer hover:shadow-xl transition-all"
+                  onClick={() => navigate(`/concert/${item}`)}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg"
+                      alt="Концерт"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                    />
+                    <Badge className="absolute top-4 right-4 bg-[#3CB8E0]">
+                      Канделайт
+                    </Badge>
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-heading font-bold text-foreground mb-2">
+                      Чайковский и Рахманинов
+                    </h3>
+                    <div className="space-y-2 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <Icon name="Calendar" size={16} />
+                        <span>29 октября 2025</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Icon name="MapPin" size={16} />
+                        <span>LOFT HALL, Москва</span>
+                      </div>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <span className="text-2xl font-bold">1800₽</span>
+                      <Button size="sm" className="bg-[#3CB8E0]">
+                        Купить
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
