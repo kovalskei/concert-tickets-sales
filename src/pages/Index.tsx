@@ -763,7 +763,7 @@ const Index = () => {
           </div>
 
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-12 gap-4 auto-rows-[280px] group/grid">
+            <div className="grid grid-cols-12 gap-4 auto-rows-[200px] group/grid">
               
               <div className="col-span-12 md:col-span-5 row-span-2 group relative transition-all duration-500 group-hover/grid:opacity-40 hover:!opacity-100">
                 <div className="relative h-full phone-frame-glow rounded-[3rem] shadow-2xl">
