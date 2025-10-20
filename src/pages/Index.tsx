@@ -124,6 +124,7 @@ const Index = () => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [selectedSeats, setSelectedSeats] = useState(1);
   const [selectedDate, setSelectedDate] = useState('2025-10-29');
+  const [selectedEventsCity, setSelectedEventsCity] = useState<string>('all');
   const [userCity, setUserCity] = useState<string>('Определение...');
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
@@ -574,6 +575,32 @@ const Index = () => {
             </Button>
           </div>
 
+          <div className="flex flex-wrap gap-3 mb-6">
+            <button
+              onClick={() => setSelectedEventsCity('all')}
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                selectedEventsCity === 'all'
+                  ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
+                  : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
+              }`}
+            >
+              Все города
+            </button>
+            {Array.from(new Set(mockEvents.map(e => e.city))).map((city) => (
+              <button
+                key={city}
+                onClick={() => setSelectedEventsCity(city)}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  selectedEventsCity === city
+                    ? 'bg-gradient-to-r from-[#FF8C42] to-[#FF6B35] text-white shadow-lg scale-105'
+                    : 'bg-card border border-border text-foreground hover:border-primary/50 hover:shadow-md'
+                }`}
+              >
+                {city}
+              </button>
+            ))}
+          </div>
+
           <div className="flex flex-wrap gap-3 mb-12">
             {availableDates.map((dateOption) => (
               <button
@@ -591,7 +618,7 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredEvents.map((event, index) => (
+            {filteredEvents.filter(event => selectedEventsCity === 'all' || event.city === selectedEventsCity).map((event, index) => (
               <Card 
                 key={event.id} 
                 className="group overflow-hidden bg-card border-border hover:card-glow transition-all duration-300 animate-scale-in cursor-pointer"
