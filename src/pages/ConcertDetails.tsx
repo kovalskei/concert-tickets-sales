@@ -147,12 +147,27 @@ const ConcertDetails = () => {
       <div className="min-h-screen bg-background">
         {/* Hero секция с изображением */}
         <div className="relative h-[60vh] min-h-[400px]">
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${concert.image})` }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-          </div>
+          {concert.id === 1 ? (
+            <div className="absolute inset-0">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="https://disk.360.yandex.ru/i/Vk8FFhOdeGKshA" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+            </div>
+          ) : (
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${concert.image})` }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+            </div>
+          )}
           
           <div className="relative container mx-auto px-4 h-full flex items-end pb-12">
             <div className="max-w-3xl">
