@@ -44,7 +44,7 @@ const ConcertDetails = () => {
         venue: 'Концертный зал им. Чайковского',
         price: 1500,
         image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=2070',
-        description: 'Погрузитесь в атмосферу волшебства классической музыки при свечах. Знаменитый цикл Антонио Вивальди "Времена года" исполнит камерный оркестр в уникальной обстановке, освещённой сотнями свечей.',
+        description: '🕯️ Представьте: мерцание тысячи свечей превращает зал в сказочное пространство, где каждая нота Вивальди оживает по-новому. Это не просто концерт — это путешествие сквозь времена года под сводами, наполненными живым огнём.\n\nВы услышите, как "Весна" пробуждается в нежных скрипичных переливах, как "Лето" бушует в стремительных пассажах, как "Осень" танцует в золотом свете свечей, и как "Зима" завораживает своей величественной холодностью. ❄️\n\nЭто тот самый вечер, о котором вы будете рассказывать друзьям. Атмосфера, которую невозможно описать словами — её нужно прожить.',
         program: [
           'Антонио Вивальди - Концерт "Весна"',
           'Антонио Вивальди - Концерт "Лето"',
@@ -63,7 +63,7 @@ const ConcertDetails = () => {
         venue: 'Филармония',
         price: 1800,
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070',
-        description: 'Насладитесь шедеврами великих композиторов в интимной атмосфере концерта при свечах. Произведения Баха и Моцарта в исполнении талантливых музыкантов подарят незабываемые эмоции.',
+        description: '✨ Два гения. Одна волшебная ночь. Бесконечные эмоции.\n\nБах и Моцарт встречаются в магическом пространстве Филармонии, где 1000 свечей создают атмосферу, будто вы перенеслись на 300 лет назад в дворцовый зал.\n\nЗдесь время останавливается. Токката и фуга Баха заставит вас затаить дыхание, а Маленькая ночная серенада Моцарта унесёт в мир грёз и романтики. 🎻\n\nЭто концерт для тех, кто понимает: настоящая роскошь — это не золото, а мгновения, которые останутся с вами навсегда.',
         program: [
           'И.С. Бах - Токката и фуга ре минор',
           'В.А. Моцарт - Маленькая ночная серенада',
@@ -82,7 +82,7 @@ const ConcertDetails = () => {
         venue: 'Зарядье',
         price: 2000,
         image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070',
-        description: 'Современная классика от итальянского композитора Людовико Эйнауди. Минималистичные мелодии, наполненные глубоким смыслом, в уникальной атмосфере при свечах.',
+        description: '🎹 Это музыка, которая говорит без слов. Которая трогает там, где не достают даже самые правильные фразы.\n\nЛюдовико Эйнауди — современный гений, чьи мелодии звучат в миллионах сердец по всему миру. Nuvole Bianche, Una Mattina, Experience — каждая композиция это маленькая жизнь, рассказанная через фортепиано.\n\nПри свете сотен свечей эта музыка обретает особую силу. Она заставляет чувствовать глубже, думать яснее, мечтать смелее. 💫\n\nПриходите не просто послушать концерт — приходите прожить два часа настоящей жизни, где каждая нота имеет значение.',
         program: [
           'Nuvole Bianche',
           'Una Mattina',
@@ -203,10 +203,10 @@ const ConcertDetails = () => {
               {/* Описание */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
-                    О концерте
+                  <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
+                    🎭 Что вас ждёт
                   </h2>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed text-lg whitespace-pre-line">
                     {concert.description}
                   </p>
                 </CardContent>
@@ -215,9 +215,10 @@ const ConcertDetails = () => {
               {/* Программа */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
-                    Программа концерта
+                  <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
+                    🎼 Программа вечера
                   </h2>
+                  <p className="text-sm text-muted-foreground mb-6">Каждая композиция — отдельная история</p>
                   <ul className="space-y-3">
                     {concert.program.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
@@ -232,8 +233,8 @@ const ConcertDetails = () => {
               {/* Детали */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
-                    Детали мероприятия
+                  <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
+                    ℹ️ Важная информация
                   </h2>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="flex items-center gap-3 p-4 bg-muted/50 rounded-lg">
@@ -259,11 +260,18 @@ const ConcertDetails = () => {
             <div className="lg:col-span-1">
               <Card className="sticky top-24 border-2 border-[#3CB8E0]/20">
                 <CardContent className="p-6">
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg mb-4 text-center animate-pulse">
+                    <div className="flex items-center justify-center gap-2 text-sm font-bold">
+                      <Icon name="Flame" size={16} />
+                      <span>Осталось 12 мест!</span>
+                    </div>
+                  </div>
                   <div className="text-center mb-6">
                     <div className="text-sm text-muted-foreground mb-2">Цена билета</div>
                     <div className="text-4xl font-heading font-bold text-foreground">
                       {concert.price}₽
                     </div>
+                    <p className="text-xs text-muted-foreground mt-2">💫 Включено шампанское в антракте</p>
                   </div>
 
                   <div className="space-y-4 mb-6">
@@ -303,22 +311,30 @@ const ConcertDetails = () => {
                   </div>
 
                   <Button 
-                    className="w-full bg-[#3CB8E0] hover:bg-[#3CB8E0]/90 text-white"
+                    className="w-full bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] hover:opacity-90 text-white font-bold shadow-lg"
                     size="lg"
                     onClick={handleBuyTickets}
                   >
-                    <Icon name="Ticket" size={20} className="mr-2" />
-                    Купить билеты
+                    <Icon name="Sparkles" size={20} className="mr-2" />
+                    Забронировать место
                   </Button>
 
-                  <div className="mt-4 space-y-2">
+                  <div className="mt-4 space-y-3">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Icon name="Users" size={16} className="text-[#3CB8E0]" />
+                      <span className="text-muted-foreground"><strong className="text-foreground">127 человек</strong> смотрят это событие</span>
+                    </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Icon name="Shield" size={16} className="text-[#3CB8E0]" />
                       <span>Безопасная оплата</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Icon name="RefreshCw" size={16} className="text-[#3CB8E0]" />
-                      <span>Возврат билетов за 24 часа</span>
+                      <span>Возврат 100% за 24 часа</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Icon name="Gift" size={16} className="text-[#FF8C42]" />
+                      <span>Можно подарить другу</span>
                     </div>
                   </div>
                 </CardContent>
@@ -327,9 +343,10 @@ const ConcertDetails = () => {
               {/* Галерея фото */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
-                    Атмосфера концерта
+                  <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
+                    📸 Посмотрите, как это было
                   </h2>
+                  <p className="text-sm text-muted-foreground mb-6">Реальные фото с наших концертов — без фотошопа, только эмоции</p>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <img 
                       src="https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/4bdc00b8-a05e-429d-b880-04fa6a680fa2.jpg"
@@ -368,9 +385,10 @@ const ConcertDetails = () => {
               {/* Площадка */}
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
-                    Площадка
+                  <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
+                    🏛️ Где это будет происходить
                   </h2>
+                  <p className="text-sm text-muted-foreground mb-6">Место, которое само по себе — произведение искусства</p>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <Icon name="MapPin" size={20} className="text-[#FF8C42] mt-1" />
@@ -399,9 +417,14 @@ const ConcertDetails = () => {
 
           {/* Похожие концерты */}
           <div className="mt-16">
-            <h2 className="text-3xl font-heading font-bold text-foreground mb-8 text-center">
-              Похожие концерты
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
+                ✨ Вам может понравиться
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Другие волшебные вечера, которые стоит посетить
+              </p>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
               {[1, 2, 3].map((item) => (
                 <Card 
