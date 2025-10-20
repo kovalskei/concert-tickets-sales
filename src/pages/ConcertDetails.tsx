@@ -265,9 +265,7 @@ const ConcertDetails = () => {
                     <div className="border-t pt-4">
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-muted-foreground">Итого:</span>
-                        <span className="text-2xl font-bold text-foreground">
-                          {concert.price * selectedTickets}₽
-                        </span>
+                        <span className="text-2xl font-bold text-foreground">2900Р</span>
                       </div>
                     </div>
                   </div>
