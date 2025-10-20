@@ -453,7 +453,7 @@ const ConcertDetails = () => {
           </div>
 
           {/* Похожие концерты */}
-          <div className="mt-16">
+          <div className="mt-16 hidden">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
                 ✨ Вам может понравиться
