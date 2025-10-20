@@ -41,66 +41,21 @@ const cityConfigs: Record<string, CityConfig> = {
   }
 };
 
-const mockEvents: Record<string, Concert[]> = {
-  moscow: [
-    {
-      id: 1,
-      title: 'Чайковский и Рахманинов',
-      artist: 'Камерный оркестр',
-      date: '2025-10-29',
-      time: '19:00',
-      duration: '90 минут',
-      venue: 'LOFT HALL',
-      city: 'Москва',
-      price: 1800,
-      image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
-      seatsLeft: 15
-    },
-    {
-      id: 2,
-      title: 'Вивальди при свечах',
-      artist: 'Скрипичный ансамбль',
-      date: '2025-11-10',
-      time: '20:00',
-      duration: '90 минут',
-      venue: 'Особняк Румянцева',
-      city: 'Москва',
-      price: 2500,
-      image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/7b49f8ad-665c-45d2-902e-81f851a3c849.jpg',
-      seatsLeft: 23
-    }
-  ],
-  kazan: [
-    {
-      id: 4,
-      title: 'Моцарт в огнях свечей',
-      artist: 'Струнный квартет',
-      date: '2025-12-10',
-      time: '19:30',
-      duration: '90 минут',
-      venue: 'Усадьба Баташева',
-      city: 'Казань',
-      price: 2200,
-      image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/9cc33549-0401-429a-a7a2-d379080f0908.jpg',
-      seatsLeft: 45
-    }
-  ],
-  'saint-petersburg': [
-    {
-      id: 3,
-      title: 'Бах. Шедевры барокко',
-      artist: 'Трио "Барокко"',
-      date: '2025-11-20',
-      time: '19:00',
-      duration: '90 минут',
-      venue: 'Дворец Белосельских-Белозерских',
-      city: 'Санкт-Петербург',
-      price: 2800,
-      image: 'https://cdn.poehali.dev/projects/5dd05840-e04e-455d-87e2-1a9c0a120a10/files/c18c1c3e-efd3-4b70-a3e4-38bd329cf3a4.jpg',
-      seatsLeft: 8
-    }
-  ]
+// Группируем концерты по городам
+const citySlugMap: Record<string, string> = {
+  'moscow': 'Москва',
+  'kazan': 'Казань',
+  'saint-petersburg': 'Санкт-Петербург'
 };
+
+const mockEvents: Record<string, Concert[]> = concerts.reduce((acc, concert) => {
+  const slug = Object.keys(citySlugMap).find(key => citySlugMap[key] === concert.city);
+  if (slug) {
+    if (!acc[slug]) acc[slug] = [];
+    acc[slug].push(concert);
+  }
+  return acc;
+}, {} as Record<string, Concert[]>);
 
 const faqs = [
   {
