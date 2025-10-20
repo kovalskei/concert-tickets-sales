@@ -72,6 +72,7 @@ const Index = () => {
   const [mapZoom, setMapZoom] = useState(1);
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [activeUsersMap, setActiveUsersMap] = useState<Record<number, number>>({});
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -106,6 +107,29 @@ const Index = () => {
       console.log('Checking auth, user_id:', userId);
       setIsLoggedIn(!!userId);
     }
+
+    const updateActiveUsers = () => {
+      const now = Date.now();
+      const hourOfDay = new Date().getHours();
+      const newMap: Record<number, number> = {};
+      
+      concerts.forEach(concert => {
+        let baseUsers = 1;
+        if (hourOfDay >= 9 && hourOfDay < 12) baseUsers = 2;
+        else if (hourOfDay >= 12 && hourOfDay < 18) baseUsers = 4;
+        else if (hourOfDay >= 18 && hourOfDay < 23) baseUsers = 7;
+        else baseUsers = 1;
+        
+        const variation = Math.floor((now / 1000 + concert.id) % 5) - 2;
+        newMap[concert.id] = Math.max(1, Math.min(10, baseUsers + variation));
+      });
+      
+      setActiveUsersMap(newMap);
+    };
+
+    updateActiveUsers();
+    const interval = setInterval(updateActiveUsers, 15000);
+    return () => clearInterval(interval);
   }, []);
 
   const handleLogout = () => {
@@ -550,16 +574,24 @@ const Index = () => {
                   <Badge className="absolute top-4 right-4 bg-primary/90 text-primary-foreground">
                     {event.genre}
                   </Badge>
-                  {event.seatsLeft <= 20 && (
-                    <Badge className={`absolute top-4 left-4 ${
-                      event.seatsLeft <= 10 
-                        ? 'bg-red-500 animate-pulse' 
-                        : 'bg-orange-500'
-                    } text-white border-0 font-bold`}>
-                      <Icon name="AlertCircle" size={14} className="mr-1" />
-                      Осталось {event.seatsLeft} мест
-                    </Badge>
-                  )}
+                  <div className="absolute top-4 left-4 flex flex-col gap-2">
+                    {event.seatsLeft <= 20 && (
+                      <Badge className={`${
+                        event.seatsLeft <= 10 
+                          ? 'bg-red-500 animate-pulse' 
+                          : 'bg-orange-500'
+                      } text-white border-0 font-bold`}>
+                        <Icon name="AlertCircle" size={14} className="mr-1" />
+                        Осталось {event.seatsLeft} мест
+                      </Badge>
+                    )}
+                    {activeUsersMap[event.id] && activeUsersMap[event.id] > 0 && (
+                      <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 font-bold">
+                        <Icon name="Users" size={14} className="mr-1 animate-pulse" />
+                        {activeUsersMap[event.id]} {activeUsersMap[event.id] === 1 ? 'человек' : activeUsersMap[event.id] < 5 ? 'человека' : 'человек'} смотрят
+                      </Badge>
+                    )}
+                  </div>
                 </div>
                 
                 <CardContent className="p-6">
