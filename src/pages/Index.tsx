@@ -754,9 +754,7 @@ const Index = () => {
             <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-[#FF8C42] to-[#8B7AB8] rounded-full animate-pulse-soft">
               <span className="text-white font-bold text-sm">✨ РЕАЛЬНОЕ ДИВО</span>
             </div>
-            <h3 className="text-5xl md:text-7xl font-heading font-black text-foreground mb-4">
-              Почему это ВАУ
-            </h3>
+            <h3 className="text-5xl md:text-7xl font-heading font-black text-foreground mb-4">Атмосфера мероприятий</h3>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Листай как сторис — это не просто концерт 🔥
             </p>
