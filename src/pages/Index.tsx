@@ -1334,51 +1334,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h3 className="text-4xl font-heading font-bold text-center text-foreground mb-12">
-            Почему Диво?
-          </h3>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
-              <div className="w-16 h-16 mx-auto mb-4 bg-[#FF8C42]/20 rounded-full flex items-center justify-center">
-                <Icon name="Flame" size={32} className="text-[#FF8C42] candle-flicker" />
-              </div>
-              <h4 className="text-xl font-heading font-bold text-foreground mb-3">
-                Уникальная атмосфера
-              </h4>
-              <p className="text-muted-foreground">
-                1000 свечей создают неповторимую магию живой музыки
-              </p>
-            </Card>
-
-            <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
-              <div className="w-16 h-16 mx-auto mb-4 bg-[#3CB8E0]/20 rounded-full flex items-center justify-center">
-                <Icon name="Building2" size={32} className="text-[#3CB8E0]" />
-              </div>
-              <h4 className="text-xl font-heading font-bold text-foreground mb-3">
-                Исторические залы
-              </h4>
-              <p className="text-muted-foreground">
-                Концерты в особняках и дворцах с вековой историей
-              </p>
-            </Card>
-
-            <Card className="bg-card border-border p-8 text-center hover:card-glow transition-all">
-              <div className="w-16 h-16 mx-auto mb-4 bg-[#8B7AB8]/20 rounded-full flex items-center justify-center">
-                <Icon name="Music" size={32} className="text-[#8B7AB8]" />
-              </div>
-              <h4 className="text-xl font-heading font-bold text-foreground mb-3">
-                Великие композиторы
-              </h4>
-              <p className="text-muted-foreground">
-                Моцарт, Бах, Вивальди в исполнении талантливых музыкантов
-              </p>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Section 6: Gift Certificate - "Подарить вечер при свечах" */}
       <section className="py-20 bg-background">
