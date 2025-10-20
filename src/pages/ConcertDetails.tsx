@@ -220,7 +220,7 @@ const ConcertDetails = () => {
               {/* Программа */}
               <Card>
                 <CardContent className="p-6">
-                  <div className="flex items-start gap-4 mb-2">
+                  <div className="flex items-center gap-4 mb-2">
                     <div className="w-6 h-6 flex-shrink-0">
                       <img src="https://cdn.poehali.dev/files/fbdfa858-a81b-487f-a529-d81161aedd71.png" alt="И" className="w-full h-full object-contain" />
                     </div>
@@ -358,7 +358,7 @@ const ConcertDetails = () => {
               {/* Галерея фото */}
               <Card>
                 <CardContent className="p-6">
-                  <div className="flex items-start gap-4 mb-2">
+                  <div className="flex items-center gap-4 mb-2">
                     <div className="w-6 h-6 flex-shrink-0">
                       <img src="https://cdn.poehali.dev/files/cd2c79e9-6ed4-48a2-a2f5-28504c096c1b.png" alt="О" className="w-full h-full object-contain" />
                     </div>
