@@ -14,6 +14,7 @@ const ConcertDetails = () => {
   const [concert, setConcert] = useState<Concert | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedTickets, setSelectedTickets] = useState(1);
+  const [activeUsers, setActiveUsers] = useState(2);
 
   useEffect(() => {
     const token = localStorage.getItem('authToken');
@@ -21,6 +22,30 @@ const ConcertDetails = () => {
 
     const foundConcert = concerts.find(c => c.id === Number(id));
     setConcert(foundConcert || null);
+
+    // Имитация активных пользователей на основе времени
+    const updateActiveUsers = () => {
+      const now = Date.now();
+      const hourOfDay = new Date().getHours();
+      
+      // Базовое количество зависит от времени суток
+      let baseUsers = 1;
+      if (hourOfDay >= 9 && hourOfDay < 12) baseUsers = 3; // Утро
+      else if (hourOfDay >= 12 && hourOfDay < 18) baseUsers = 5; // День
+      else if (hourOfDay >= 18 && hourOfDay < 23) baseUsers = 8; // Вечер (пик)
+      else baseUsers = 1; // Ночь
+      
+      // Добавляем случайную вариацию на основе секунд
+      const variation = Math.floor((now / 1000) % 5) - 2;
+      const users = Math.max(1, Math.min(12, baseUsers + variation));
+      
+      setActiveUsers(users);
+    };
+
+    updateActiveUsers();
+    const interval = setInterval(updateActiveUsers, 15000); // Обновляем каждые 15 секунд
+
+    return () => clearInterval(interval);
   }, [id]);
 
   const handleLogout = () => {
@@ -199,14 +224,12 @@ const ConcertDetails = () => {
             <div className="lg:col-span-1">
               <Card className="sticky top-24 border-2 border-[#3CB8E0]/20">
                 <CardContent className="p-6">
-                  {concert.seatsLeft <= 20 && (
-                    <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg mb-4 text-center animate-pulse">
-                      <div className="flex items-center justify-center gap-2 text-sm font-bold">
-                        <Icon name="Flame" size={16} />
-                        <span>Осталось {concert.seatsLeft} мест!</span>
-                      </div>
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg mb-4 text-center">
+                    <div className="flex items-center justify-center gap-2 text-sm font-bold">
+                      <Icon name="Users" size={16} className="animate-pulse" />
+                      <span>Прямо сейчас {activeUsers} {activeUsers === 1 ? 'человек выбирает' : activeUsers < 5 ? 'человека выбирают' : 'человек выбирают'} места</span>
                     </div>
-                  )}
+                  </div>
                   <div className="text-center mb-6">
                     <div className="text-sm text-muted-foreground mb-2">Цена билета</div>
                     <div className="text-4xl font-heading font-bold text-foreground">
