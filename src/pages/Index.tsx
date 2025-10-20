@@ -501,7 +501,7 @@ const Index = () => {
                     ? 'bg-[#3CB8E0] text-white'
                     : 'hover:bg-[#3CB8E0]/10'
                 }`}
-              >Все города</Button>
+              >В Моем городе</Button>
               <Button variant="outline" className="border-[#3CB8E0] hover:bg-[#3CB8E0]/10">Все города</Button>
             </div>
           </div>
