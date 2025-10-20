@@ -971,75 +971,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section 5: Musicians - "Кто играет" */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-heading font-bold text-foreground">
-              Кто играет
-            </h3>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="bg-card border-border hover:card-glow transition-all overflow-hidden">
-              <div className="relative h-64">
-                <img 
-                  src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&h=400&fit=crop"
-                  alt="Анна Смирнова"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-              </div>
-              <CardContent className="p-6">
-                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
-                  Анна Смирнова — фортепиано
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Лауреат международных конкурсов, солистка камерного оркестра
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border hover:card-glow transition-all overflow-hidden">
-              <div className="relative h-64">
-                <img 
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
-                  alt="Иван Петров"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-              </div>
-              <CardContent className="p-6">
-                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
-                  Иван Петров — скрипка
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  ГАСО, лауреат «Новая классика», выступал в Вене и Праге
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border hover:card-glow transition-all overflow-hidden">
-              <div className="relative h-64">
-                <img 
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
-                  alt="Мария Ким"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-              </div>
-              <CardContent className="p-6">
-                <h4 className="text-xl font-heading font-bold text-foreground mb-2">
-                  Мария Ким — виолончель
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Победитель конкурсов им. Рахманинова, запись на Radio Classic
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Section 5: FAQ */}
       <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
