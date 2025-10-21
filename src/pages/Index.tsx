@@ -100,10 +100,6 @@ const Index = () => {
           }
         })
         .catch(err => console.error('Test login failed:', err));
-    } else {
-      const userId = localStorage.getItem('user_id');
-      console.log('Checking auth, user_id:', userId);
-      setIsLoggedIn(!!userId);
     }
 
     const updateActiveUsers = () => {
@@ -130,12 +126,7 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleLogout = () => {
-    console.log('Logging out...');
-    localStorage.clear();
-    setIsLoggedIn(false);
-    window.location.reload();
-  };
+
 
   const handleAuthSuccess = () => {
     const userId = localStorage.getItem('user_id');
