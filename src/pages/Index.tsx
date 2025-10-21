@@ -13,6 +13,7 @@ import {
 import InteractiveExperienceSection from '@/components/InteractiveExperienceSection';
 import MapWithLights from '@/components/MapWithLights';
 import Navigation from '@/components/Navigation';
+import AuthDialog from '@/components/AuthDialog';
 import { concerts, Concert } from '@/data/concerts';
 
 interface Review {
@@ -70,6 +71,7 @@ const Index = () => {
   const [selectedLight, setSelectedLight] = useState<any>(null);
   const [mapZoom, setMapZoom] = useState(1);
   const [activeUsersMap, setActiveUsersMap] = useState<Record<number, number>>({});
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -138,7 +140,6 @@ const Index = () => {
   const handleAuthSuccess = () => {
     const userId = localStorage.getItem('user_id');
     console.log('Auth success, user_id:', userId);
-    setIsLoggedIn(!!userId);
   };
 
   const cityLights = [
