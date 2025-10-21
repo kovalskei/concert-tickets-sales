@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import EventHeader from '@/components/event/EventHeader';
+import Navigation from '@/components/Navigation';
 import EventHero from '@/components/event/EventHero';
 import EventFeatures from '@/components/event/EventFeatures';
 import EventReviews from '@/components/event/EventReviews';
@@ -19,7 +19,7 @@ const EventDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <EventHeader />
+      <Navigation />
       <EventHero event={event} />
       <EventFeatures />
       <EventReviews />

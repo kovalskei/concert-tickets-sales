@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { Link } from "react-router-dom";
+import Navigation from '@/components/Navigation';
 
 const ThankYou = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-2xl mx-auto mb-12">

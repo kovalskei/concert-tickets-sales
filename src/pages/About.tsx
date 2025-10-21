@@ -1,8 +1,8 @@
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
+import Navigation from '@/components/Navigation';
 
 const About = () => {
   const navigate = useNavigate();
@@ -43,27 +43,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <button 
-              onClick={() => navigate('/')}
-              className="text-2xl font-heading font-bold bg-gradient-to-r from-[#3CB8E0] via-[#FF8C42] to-[#8B7AB8] bg-clip-text text-transparent"
-            >
-              ДИВО
-            </button>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => navigate('/')}
-            >
-              <Icon name="ArrowLeft" size={16} className="mr-2" />
-              На главную
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">

@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import Navigation from '@/components/Navigation';
 import AuthDialog from '@/components/AuthDialog';
 import { concerts, Concert } from '@/data/concerts';
 
@@ -136,6 +137,8 @@ const CandlelightCity = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white">
+      <Navigation />
+      
       <AuthDialog 
         open={authDialogOpen}
         onOpenChange={setAuthDialogOpen}
