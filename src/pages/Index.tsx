@@ -274,12 +274,7 @@ const Index = () => {
                 </>
               )}
 
-              <button 
-                onClick={() => setActiveSection('tickets')}
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                Мои билеты
-              </button>
+
               <button 
                 onClick={() => setActiveSection('contacts')}
                 className="text-sm font-medium hover:text-primary transition-colors"
