@@ -12,14 +12,10 @@ const ConcertDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [concert, setConcert] = useState<Concert | null>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedTickets, setSelectedTickets] = useState(1);
   const [activeUsers, setActiveUsers] = useState(2);
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    setIsLoggedIn(!!token);
-
     const foundConcert = concerts.find(c => c.id === Number(id));
     setConcert(foundConcert || null);
 
@@ -48,17 +44,7 @@ const ConcertDetails = () => {
     return () => clearInterval(interval);
   }, [id]);
 
-  const handleLogout = () => {
-    localStorage.clear();
-    setIsLoggedIn(false);
-    navigate('/');
-  };
-
   const handleBuyTickets = () => {
-    if (!isLoggedIn) {
-      navigate('/', { state: { showAuth: true } });
-      return;
-    }
     // Логика покупки билетов
     console.log(`Покупка ${selectedTickets} билетов на концерт ${concert?.title}`);
   };
@@ -66,7 +52,7 @@ const ConcertDetails = () => {
   if (!concert) {
     return (
       <>
-        <Navigation isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <Navigation />
         <div className="min-h-screen bg-background flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-heading font-bold text-foreground mb-4">
@@ -91,7 +77,7 @@ const ConcertDetails = () => {
 
   return (
     <>
-      <Navigation isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+      <Navigation />
       
       <div className="min-h-screen bg-background">
         {/* Hero секция с изображением */}

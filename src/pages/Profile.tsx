@@ -161,14 +161,9 @@ const Profile = () => {
     );
   }
 
-  const handleLogout = () => {
-    localStorage.clear();
-    window.location.href = '/';
-  };
-
   return (
     <>
-      <Navigation isLoggedIn={true} onLogout={handleLogout} />
+      <Navigation />
       
       <div className="min-h-screen bg-background pt-24 pb-12">
         <div className="container mx-auto px-4 max-w-4xl">
