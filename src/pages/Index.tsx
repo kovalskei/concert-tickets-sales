@@ -448,7 +448,7 @@ const Index = () => {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h3 className="text-4xl font-heading font-bold text-foreground mb-2">Ближайшие ДИВО концерты</h3>
-              <p className="text-muted-foreground">Погрузитесь в волшебную атмосферу классики при свечах</p>
+              <p className="text-muted-foreground">Погрузитесь в волшебную атмосферу музыки при свечах</p>
             </div>
             <div className="flex gap-3">
               <Button 
