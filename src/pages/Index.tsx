@@ -273,12 +273,7 @@ const Index = () => {
                   </Button>
                 </>
               )}
-              <button 
-                onClick={() => setActiveSection('artists')}
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                Артисты
-              </button>
+
               <button 
                 onClick={() => setActiveSection('tickets')}
                 className="text-sm font-medium hover:text-primary transition-colors"
