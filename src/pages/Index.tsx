@@ -62,6 +62,8 @@ const Index = () => {
   const [selectedDate, setSelectedDate] = useState('2025-10-29');
   const [selectedEventsCity, setSelectedEventsCity] = useState<string>('all');
   const [showMyCityEvents, setShowMyCityEvents] = useState(false);
+  const [userCity, setUserCity] = useState<string>('Вся Россия');
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [isMapOpen, setIsMapOpen] = useState(false);
   const [selectedMapCity, setSelectedMapCity] = useState<string | null>(null);
   const [selectedLight, setSelectedLight] = useState<any>(null);
